@@ -5,7 +5,7 @@ doc = minidom.parse("schedule.en.xml")
 import gtk
 import gobject
 import pango
-#import hildon
+import hildon
 
 def get_text(parent, name, joiner=''):
     blah = parent.getElementsByTagName(name)
@@ -22,13 +22,13 @@ def esc(x):
 
 def mk_window(title):
     window = gtk.Window()
-    #window = hildon.StackableWindow()
-    window.set_title(title)
+    window = hildon.StackableWindow()
+    #window.set_title(title)
     return window
 
 def mk_sw(child, viewport=False):
-    sw = gtk.ScrolledWindow()
-    #sw = hildon.PannableArea()
+    #sw = gtk.ScrolledWindow()
+    sw = hildon.PannableArea()
 
     if viewport:
         sw.add_with_viewport(child)
@@ -61,18 +61,11 @@ class Thing:
 
         window = mk_window(event.title)
 
-        box = gtk.VBox()
-
         label = gtk.Label()
-        label.set_markup(event.summary())
-        box.pack_start(label, False)
+        label.set_markup(event.full())
+        label.set_property("wrap", True)
 
-        tv = gtk.TextView()
-        tv.get_buffer().set_text(event.description)
-        tv.set_property("wrap-mode", gtk.WRAP_WORD)
-        box.pack_start(tv)
-
-        sw = mk_sw(box, True)
+        sw = mk_sw(label, True)
         window.add(sw)
 
         window.show_all()
