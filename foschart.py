@@ -26,6 +26,17 @@ def mk_window(title):
     window.set_title(title)
     return window
 
+def mk_sw(child, viewport=False):
+    sw = gtk.ScrolledWindow()
+    #sw = hildon.PannableArea()
+
+    if viewport:
+        sw.add_with_viewport(child)
+    else:
+        sw.add(child)
+
+    return sw
+
 class Event:
     def __init__(self, node):
         self.title = get_text(node, "title")
@@ -33,16 +44,37 @@ class Event:
         self.start = get_text(node, "start")
         self.room = get_text(node, "room")
         self.track = get_text(node, "track")
+        self.description = get_text(node, "description")
 
     def summary(self):
         return "<b>%s</b>\n%s <i>(%s, %s, %s track)</i>" \
             % (esc(self.title), esc(self.person), esc(self.start), esc(self.room), esc(self.track))
+
+
+    def full(self):
+        return "<b>%s</b>\n%s <i>(%s, %s, %s track)</i>\n%s" \
+            % (esc(self.title), esc(self.person), esc(self.start), esc(self.room), esc(self.track), esc(self.description))
 
 class Thing:
     def activated(self, treeview, row, column):
         event, = self.treestore.get(self.treestore.get_iter(row), 1)
 
         window = mk_window(event.title)
+
+        box = gtk.VBox()
+
+        label = gtk.Label()
+        label.set_markup(event.summary())
+        box.pack_start(label, False)
+
+        tv = gtk.TextView()
+        tv.get_buffer().set_text(event.description)
+        tv.set_property("wrap-mode", gtk.WRAP_WORD)
+        box.pack_start(tv)
+
+        sw = mk_sw(box, True)
+        window.add(sw)
+
         window.show_all()
 
     def __init__(self):
@@ -68,10 +100,7 @@ class Thing:
 
         tvcolumn.add_attribute(cell, 'markup', 0)
 
-        sw = gtk.ScrolledWindow()
-        #sw = hildon.PannableArea()
-        sw.add(treeview)
-
+        sw = mk_sw(treeview)
         window.add(sw)
 
         #program = hildon.Program.get_instance()
