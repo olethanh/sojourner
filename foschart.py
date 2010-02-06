@@ -45,6 +45,13 @@ def get_text(parent, name, joiner=''):
 def esc(x):
     return gobject.markup_escape_text(x)
 
+#  _______________________
+# ( it's just gtk, right? )
+#  -----------------------
+#        o   ,__,
+#         o  (oo)____
+#            (__)    )\
+#               ||--|| *
 def mk_window(title):
     if have_hildon:
         window = hildon.StackableWindow()
