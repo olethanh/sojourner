@@ -1,7 +1,5 @@
 import xml.dom.minidom as minidom
 
-doc = minidom.parse("schedule.en.xml")
-
 import gtk
 import gobject
 import pango
@@ -69,8 +67,9 @@ class Event:
             % (esc(self.title), esc(self.person), esc(self.start), esc(self.room), esc(self.track), esc(self.description))
 
 class Thing:
-    def activated(self, treeview, row, column):
-        event, = self.treestore.get(self.treestore.get_iter(row), 1)
+    def event_activated(self, treeview, row, column):
+        store = treeview.get_property('model')
+        event, = store.get(store.get_iter(row), 1)
 
         window = mk_window(event.title)
 
@@ -83,19 +82,93 @@ class Thing:
 
         window.show_all()
 
+    def event_list(self, title, events=None):
+        window = mk_window(title)
+
+        if events is None:
+            events = self.events
+
+        store = gtk.TreeStore(str, object)
+
+        for event in events:
+            store.append(None, [event.summary(), event])
+
+        treeview = gtk.TreeView(store)
+        treeview.set_headers_visible(False)
+        treeview.connect("row-activated", self.event_activated)
+
+        tvcolumn = gtk.TreeViewColumn('Stuff')
+        treeview.append_column(tvcolumn)
+
+        cell = gtk.CellRendererText()
+        cell.set_property("ellipsize", pango.ELLIPSIZE_END)
+        tvcolumn.pack_start(cell, True)
+
+        tvcolumn.add_attribute(cell, 'markup', 0)
+
+        sw = mk_sw(treeview)
+        window.add(sw)
+
+        window.show_all()
+
+    def room_activated(self, treeview, row, column):
+        store = treeview.get_property('model')
+        room, = store.get(store.get_iter(row), 0)
+
+        self.event_list(room, self.events_by_room[room])
+
+    def by_room(self):
+        window = mk_window("Rooms")
+        store = gtk.TreeStore(str)
+
+        for room in sorted(self.events_by_room.keys()):
+            store.append(None, [room])
+
+        treeview = gtk.TreeView(store)
+        treeview.set_headers_visible(False)
+        treeview.connect("row-activated", self.room_activated)
+
+        tvcolumn = gtk.TreeViewColumn('Stuff')
+        treeview.append_column(tvcolumn)
+
+        cell = gtk.CellRendererText()
+        cell.set_property("ellipsize", pango.ELLIPSIZE_END)
+        tvcolumn.pack_start(cell, True)
+
+        tvcolumn.add_attribute(cell, 'markup', 0)
+
+        sw = mk_sw(treeview)
+        window.add(sw)
+
+        window.show_all()
+
+    def view_activated(self, treeview, row, column):
+        if row[0] == 0:
+            self.event_list("All events")
+        else:
+            self.by_room()
+
     def __init__(self):
+        doc = minidom.parse("schedule.en.xml")
+        self.events = [Event(node) for node in doc.getElementsByTagName("event")]
+
+        self.events_by_room = {}
+        for e in self.events:
+            blah = self.events_by_room.get(e.room, [])
+            blah.append(e)
+            self.events_by_room[e.room] = blah
+
         window = mk_window("FOSDEM 2010")
         window.connect("delete_event", gtk.main_quit, None)
 
-        self.treestore = gtk.TreeStore(str, object)
+        store = gtk.TreeStore(str)
 
-        for node in doc.getElementsByTagName("event"):
-            event = Event(node)
-            self.treestore.append(None, [event.summary(), event])
+        for snake in ["All events", "By room"]:
+            store.append(None, [snake])
 
-        treeview = gtk.TreeView(self.treestore)
+        treeview = gtk.TreeView(store)
         treeview.set_headers_visible(False)
-        treeview.connect("row-activated", self.activated)
+        treeview.connect("row-activated", self.view_activated)
 
         tvcolumn = gtk.TreeViewColumn('Stuff')
         treeview.append_column(tvcolumn)
