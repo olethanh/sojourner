@@ -6,10 +6,10 @@ import pango
 
 import os
 
-if os.environ.get('OSSO_PRODUCT_SHORT_NAME') is not None:
+try:
     import hildon
     have_hildon = True
-else:
+except ImportError:
     have_hildon = False
 
 def get_text(parent, name, joiner=''):
