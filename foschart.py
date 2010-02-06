@@ -50,7 +50,7 @@ def mk_sw(child, viewport=False):
 
 def mk_toggle(title):
     if have_hildon:
-        toggle = hildon.CheckButton(gtk.HILDON_SIZE_AUTO)
+        toggle = hildon.CheckButton(gtk.HILDON_SIZE_FINGER_HEIGHT)
         toggle.set_label(title)
     else:
         toggle = gtk.ToggleButton(label=title)
