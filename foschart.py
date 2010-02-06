@@ -49,7 +49,8 @@ def mk_sw(child, viewport=False):
     return sw
 
 class Event:
-    def __init__(self, node):
+    def __init__(self, node, date):
+        self.date = date
         self.title = get_text(node, "title")
         self.person = get_text(node, "person", joiner=', ')
         self.start = get_text(node, "start")
@@ -58,13 +59,13 @@ class Event:
         self.description = get_text(node, "description")
 
     def summary(self):
-        return "<b>%s</b>\n%s <i>(%s, %s, %s track)</i>" \
-            % (esc(self.title), esc(self.person), esc(self.start), esc(self.room), esc(self.track))
+        return "<b>%s</b>\n%s <i>(%s, %s, %s, %s track)</i>" \
+            % (esc(self.title), esc(self.person), esc(self.date), esc(self.start), esc(self.room), esc(self.track))
 
 
     def full(self):
-        return "<b>%s</b>\n%s <i>(%s, %s, %s track)</i>\n\n%s" \
-            % (esc(self.title), esc(self.person), esc(self.start), esc(self.room), esc(self.track), esc(self.description))
+        return "%s\n\n%s" \
+            % (self.summary(), esc(self.description))
 
 class Thing:
     def event_activated(self, treeview, row, column):
@@ -150,7 +151,14 @@ class Thing:
 
     def __init__(self):
         doc = minidom.parse("schedule.en.xml")
-        self.events = [Event(node) for node in doc.getElementsByTagName("event")]
+        self.events = []
+        zomg = {'2010-02-06': 'Saturday',
+                '2010-02-07': 'Sunday',
+               }
+        for day in doc.getElementsByTagName("day"):
+            date = zomg[day.getAttribute('date')]
+            for node in day.getElementsByTagName("event"):
+                self.events.append(Event(node, date))
 
         self.events_by_room = {}
         for e in self.events:
