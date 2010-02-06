@@ -234,7 +234,7 @@ class Thing:
             print row
 
     def __init__(self):
-        doc = minidom.parse("schedule.en.xml")
+        doc = minidom.parse("schedule.xml")
 
         self.events = []
         self.events_by_id = {}

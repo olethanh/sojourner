@@ -19,7 +19,7 @@
     <room>Janson</room>
     <tag>welcome</tag>
     <title>Welcome</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Keynotes</track>
     <type>Podium</type>
     <language>English</language>
@@ -39,7 +39,7 @@ The FOSDEM conference is coming to its tenth birthday. We will quickly go over t
     <room>Janson</room>
     <tag>promoting</tag>
     <title>Promoting Open Source Methods at a Large Company</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Keynotes</track>
     <type>Podium</type>
     <language>English</language>
@@ -66,7 +66,7 @@ environment.</description>
     <room>Janson</room>
     <tag>eviloninternet</tag>
     <title>Evil on the Internet</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Keynotes</track>
     <type>Podium</type>
     <language>English</language>
@@ -93,7 +93,7 @@ what we currently know about the criminals who operate them.</description>
     <room>Janson</room>
     <tag>systemtap</tag>
     <title>What is my system doing - Full System Observability with SystemTap</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Monitoring</track>
     <type>Podium</type>
     <language>English</language>
@@ -116,7 +116,7 @@ SystemTap can observe on multiple levels, from kernel, libraries, applications, 
     <room>Janson</room>
     <tag>ganglia</tag>
     <title>Ganglia: 10 years of monitoring clusters and grids</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Monitoring</track>
     <type>Podium</type>
     <language>English</language>
@@ -136,7 +136,7 @@ Ganglia is a scalable system performance monitoring software started by Matt Mas
     <room>Janson</room>
     <tag>flapjack</tag>
     <title>Starting the sysadmin tools renaissance: Flapjack + cucumber-nagios</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Monitoring</track>
     <type>Podium</type>
     <language>English</language>
@@ -171,7 +171,7 @@ By breaking the monitoring lifecycle up, it becomes incredibly easy to scale you
     <room>Chavanne</room>
     <tag>maemo</tag>
     <title>Maemo 6 security framework, making happy DRM business and freedom lovers with the same device</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Security</track>
     <type>Podium</type>
     <language>English</language>
@@ -191,7 +191,7 @@ The presentation will cover the Maemo Platform Security Architecture in more det
     <room>Chavanne</room>
     <tag>nmap</tag>
     <title>The Nmap scripting engine</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Security</track>
     <type>Podium</type>
     <language>English</language>
@@ -223,7 +223,7 @@ of casual users.</description>
     <room>Chavanne</room>
     <tag>ossec</tag>
     <title>OSSEC</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Security</track>
     <type>Podium</type>
     <language>English</language>
@@ -248,7 +248,7 @@ the most cryptic log message into a clear and actionable alert.  Expect an overv
     <room>Ferrer</room>
     <tag>fosdem</tag>
     <title>FOSDEM: Lightning Opening Talk</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -271,7 +271,7 @@ Lightning Talks can be described as the 15 minutes of fame for all free or open 
     <room>Ferrer</room>
     <tag>limux</tag>
     <title>LiMux: 5 years on the way to free software in Munich</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -290,7 +290,7 @@ Lightning Talks can be described as the 15 minutes of fame for all free or open 
     <room>Ferrer</room>
     <tag>civicrm</tag>
     <title>CiviCRM: Common goals of FOSS and Not For Profit Organisations</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -315,7 +315,7 @@ All that in 15 minutes.</abstract>
     <room>Ferrer</room>
     <tag>portableapps</tag>
     <title>PortableApps.com: The PortableApps.com Platform, an Introduction and Overview</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -334,7 +334,7 @@ All that in 15 minutes.</abstract>
     <room>Ferrer</room>
     <tag>openpcf</tag>
     <title>OpenPCF: An Open Provisioning and Control Framework</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -359,7 +359,7 @@ OpenPCF aims to automate the often-times manual labour of configuring services o
     <room>Ferrer</room>
     <tag>gnu_savannah</tag>
     <title>GNU Savannah: 100% free software mass-hosting</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -380,7 +380,7 @@ The infrastructure relies on the Savane software project which is undergoing a f
     <room>Ferrer</room>
     <tag>qi_hardware</tag>
     <title>Qi Hardware's Ben NanoNote: open to the bone device</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -400,7 +400,7 @@ At the moment we are focusing on our first device, a mini computer called Ben Na
     <room>Ferrer</room>
     <tag>tinc</tag>
     <title>tinc: the difficulties of a peer-to-peer VPN on the hostile Internet</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -419,7 +419,7 @@ At the moment we are focusing on our first device, a mini computer called Ben Na
     <room>Ferrer</room>
     <tag>beernet</tag>
     <title>Beernet: Building peer-to-peer systems with transactional replicated storage</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -440,7 +440,7 @@ Beernet stands for pbeer-to-pbeer network, where words peer and beer are mixed t
     <room>Ferrer</room>
     <tag>sip_communicator</tag>
     <title>SIP Communicator: Skype-like conf calls with SIP Communicator</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -461,7 +461,7 @@ We believe that the various difficulties that we've faced along the way would be
     <room>Ferrer</room>
     <tag>kamailio_sip_server</tag>
     <title>Kamailio (OpenSER) 3.0.0: redefinition of SIP server</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -480,7 +480,7 @@ We believe that the various difficulties that we've faced along the way would be
     <room>Ferrer</room>
     <tag>asterisk</tag>
     <title>asterisk: An introduction to Asterisk Development</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -499,7 +499,7 @@ We believe that the various difficulties that we've faced along the way would be
     <room>Ferrer</room>
     <tag>csync</tag>
     <title>csync: Roaming Home Directories</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -522,7 +522,7 @@ Together with a Pluggable Authentication Module (PAM), the intent is to provide 
     <room>Ferrer</room>
     <tag>faban</tag>
     <title>Faban: Developing benchmarks and workloads using Faban 1.0</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -541,7 +541,7 @@ Together with a Pluggable Authentication Module (PAM), the intent is to provide 
     <room>Ferrer</room>
     <tag>shadowcircle</tag>
     <title>shadowcircle:  a pentesting distribution alternative</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -574,7 +574,7 @@ Forked from backtrack, this distribution aims to:
     <room>Ferrer</room>
     <tag>syncevolution</tag>
     <title>SyncEvolution: From the SyncML Protocol to Free and Open Implementations</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -610,7 +610,7 @@ The focus right now is to deliver the best possible SyncML client for Moblin and
     <room>Ferrer</room>
     <tag>geexbox</tag>
     <title>GeeXboX: An Introduction to Enna Media Center</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -629,7 +629,7 @@ The focus right now is to deliver the best possible SyncML client for Moblin and
     <room>Ferrer</room>
     <tag>uzbl</tag>
     <title>Uzbl: A webbrowser which adheres to the unix philosophy</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -653,7 +653,7 @@ The focus right now is to deliver the best possible SyncML client for Moblin and
     <room>Lameere</room>
     <tag>emb_rich_mobile_ui</tag>
     <title>Rich Mobile UI Designs: do's and don't</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -671,7 +671,7 @@ The focus right now is to deliver the best possible SyncML client for Moblin and
     <room>Lameere</room>
     <tag>emb_openintents</tag>
     <title>Openintents: Android intents mechanism</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -690,7 +690,7 @@ system that allows reuse and stimulates interoperability of apps.</abstract>
     <room>Lameere</room>
     <tag>emb_best_practices</tag>
     <title>Embedded software development best practices</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -708,7 +708,7 @@ system that allows reuse and stimulates interoperability of apps.</abstract>
     <room>Lameere</room>
     <tag>emb_limo</tag>
     <title>LiMo Platform and Mobile Linux</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -728,7 +728,7 @@ This session will introduce the LiMo platform, talk about the challenges of buil
     <room>Lameere</room>
     <tag>emb_barebox</tag>
     <title>Barebox</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -749,7 +749,7 @@ See [http://barebox.org/ http://barebox.org/] for more information.</description
     <room>Lameere</room>
     <tag>emb_flukso</tag>
     <title>Flukso: An Electricity metering application</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -769,7 +769,7 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>Lameere</room>
     <tag>emb_iris</tag>
     <title>Iris, a new capability-based microkernel OS</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -789,12 +789,12 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1301</room>
     <tag>moz_europe</tag>
     <title>Mozilla Europe</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>General Introduction followed by an update on the work of Mozilla in Europe.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="344">Tristan Nitot</person>
     </persons>
@@ -807,12 +807,12 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1301</room>
     <tag>moz_foundation</tag>
     <title>Mozilla Foundation</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Latest MoFo news and projects.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="177">Gervase Markham</person>
     </persons>
@@ -825,12 +825,12 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1301</room>
     <tag>moz_floss</tag>
     <title>FLOSS: a key to self-determination in Internet life</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Mitchell will discuss how FLOSS is a force for building self-determination into our Internet lives.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="747">Mitchell Baker</person>
     </persons>
@@ -843,12 +843,12 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1301</room>
     <tag>moz_hackability</tag>
     <title>Hackability</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="645">Paul Rouget</person>
      <person id="344">Tristan Nitot</person>
@@ -862,12 +862,12 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1301</room>
     <tag>moz_html5</tag>
     <title>HTML 5</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="645">Paul Rouget</person>
      <person id="823">Christopher Blizzard</person>
@@ -881,7 +881,7 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1301</room>
     <tag>moz_sync_weave</tag>
     <title>Sync/Weave</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
@@ -901,12 +901,12 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>UA2.114</room>
     <tag>typo3</tag>
     <title>TYPO3 exam session</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Certification</track>
     <type>Other</type>
     <language>English</language>
     <abstract>TYPO3 exam session</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="676">Sacha Storz</person>
     </persons>
@@ -921,7 +921,7 @@ This hybrid approach, connecting a custom sensor board to an off-the-shelf wifi 
     <room>H.1302</room>
     <tag>dist_hermes</tag>
     <title>Hermes Message Dispatching</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -940,21 +940,20 @@ This talk is an introduction to Hermes and the way the openSUSE project uses it 
     <start>13:45</start>
     <duration>00:45</duration>
     <room>H.1302</room>
-    <tag>dist_clicfs</tag>
-    <title>Clicfs as perfect live CD file system</title>
-    <subtitle/>
+    <tag>dist_yast</tag>
+    <title>YaST - Future Roadmap</title>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>The challenge with a live cd is the size of the CD and what you put on it, 700MB is not enough for a typical desktop experience. The idea of Clicfs (Compressed Loop Image Container File System) is very simple: Put the ext3 file system in another file system just made to compress it.</abstract>
-    <description>As the file system is explicitly made to compress another file system, you only need to support one file with a fixed name
-and with a known size and all that – a lot of complexity of other file systems is gone.</description>
+    <abstract>[http://docs.google.com/viewer?url=http://en.opensuse.org/images/b/b0/FOSDEM-2009-YaST.pdf At FOSDEM 2009, we presented an overview of YaST] related new developments and where we were heading.
+In this talk we will review the progress made and present the features/ideas that have high priority for the next openSUSE release and areas where we are doing research that will eventually be features in future versions.</abstract>
+    <description>YaST is a powerful installation and system management tool for Linux environments. It is an open source project sponsored and actively developed by Novell, and part of openSUSE Linux since its inception. It has evolved a lot over time, providing single source modules that run in different user interfaces (QT4, GTK2, ncurses and web), as well as scripting language bindings.</description>
     <persons>
-     <person id="330">Stephan Kulow</person>
+     <person id="149">Duncan Mac-Vicar Prett</person>
     </persons>
     <links>
-     <link href="http://gitorious.org/+opensuse-developers/opensuse/clicfs">http://gitorious.org/+opensuse-developers/opensuse/clicfs</link>
-     <link href="http://lizards.opensuse.org/2009/05/15/livecd-performance-clicfs-vs-squashfs/">http://lizards.opensuse.org/2009/05/15/livecd-performance-clicfs-vs-squashfs/</link>
+     <link href="http://en.opensuse.org/YaST">http://en.opensuse.org/YaST</link>
     </links>
    </event>
    <event id="973">
@@ -963,16 +962,21 @@ and with a known size and all that – a lot of complexity of other file systems
     <room>H.1302</room>
     <tag>dist_mirrorbrain</tag>
     <title>MirrorBrain</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract>MirrorBrain is a Download Redirector and Metalink Generator</abstract>
+    <description>MirrorBrain is an open source framework to run a content delivery network using mirror servers. It solves a challenge that many popular open source projects face - a flood of download requests, often magnitudes more than a single site could practically handle.
+
+A central (and probably the most obvious) part is a "download redirector" which automatically redirects requests from web browsers or download programs to a mirror server near them.
+
+Choosing a suitable mirror for a users request is the key, and MirrorBrain uses geolocation and global routing data to make a sensible choice, and achieve load-balancing for the mirrors at the same time. The used algorithm is both sophisticated and easy to control and tune. In addition, MirrorBrain monitors mirrors, scans them for files, generates mirror lists, and more.</description>
     <persons>
-     <person id="134">Adrian Schroeter</person>
+     <person id="339">Peter Poeml</person>
     </persons>
     <links>
+     <link href="http://mirrorbrain.org/">http://mirrorbrain.org/</link>
     </links>
    </event>
    <event id="974">
@@ -981,7 +985,7 @@ and with a known size and all that – a lot of complexity of other file systems
     <room>H.1302</room>
     <tag>dist_infrastructure</tag>
     <title>Infrastructure round table</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Meeting</type>
     <language>English</language>
@@ -1001,12 +1005,12 @@ All infrastructure personnel attending FOSDEM is invited to join us in this roun
     <room>H.1302</room>
     <tag>dist_pkg_desc</tag>
     <title>Translations of package descriptions</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract>Easy software access should be considered as one of the key success for Linux distributions. One important consideration to ease the access to software is the quality and localization of software descriptions. At the moment each distribution has its own way to manage this using different processes, each one being more or less manual. This also requires a huge effort for localization teams since the amount of text to translate is important.</abstract>
+    <description>This session aims to start an effort of investigation on how this work can be mutualized between distributions: avoiding the duplicated work would certainly benefit everybody. This would also enable a focus on providing one user-friendly solution for localization teams to work on the translations. As a first step, the current processes in distributions have to be evaluated, in order to develop a good plan on how to best achieve a cross-distribution effort.</description>
     <persons>
      <person id="761">Anne Nicolas</person>
     </persons>
@@ -1019,7 +1023,7 @@ All infrastructure personnel attending FOSDEM is invited to join us in this roun
     <room>H.1302</room>
     <tag>dist_gnome</tag>
     <title>Working with GNOME upstream</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1043,7 +1047,7 @@ All infrastructure personnel attending FOSDEM is invited to join us in this roun
     <room>H.1302</room>
     <tag>dist_spacewalk</tag>
     <title>Spacewalk: Linux Systems Lifecycle Management</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1066,7 +1070,7 @@ Spacewalk's monitoring feature lets you view monitoring status for your systems 
     <room>H.1308</room>
     <tag>dist_maemo_council</tag>
     <title>The Maemo Community Council: a case-study in governance</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1084,7 +1088,7 @@ Spacewalk's monitoring feature lets you view monitoring status for your systems 
     <room>H.1308</room>
     <tag>dist_fedora_governance</tag>
     <title>Fedora Governance</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1102,7 +1106,7 @@ Spacewalk's monitoring feature lets you view monitoring status for your systems 
     <room>H.1308</room>
     <tag>dist_hr_management</tag>
     <title>Distribution HR management</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1120,12 +1124,12 @@ Spacewalk's monitoring feature lets you view monitoring status for your systems 
     <room>H.1308</room>
     <tag>dist_bootchart2</tag>
     <title>bootchart2</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>A showcase of the latest developments on [http://www.gnome.org/~michael/blog/2010-01-21.html bootchart2]</abstract>
-    <description/>
+    <abstract>A quick expose on boot time profiling tools, show-casing the slightly-less-lame: "bootchart2" - a new and improved boot time profiling tool, and other ways to speed things up."</abstract>
+    <description>Which of the seven+ 'readahead' tools do you want, and why ? With a summary of recent fixes and wins in the area, and how to get involved with improving Linux boot performance.</description>
     <persons>
      <person id="441">Michael Meeks</person>
     </persons>
@@ -1139,12 +1143,12 @@ Spacewalk's monitoring feature lets you view monitoring status for your systems 
     <room>H.1308</room>
     <tag>dist_mobile_upstream</tag>
     <title>Mobile distributions and upstream challenges</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract>This talk will identify some of the key challenges from a mobile platform development perspective, and solicit feedback and discussion on how mobile platforms can be more distro-like and work better with upstream projects.</abstract>
+    <description></description>
     <persons>
      <person id="756">Andrew Savory</person>
     </persons>
@@ -1157,7 +1161,7 @@ Spacewalk's monitoring feature lets you view monitoring status for your systems 
     <room>H.1308</room>
     <tag>dist_fedora_fr</tag>
     <title>Fedora-fr and upstream French communities</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1180,7 +1184,7 @@ Open Discussion around Fedora-Fr and FedoraProject.</abstract>
     <room>H.1308</room>
     <tag>dist_good_upstream</tag>
     <title>How to be a good upstream</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -1200,12 +1204,12 @@ Open Discussion around Fedora-Fr and FedoraProject.</abstract>
     <room>H.1309</room>
     <tag>gnome_welcome</tag>
     <title>Welcome to the GNOME devroom</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Other</type>
     <language>English</language>
     <abstract>Welcome to the GNOME devroom</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="130">Christophe Fergeau</person>
     </persons>
@@ -1218,7 +1222,7 @@ Open Discussion around Fedora-Fr and FedoraProject.</abstract>
     <room>H.1309</room>
     <tag>gnome_bugsquad</tag>
     <title>GNOME Bugsquad</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
@@ -1238,7 +1242,7 @@ We'll have a Q&amp;A session afterwards, where we explicitly want to introduce n
     <room>H.1309</room>
     <tag>gnome_color_manager</tag>
     <title>GNOME Color Manager</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
@@ -1258,12 +1262,12 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>gnome_multimedia_webkit</tag>
     <title>Multimedia in WebKitGTK+</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This talk would give an outline of the status of multimedia support in WebKitGTK+ thanks to GStreamer. How it was done until recently, what we improved and what we plan to work on during 2010.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="210">Philippe Normand</person>
     </persons>
@@ -1276,12 +1280,12 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>gnome_guadec_2010</tag>
     <title>GUADEC 2010</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This year, GUADEC will take place in The Hague, The Netherlands on July 24th-30th. In this small presentation I will introduce the venue, and ask for help organising this edition of GUADEC.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="638">Koen Martens</person>
     </persons>
@@ -1294,12 +1298,12 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>gnome_apps_plugins</tag>
     <title>Add plugins to your GNOME apps</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This talk will focus on libpeas, a lib-ification of the gedit plugin's engine intended to allow adding support for plugins written in various languages (currently C, python, javascript) into gobject-based apps in a very simple and quick fashion.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="728">Steve Frécinaux</person>
     </persons>
@@ -1312,7 +1316,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>gnome_devtools</tag>
     <title>Gnome Development Tools</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
@@ -1332,7 +1336,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>gnome_ocrfeeder</tag>
     <title>OCRFeeder</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
@@ -1354,7 +1358,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.1309</room>
     <tag>gnome_things</tag>
     <title>Getting Things GNOME!</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
@@ -1373,12 +1377,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.1309</room>
     <tag>gnome_closing</tag>
     <title>GNOME closing talk</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNOME</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="130">Christophe Fergeau</person>
     </persons>
@@ -1393,12 +1397,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_devroom</tag>
     <title>Welcome to the XMPP devroom</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="22">Peter Saint-Andre</person>
     </persons>
@@ -1411,12 +1415,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_magic</tag>
     <title>The Extraordinary, Magical Powers and Possibilities of XMPP</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="586">Remko Tronçon</person>
     </persons>
@@ -1429,12 +1433,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_q_a</tag>
     <title>Stump the XMPP Experts! Open Q&amp;A</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Open question and answers session with the XMPP Council and XMPP book authors.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="22">Peter Saint-Andre</person>
     </persons>
@@ -1447,12 +1451,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_socnet</tag>
     <title>Building Federated Social Networks on XMPP</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="817">Tuomas Koski</person>
      <person id="589">Simon Tennant</person>
@@ -1466,12 +1470,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_social_web</tag>
     <title>XMPP and the Social Web</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="819">Alard Weisscher</person>
      <person id="818">Laurent Eschenauer</person>
@@ -1485,12 +1489,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_pubsub</tag>
     <title>PubSub Gone Wild: Info Sharing at Mediamatic</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="200">Ralph Meijer</person>
     </persons>
@@ -1503,12 +1507,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_mirabeau</tag>
     <title>Mirabeau: Creating Personal Media Networks</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Mirabeau: Creating Personal Media Networks and Bridging UPnP Devices over the Internet with XMPP</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="210">Philippe Normand</person>
      <person id="457">Frank Scholz</person>
@@ -1522,12 +1526,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_strophe</tag>
     <title>You Got Your XMPP in My Website: Using Strophe.js for Fun and Profit</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="588">Jack Moffitt</person>
     </persons>
@@ -1540,12 +1544,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_lt</tag>
     <title>XMPP Lightning Talks</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="22">Peter Saint-Andre</person>
     </persons>
@@ -1558,12 +1562,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_jingle</tag>
     <title>Jingle Nodes: An Open Alternative to Skype</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="820">Tiago Camargo</person>
     </persons>
@@ -1576,12 +1580,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_mu_jingle</tag>
     <title>Multi-User Jingle: Voice and Video Conferencing with XMPP</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="124">Dafydd Harries</person>
      <person id="821">Sjoerd Simons</person>
@@ -1595,12 +1599,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2213</room>
     <tag>xmpp_lt_more</tag>
     <title>More XMPP Lightning Talks</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Jabber+XMPP</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="22">Peter Saint-Andre</person>
     </persons>
@@ -1615,7 +1619,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_sc_demo</tag>
     <title>KDE SC 4.4 demo</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1633,7 +1637,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_pim</tag>
     <title>PIMp My Desktop</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1651,12 +1655,12 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_group_photo</tag>
     <title>KDE Group Photo</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="95">Bart Coppens</person>
     </persons>
@@ -1669,7 +1673,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_kdevelop</tag>
     <title>KDevelop 4</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1687,7 +1691,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_qtdesigner</tag>
     <title>Introduction to Qt Designer</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1705,7 +1709,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_obs</tag>
     <title>Spreading KDE with the openSUSE Build Service</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1723,7 +1727,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_amarok</tag>
     <title>Amarok 2.2 Rocking</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1741,7 +1745,7 @@ I would like to present how the application works on the inside, for example the
     <room>H.2214</room>
     <tag>kde_es</tag>
     <title>KDE España</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>KDE</track>
     <type>Podium</type>
     <language>English</language>
@@ -1762,12 +1766,12 @@ I would like to present how the application works on the inside, for example the
     <room>AW1.105</room>
     <tag>jboss_camunda</tag>
     <title>Camunda</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>JBoss</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="809">Falko Menge</person>
     </persons>
@@ -1780,7 +1784,7 @@ I would like to present how the application works on the inside, for example the
     <room>AW1.105</room>
     <tag>jboss_jopr</tag>
     <title>Systems management with RHQ and Jopr</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>JBoss</track>
     <type>Podium</type>
     <language>English</language>
@@ -1800,12 +1804,12 @@ This presentation will also talk about the relation to RHQ-project.org, which us
     <room>AW1.105</room>
     <tag>jboss_drools</tag>
     <title>Drools</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>JBoss</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="810">Mark Proctor</person>
     </persons>
@@ -1818,7 +1822,7 @@ This presentation will also talk about the relation to RHQ-project.org, which us
     <room>AW1.105</room>
     <tag>jboss_mobicents</tag>
     <title>Mobicents</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>JBoss</track>
     <type>Podium</type>
     <language>English</language>
@@ -1846,12 +1850,12 @@ The presentation will cover:
     <room>AW1.105</room>
     <tag>jboss_esb</tag>
     <title>JBoss ESB</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>JBoss</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="812">Yoeri Roels</person>
     </persons>
@@ -1870,7 +1874,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>ooo_extdev</tag>
     <title>Tips and Tricks for Extension Developer</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -1891,7 +1895,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>ooo_docking</tag>
     <title>New docking windows for a better UI &amp; extension integration</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -1914,7 +1918,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>ooo_build</tag>
     <title>Improving the OpenOffice.org Build System</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -1936,7 +1940,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>ooo_testing</tag>
     <title>Just Testing</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -1954,7 +1958,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>ooo_workshop</tag>
     <title>Show me YOUR code</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -1972,7 +1976,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>ooo_hidden_pearls</tag>
     <title>Hidden Pearls - What's There to ReUse for Other Projects</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -1991,7 +1995,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>odf_tools</tag>
     <title>ODF Tools and Resources</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -2009,7 +2013,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>odf_server</tag>
     <title>ODF on the server - ODFDOM architecture</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -2028,7 +2032,7 @@ The presentation will cover:
     <room>AW1.120</room>
     <tag>odf_lpod</tag>
     <title>lpOD – languages &amp; platforms OpenDocument</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>OpenOffice.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -2048,12 +2052,12 @@ The presentation will cover:
     <room>AW1.121</room>
     <tag>pgsql_welcome</tag>
     <title>Welcome to the PostgreSQL devroom</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="631">Andreas Scherbaum</person>
     </persons>
@@ -2064,14 +2068,14 @@ The presentation will cover:
     <start>13:15</start>
     <duration>00:45</duration>
     <room>AW1.121</room>
-    <tag>pgsql_8_5</tag>
-    <title>Developments in PostgreSQL 8.5</title>
-    <subtitle/>
+    <tag>pgsql_9</tag>
+    <title>Developments in PostgreSQL 9.0</title>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>This talk will briefly examine the development process used by the PostgreSQL project over the last year, and take a look back at the new features that have been committed to the source tree for the upcoming 8.5 release, as well as some of those currently in development.</abstract>
-    <description/>
+    <abstract>This talk will briefly examine the development process used by the PostgreSQL project over the last year, and take a look back at the new features that have been committed to the source tree for the upcoming 9.0 release, as well as some of those currently in development.</abstract>
+    <description></description>
     <persons>
      <person id="635">Dave Page</person>
     </persons>
@@ -2084,7 +2088,7 @@ The presentation will cover:
     <room>AW1.121</room>
     <tag>pgsql_streaming_rep</tag>
     <title>Streaming replication under the hood</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -2102,12 +2106,12 @@ The presentation will cover:
     <room>AW1.121</room>
     <tag>pgsql_hot_standby</tag>
     <title>Hot Standby Live</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Live demo of Hot Standby, plus discussion of various features and difficulties. Requests for prioritisation of new feature development, with round table discussion and voting.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="406">Simon Riggs</person>
     </persons>
@@ -2119,15 +2123,13 @@ The presentation will cover:
     <duration>00:45</duration>
     <room>AW1.121</room>
     <tag>pgsql_beyond_unique</tag>
-    <title>Beyond UNIQUE: Exclusion constraints in PostgreSQL 8.5</title>
-    <subtitle/>
+    <title>Beyond UNIQUE: Exclusion constraints in PostgreSQL 9.0</title>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>Magnus presents the new "Exclusion Constraints" feature that has been added in PostgreSQL 8.5</abstract>
-    <description>A core feature of a relational database is being able to define constraints on the data, and have the database enforce those constraints. Today, there exists only one kind of constraint that will look at a combination of more than one row in a table - the UNIQUE constraint, often used as a tables PRIMARY KEY. This constraint makes sure no two rows have the same combination of values in the specified columns. But many datamodels contain completely different constraints, such as requiring non-overlapping ranges. For example, the requirement that a resource such as a conference room is not double booked.
-
-PostgreSQL 8.5 introduces the feature Exclusion Constraints, and this talk will present this feature and how to use it to solve this type of problem with a declarative constraint - while maintaining performance and concurrency in the system.</description>
+    <abstract>PostgreSQL 9.0 introduces the feature Exclusion Constraints, and this talk will present this feature and how to use it to solve this type of problem with a declarative constraint - while maintaining performance and concurrency in the system.</abstract>
+    <description>A core feature of a relational database is being able to define constraints on the data, and have the database enforce those constraints. Today, there exists only one kind of constraint that will look at a combination of more than one row in a table - the UNIQUE constraint, often used as a tables PRIMARY KEY. This constraint makes sure no two rows have the same combination of values in the specified columns. But many datamodels contain completely different constraints, such as requiring non-overlapping ranges. For example, the requirement that a resource such as a conference room is not double booked.</description>
     <persons>
      <person id="415">Magnus Hagander</person>
     </persons>
@@ -2140,12 +2142,12 @@ PostgreSQL 8.5 introduces the feature Exclusion Constraints, and this talk will 
     <room>AW1.121</room>
     <tag>pgsql_basel_zoo</tag>
     <title>PostgreSQL at the Heart of the Basel Zoo POS</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Elephants and Other Wild Animals: PostgreSQL at the Heart of the Ticketing Point of Sale in the Basel Zoo</abstract>
-    <description>For 134 years the Basel Zoo, one of the most renowned and beautiful zoos in europe, has sold entrance ticket by hand. A simple roll of paper tickets and manual book keeping where all that was there. Being a legal incorporated, law forced them to introduce an electronic point of sale system. First of January 2009, the system went into production and, unlike in other Zoos, worked without any problems right from the start. It is now in production for a year and has proven extremly stable and efficient.
+    <description>For 134 years the Basel Zoo, one of the most renowned and beautiful zoos in Europe, has sold entrance ticket by hand. A simple roll of paper tickets and manual book keeping where all that was there. Being a legal incorporated, law forced them to introduce an electronic point of sale system. First of January 2009, the system went into production and, unlike in other Zoos, worked without any problems right from the start. It is now in production for a year and has proven extremely stable and efficient.
 
 The PostgreSQL database is at the heart of the point of sale application and in this presentation Marc Balmer will show how PostgreSQL helped to create an enterprise grade application database which is accessed by different client applications in a distributed network, including low-bandwidth network links. The overall application architecture will be discussed and how PL/PGSQL helped to keep the business logic in the database itself, leveraging client complexity. Details will be given about the Motif based POS application, written in pure C and extended in Lua, as well as the backoffice which is web based and implemented in C and Lua. The presentation is aimed at programmers that want to include PostgreSQL in their application portfolio as well as decision makers that have to decide upon a strategic database platform for their products.</description>
     <persons>
@@ -2160,12 +2162,12 @@ The PostgreSQL database is at the heart of the point of sale application and in 
     <room>AW1.121</room>
     <tag>pgsql_most_wanted</tag>
     <title>Most Wanted: Future PostgreSQL Features</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>PostgreSQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>Based on user feedback, I will discuss the most requested features for PostgreSQL, their implementation status, difficulties, blockers, and future plans. Items include replication, materialized views, parallel queries, in-place upgrade. The audience is invited to join the discussion.</abstract>
-    <description/>
+    <abstract>Based on user feedback, I will discuss the most requested features for PostgreSQL, their implementation status, difficulties, blockers, and future plans.</abstract>
+    <description>Items include replication, materialized views, parallel queries, in-place upgrade. The audience is invited to join the discussion.</description>
     <persons>
      <person id="616">Peter Eisentraut</person>
     </persons>
@@ -2180,7 +2182,7 @@ The PostgreSQL database is at the heart of the point of sale application and in 
     <room>AW1.124</room>
     <tag>coreboot_intro</tag>
     <title>coreboot introduction</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Coreboot</track>
     <type>Podium</type>
     <language>English</language>
@@ -2199,7 +2201,7 @@ The PostgreSQL database is at the heart of the point of sale application and in 
     <room>AW1.124</room>
     <tag>coreboot_pc_details</tag>
     <title>coreboot and PC technical details</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Coreboot</track>
     <type>Podium</type>
     <language>English</language>
@@ -2217,7 +2219,7 @@ The PostgreSQL database is at the heart of the point of sale application and in 
     <room>AW1.124</room>
     <tag>coreboot_acpi</tag>
     <title>ACPI and Suspend/Resume under coreboot</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Coreboot</track>
     <type>Podium</type>
     <language>English</language>
@@ -2235,7 +2237,7 @@ The PostgreSQL database is at the heart of the point of sale application and in 
     <room>AW1.124</room>
     <tag>coreboot_porting</tag>
     <title>coreboot board porting</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Coreboot</track>
     <type>Podium</type>
     <language>English</language>
@@ -2253,7 +2255,7 @@ The PostgreSQL database is at the heart of the point of sale application and in 
     <room>AW1.124</room>
     <tag>coreboot_flashrom</tag>
     <title>Flashrom, the universal flash tool</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Coreboot</track>
     <type>Podium</type>
     <language>English</language>
@@ -2274,7 +2276,7 @@ This talk introduces flashrom, and explains its structure and implementation. Co
     <room>AW1.124</room>
     <tag>coreboot_bios_reveng</tag>
     <title>Flash enable BIOS reverse engineering</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Coreboot</track>
     <type>Podium</type>
     <language>English</language>
@@ -2296,7 +2298,7 @@ This talk introduces flashrom, and explains its structure and implementation. Co
     <room>AW1.126</room>
     <tag>ruby_database_comparison</tag>
     <title>A rubyist's naive comparison of some database systems and toolkits</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Ruby+Rails</track>
     <type>Podium</type>
     <language>English</language>
@@ -2314,7 +2316,7 @@ This talk introduces flashrom, and explains its structure and implementation. Co
     <room>AW1.126</room>
     <tag>ruby_mongomapper</tag>
     <title>Persisting dynamic data with MongoMapper</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Ruby+Rails</track>
     <type>Podium</type>
     <language>English</language>
@@ -2332,7 +2334,7 @@ This talk introduces flashrom, and explains its structure and implementation. Co
     <room>AW1.126</room>
     <tag>ruby_smalltalkification</tag>
     <title>The Ruby Smalltalkification</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Ruby+Rails</track>
     <type>Podium</type>
     <language>English</language>
@@ -2352,7 +2354,7 @@ Do expect source code during this presentation.</description>
     <room>AW1.126</room>
     <tag>ruby_ror_good_practices</tag>
     <title>25 good practices in Ruby on Rails development</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Ruby+Rails</track>
     <type>Podium</type>
     <language>English</language>
@@ -2370,7 +2372,7 @@ Do expect source code during this presentation.</description>
     <room>AW1.126</room>
     <tag>ruby_crbac</tag>
     <title>Context Based Access Control gem for Rails</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Ruby+Rails</track>
     <type>Podium</type>
     <language>English</language>
@@ -2380,7 +2382,7 @@ Do expect source code during this presentation.</description>
 * Supports Context Based Access Control. Group membership is determined on user and context of requested resource.
 * Easy to use.
 * Authorization on the level of controller methods. Specify authorization per controller method.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="816">Bert Meerman</person>
     </persons>
@@ -2398,12 +2400,12 @@ Do expect source code during this presentation.</description>
     <room>Guillissen</room>
     <tag>lpi_1</tag>
     <title>LPI exam session 1</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Certification</track>
     <type>Other</type>
     <language>English</language>
     <abstract>LPI exam session #1</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="42">Klaus Behrla</person>
     </persons>
@@ -2416,12 +2418,12 @@ Do expect source code during this presentation.</description>
     <room>Guillissen</room>
     <tag>lpi_2</tag>
     <title>LPI exam session 2</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Certification</track>
     <type>Other</type>
     <language>English</language>
     <abstract>LPI exam session #2</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="42">Klaus Behrla</person>
     </persons>
@@ -2436,7 +2438,7 @@ Do expect source code during this presentation.</description>
     <room>AY</room>
     <tag>java_debian_packaging</tag>
     <title>Packaging Java Software for Debian</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -2459,7 +2461,7 @@ A wiki site is used to collect discussion points beforehand: [http://wiki.debian
     <room>AY</room>
     <tag>java_groovy</tag>
     <title>Groovy: the cool side of Java</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -2482,7 +2484,7 @@ Despite the topic, this talk is open to java and non-java developers.</descripti
     <room>AY</room>
     <tag>java_lambda_jsr292</tag>
     <title>Lambda + JSR292</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -2502,7 +2504,7 @@ Despite the topic, this talk is open to java and non-java developers.</descripti
     <room>AY</room>
     <tag>java_wizard4j</tag>
     <title>Wizard4j</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -2521,7 +2523,7 @@ Despite the topic, this talk is open to java and non-java developers.</descripti
     <room>AY</room>
     <tag>java_play</tag>
     <title>Web Development with the Play! framework</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -2544,7 +2546,7 @@ Despite the topic, this talk is open to java and non-java developers.</descripti
     <room>Janson</room>
     <tag>reprap</tag>
     <title>RepRap - Manufacturing for the Masses</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Various</track>
     <type>Podium</type>
     <language>English</language>
@@ -2565,7 +2567,7 @@ Finally it will examine replicator technology in the biological context, conside
     <room>Janson</room>
     <tag>tor</tag>
     <title>Tor: Building, Growing, and Extending Online Anonymity</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Various</track>
     <type>Podium</type>
     <language>English</language>
@@ -2582,9 +2584,9 @@ Finally it will examine replicator technology in the biological context, conside
     <start>12:00</start>
     <duration>00:45</duration>
     <room>Janson</room>
-    <tag/>
+    <tag></tag>
     <title>MINIX 3: a Modular, Self-Healing POSIX-compatible Operating System</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Various</track>
     <type>Podium</type>
     <language>English</language>
@@ -2602,7 +2604,7 @@ Finally it will examine replicator technology in the biological context, conside
     <room>Janson</room>
     <tag>hadoop</tag>
     <title>Large scale data analysis made easy - Apache Hadoop</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Scalability</track>
     <type>Podium</type>
     <language>English</language>
@@ -2624,7 +2626,7 @@ After motivating the neeed for a distributed library the talk gives an introduct
     <room>Janson</room>
     <tag>scalingfacebook</tag>
     <title>Scaling Facebook with OpenSource tools</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Scalability</track>
     <type>Podium</type>
     <language>English</language>
@@ -2642,9 +2644,9 @@ It's not possible to scale a site like Facebook simply by sharding your database
     <start>16:00</start>
     <duration>00:45</duration>
     <room>Janson</room>
-    <tag/>
+    <tag></tag>
     <title>Inside StatusNet: How Identi.ca Works</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Scalability</track>
     <type>Podium</type>
     <language>English</language>
@@ -2664,7 +2666,7 @@ It's not possible to scale a site like Facebook simply by sharding your database
     <room>Janson</room>
     <tag>linuxkernelpatch</tag>
     <title>Write and Submit your first Linux kernel Patch</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Keynotes</track>
     <type>Podium</type>
     <language>English</language>
@@ -2685,7 +2687,7 @@ Attendees should have a solid grasp of the C language, and know how to build and
     <room>Chavanne</room>
     <tag>dojo</tag>
     <title>Building High Performance Web Applications with the Dojo Toolkit</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Javascript</track>
     <type>Podium</type>
     <language>English</language>
@@ -2707,7 +2709,7 @@ Attendees should have a solid grasp of the C language, and know how to build and
     <room>Chavanne</room>
     <tag>mootools</tag>
     <title>MooTools as a General Purpose Application Framework</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Javascript</track>
     <type>Podium</type>
     <language>English</language>
@@ -2723,9 +2725,9 @@ Attendees should have a solid grasp of the C language, and know how to build and
     <start>12:00</start>
     <duration>00:45</duration>
     <room>Chavanne</room>
-    <tag/>
+    <tag></tag>
     <title>Javascript charting with YUI Flot</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Javascript</track>
     <type>Podium</type>
     <language>English</language>
@@ -2753,7 +2755,7 @@ YUI-flot came about as an attempt to bring the popular flot plugin for jQuery in
     <room>Chavanne</room>
     <tag>postgres</tag>
     <title>Postgresql: Lists and Recursion and Trees (oh my)</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Database</track>
     <type>Podium</type>
     <language>English</language>
@@ -2771,7 +2773,7 @@ YUI-flot came about as an attempt to bring the popular flot plugin for jQuery in
     <room>Chavanne</room>
     <tag>mariadb</tag>
     <title>MariaDB: extra features that make it a better branch of MySQL</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Database</track>
     <type>Podium</type>
     <language>English</language>
@@ -2798,7 +2800,7 @@ patches. This talk will give a technical overview of MariaDB, including:
     <room>Chavanne</room>
     <tag>couchdb</tag>
     <title>CouchDB! REST and Database!</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Database</track>
     <type>Podium</type>
     <language>English</language>
@@ -2820,7 +2822,7 @@ The talk will cover the different CouchDB usages and integration in applications
     <room>Ferrer</room>
     <tag>kerrighed</tag>
     <title>Kerrighed: Flexible distributed checkpoint/restart</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -2847,7 +2849,7 @@ Main available features are:
     <room>Ferrer</room>
     <tag>apache_ace</tag>
     <title>Apache ACE: distributing software components</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -2866,7 +2868,7 @@ Main available features are:
     <room>Ferrer</room>
     <tag>cloudlets</tag>
     <title>Cloudlets: universal server images for the cloud</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -2893,7 +2895,7 @@ Our goal is to build the foundations for truly cloud-independent infrastructures
     <room>Ferrer</room>
     <tag>wt_dbo</tag>
     <title>Wt::Dbo: a C++ ORM (Object Relational Mapping) library</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -2930,7 +2932,7 @@ Currently, Wt:dbo contains the following functionality:
     <room>Ferrer</room>
     <tag>openerp</tag>
     <title>OpenERP: Design applicactions with OpenObject in minutes</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -2951,7 +2953,7 @@ OpenObject features a complete and modular toolbox for quickly building applicat
     <room>Ferrer</room>
     <tag>cacert</tag>
     <title>CAcert: Client-certificates and SSO - the old-new thing</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -2972,7 +2974,7 @@ By one means or another CAcert is now ploughing the ground for Single-Sign-On wi
     <room>Ferrer</room>
     <tag>keysigning</tag>
     <title>Keysigning Party</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Keysigning</track>
     <type>Meeting</type>
     <language>English</language>
@@ -2991,7 +2993,7 @@ By one means or another CAcert is now ploughing the ground for Single-Sign-On wi
     <room>Ferrer</room>
     <tag>constructive_approach</tag>
     <title>Open-source software: Blaming the unknown, or a constructive approach to technology</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3011,7 +3013,7 @@ If you don't know them, they will hurt you. No matter how expert you are, there 
     <room>Ferrer</room>
     <tag>kaizendo_org</tag>
     <title>Kaizendo.org: Customizing schoolbooks the free software way</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3044,7 +3046,7 @@ Kaizendo.org - from Kaizen-do, "the way of incremental improvement" - is a proje
     <room>Ferrer</room>
     <tag>the_wiki_for_open_technologies</tag>
     <title>The Wiki for Open Technologies: How to share your projects and knowledge</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3075,7 +3077,7 @@ Projects are saved as a whole and topics are sorted in tags and not just as an a
     <room>Ferrer</room>
     <tag>qubit</tag>
     <title>QuBit: Introducing Quantum Superpositions</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3094,7 +3096,7 @@ Projects are saved as a whole and topics are sorted in tags and not just as an a
     <room>Ferrer</room>
     <tag>padre_the_perl_ide</tag>
     <title>Padre, the Perl IDE: Building an open source team, getting the project to users against the odds</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3125,7 +3127,7 @@ In this talk I'll talk about Padre and how we managed to build the team. How we 
     <room>Ferrer</room>
     <tag>coccinelle</tag>
     <title>Coccinelle: Finding bugs in open source systems code</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3178,7 +3180,7 @@ from the use of Coccinelle have been accepted into the Linux kernel source tree.
     <room>Ferrer</room>
     <tag>umlcanvas</tag>
     <title>UmlCanvas: bringing UML diagrams to the web</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3199,7 +3201,7 @@ Integrating CASE tools and hosted UmlCanvas, creates a collaborative platform th
     <room>Ferrer</room>
     <tag>jpoker</tag>
     <title>jpoker: a pure javascript poker client</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Lightning Talks</track>
     <type>Lightning-Talk</type>
     <language>English</language>
@@ -3220,7 +3222,7 @@ Integrating CASE tools and hosted UmlCanvas, creates a collaborative platform th
     <room>Lameere</room>
     <tag>emb_open_mcare</tag>
     <title>OPEN-MCARE: Open Heart for Elderly Care</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3238,7 +3240,7 @@ Integrating CASE tools and hosted UmlCanvas, creates a collaborative platform th
     <room>Lameere</room>
     <tag>emb_seriesfinale</tag>
     <title>SeriesFinale, a TV shows' tracker for Maemo 5</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3257,7 +3259,7 @@ Integrating CASE tools and hosted UmlCanvas, creates a collaborative platform th
     <room>Lameere</room>
     <tag>emb_android_apt</tag>
     <title>apt-get for Android - with GUI</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3279,7 +3281,7 @@ In the end of the day, this talk proposes to show Android developers a new way o
     <room>Lameere</room>
     <tag>emb_ofono</tag>
     <title>Ofono and how to use the Nokia modem plugin</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3297,7 +3299,7 @@ In the end of the day, this talk proposes to show Android developers a new way o
     <room>Lameere</room>
     <tag>emb_cross_build</tag>
     <title>Cross Build Systems: Present &amp; Future</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Workshop</type>
     <language>English</language>
@@ -3324,12 +3326,12 @@ Any project interested in participation, please write us a mail to crossdev@send
     <room>Lameere</room>
     <tag>emb_rockbox</tag>
     <title>Rockbox: open source firmware replacement for music players</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>An overview of [http://www.rockbox.org/ Rockbox], an open source firmware replacement for mp3 players and how we work to reverser engineer portable music consumer electronics devices to put Free Software on them.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="831">Daniel Stenberg</person>
     </persons>
@@ -3342,7 +3344,7 @@ Any project interested in participation, please write us a mail to crossdev@send
     <room>Lameere</room>
     <tag>emb_media_controller</tag>
     <title>Media Controller, harnessing the full power of tomorrow's video devices</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3362,7 +3364,7 @@ Targeted at both embedded and desktop hardware, the Media Controller will let us
     <room>Lameere</room>
     <tag>emb_dspbridge</tag>
     <title>ARM and DSP talking to each other in OMAP3: the dspbridge</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3382,7 +3384,7 @@ The dspbridge is a kernel driver for the OMAP3 architecture. It provides a inter
     <room>Lameere</room>
     <tag>emb_nanonote</tag>
     <title>Copyleft Hardware and the Ben Nanonote</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3403,7 +3405,7 @@ Do you have Qi Inside your hardware? Ben Nanonote is the first real product on m
     <room>Lameere</room>
     <tag>emb_ambienttalk</tag>
     <title>Scripting Mobile Devices with AmbientTalk</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Embedded</track>
     <type>Podium</type>
     <language>English</language>
@@ -3430,7 +3432,7 @@ AmbientTalk is meant to serve as an experimentation platform to experiment with 
     <room>H.1301</room>
     <tag>moz_oss_meetups</tag>
     <title>Open Source Meetups</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
@@ -3450,14 +3452,14 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_mozmill</tag>
     <title>Mozmill</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Automated functional testing</abstract>
-    <description/>
+    <description></description>
     <persons>
-     <person id="746">Henry Skupin</person>
+     <person id="746">Henrik Skupin</person>
     </persons>
     <links>
     </links>
@@ -3468,7 +3470,7 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_l20n</tag>
     <title>L20n</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
@@ -3487,12 +3489,12 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_firefox_mobile</tag>
     <title>Firefox Mobile</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="261">Mark Finkle</person>
     </persons>
@@ -3505,12 +3507,12 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_womoz</tag>
     <title>Women and Mozilla (WoMoz)</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Summary of related FOSDEM events, roadmap for 2010, and reaching out to women developers present at FOSDEM.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="743">Delphine Lebédel</person>
     </persons>
@@ -3524,12 +3526,12 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_messaging</tag>
     <title>Messaging/Thunderbird</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="180">Ludovic Hirlimann</person>
     </persons>
@@ -3542,7 +3544,7 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_jetpack</tag>
     <title>Explore Jetpack</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
@@ -3560,12 +3562,12 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_drumbeat</tag>
     <title>Mozilla Drumbeat in Europe</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Actions, ideas and projects for an open Internet</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="473">Mark Surman</person>
      <person id="824">Alina Mierlus</person>
@@ -3579,7 +3581,7 @@ In the German city of Munich, the "Open-Source-Treffen" have been taking place r
     <room>H.1301</room>
     <tag>moz_lightningtalks</tag>
     <title>Mozilla Lightning Talks</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
@@ -3610,12 +3612,12 @@ How you can [https://wiki.mozilla.org/Bugzilla:REST_API use it] to make your Moz
     <room>H.1301</room>
     <tag>moz_panel</tag>
     <title>Mozilla Panel Discussion</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mozilla</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>A discussion on Mozilla's mission - from Firefox to Drumbeat.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="344">Tristan Nitot</person>
      <person id="473">Mark Surman</person>
@@ -3634,12 +3636,12 @@ How you can [https://wiki.mozilla.org/Bugzilla:REST_API use it] to make your Moz
     <room>H.1302</room>
     <tag>dist_cloud</tag>
     <title>Linux distribution for the cloud</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="616">Peter Eisentraut</person>
     </persons>
@@ -3652,7 +3654,7 @@ How you can [https://wiki.mozilla.org/Bugzilla:REST_API use it] to make your Moz
     <room>H.1302</room>
     <tag>dist_perl_cpan</tag>
     <title>Packaging perl and CPAN modules</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3672,7 +3674,7 @@ In this session we will try to break the vicious cycle of the chicken and the eg
     <room>H.1302</room>
     <tag>dist_config_model</tag>
     <title>Config::Model and configuration upgrades during package upgrade</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3700,7 +3702,7 @@ Config::Model was designed to make user's life easier by providing a configurati
     <room>H.1302</room>
     <tag>dist_nixos_conf</tag>
     <title>NixOS' configuration system</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3719,7 +3721,7 @@ Config::Model was designed to make user's life easier by providing a configurati
     <room>H.1302</room>
     <tag>dist_topgit</tag>
     <title>Cross distro packaging with (top)git</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3742,7 +3744,7 @@ allow easy sharing of packaging work done for different distributions.</abstract
     <room>H.1302</room>
     <tag>dist_rpm_collab</tag>
     <title>RPM packaging collaboration</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3760,7 +3762,7 @@ allow easy sharing of packaging work done for different distributions.</abstract
     <room>H.1302</room>
     <tag>dist_kiwi</tag>
     <title>Distribution Image building with KIWI</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3784,7 +3786,7 @@ This talk briefly introduces the KIWI image system and shows how to create image
     <room>H.1302</room>
     <tag>dist_dracut</tag>
     <title>Dracut - a generic, modular initramfs generation tool</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3810,7 +3812,7 @@ In this talk you will learn how Dracut works, how to extend Dracut with your own
     <room>H.1302</room>
     <tag>dist_suse_studio</tag>
     <title>SUSE Studio</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3832,7 +3834,7 @@ In this talk you will learn how Dracut works, how to extend Dracut with your own
     <room>H.1308</room>
     <tag>dist_tx</tag>
     <title>Transactional Roll-backs and Upgrades</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3854,7 +3856,7 @@ We will then invite questions from the audience to try and promote a few talking
     <room>H.1308</room>
     <tag>dist_youri</tag>
     <title>The youri project</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3882,12 +3884,12 @@ The quick'n'dirty approach of using a pile of dedicated shell scripts, with hard
     <room>H.1308</room>
     <tag>dist_opensuse_buildservice</tag>
     <title>Cross-distro packaging experience with the openSUSE Buildservice</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="134">Adrian Schroeter</person>
     </persons>
@@ -3900,12 +3902,12 @@ The quick'n'dirty approach of using a pile of dedicated shell scripts, with hard
     <room>H.1308</room>
     <tag>dist_debian_shlibs</tag>
     <title>Shared libraries in Debian</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="618">Sune Vuorela</person>
     </persons>
@@ -3918,7 +3920,7 @@ The quick'n'dirty approach of using a pile of dedicated shell scripts, with hard
     <room>H.1308</room>
     <tag>dist_deps</tag>
     <title>Cross-distro dependency resolution: reusing solvers among distros</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3940,14 +3942,12 @@ We also show how, in the context of the Mancoosi project, we are using the CUDF 
     <room>H.1308</room>
     <tag>dist_debian_ubuntu</tag>
     <title>Debian and Ubuntu</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>* Ubuntu development process and how it relates to Debian
-* Current state of Debian/Ubuntu relationships
-* Future</abstract>
-    <description/>
+    <abstract>When Ubuntu was made public in 2004, it was clear from the beginning that its development would be based on Debian. Five years later, this has not changed at all, and the interactions between Debian and Ubuntu have been the subject of a lot of (heated) discussions over the years.</abstract>
+    <description>This talk will first present how the two distributions interact with each other. Then, we will provide a (tentative) overview of the current state of affairs, and will try to give some ideas for the future.</description>
     <persons>
      <person id="152">Lucas Nussbaum</person>
     </persons>
@@ -3960,7 +3960,7 @@ We also show how, in the context of the Mancoosi project, we are using the CUDF 
     <room>H.1308</room>
     <tag>dist_tx_pkg</tag>
     <title>Transactionally Protected Package Management</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -3982,7 +3982,7 @@ Connections with the parallel Mancoosi WP3 efforts to model/simulate package scr
     <room>H.1308</room>
     <tag>dist_project_builder</tag>
     <title>Continuous Packaging with Project-Builder.org</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -4022,7 +4022,7 @@ The presentation will describe the needs of the various people around a FLOSS pr
     <room>H.1308</room>
     <tag>dist_deb_secrets</tag>
     <title>Debian Secrets: power tools for power users</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Distributions</track>
     <type>Podium</type>
     <language>English</language>
@@ -4044,12 +4044,12 @@ It is a reworked version of a talk that has been done at DebConf8, where the tar
     <room>H.1309</room>
     <tag>xd_welcome</tag>
     <title>Welcome to the CrossDesktop developer room</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="95">Bart Coppens</person>
      <person id="130">Christophe Fergeau</person>
@@ -4063,7 +4063,7 @@ It is a reworked version of a talk that has been done at DebConf8, where the tar
     <room>H.1309</room>
     <tag>xd_gupnp_rygel</tag>
     <title>GUPnP &amp; Rygel: Liberating Digital Living</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4081,7 +4081,7 @@ It is a reworked version of a talk that has been done at DebConf8, where the tar
     <room>H.1309</room>
     <tag>xd_coherence</tag>
     <title>Coherence - the digital livingroom and beyond</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4106,7 +4106,7 @@ Coherence is a framework written in Python, that greatly simlifies the entry int
     <room>H.1309</room>
     <tag>xd_desktopcouch</tag>
     <title>Make your users happy, "cloudify" your app with desktopcouch</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4135,7 +4135,7 @@ All of the above will be described through a practical exercise using python and
     <room>H.1309</room>
     <tag>xd_packagekit</tag>
     <title>PackageKit one year on</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4155,7 +4155,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>xd_nepomuk_sparql</tag>
     <title>The Semantic Desktop, SPARQL and You!</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4183,7 +4183,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>xd_nepomuk</tag>
     <title>Nepomuk</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4201,7 +4201,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>xd_syncml</tag>
     <title>SyncML</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4219,7 +4219,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.1309</room>
     <tag>xd_aegis</tag>
     <title>Open Accessibility Everywhere: software from AEGIS</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>CrossDesktop</track>
     <type>Podium</type>
     <language>English</language>
@@ -4242,12 +4242,12 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.2213</room>
     <tag>mono_opening</tag>
     <title>Opening</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Welcome to the Mono developer room!</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="774">Stéphane Delcroix</person>
      <person id="773">Ruben Vermeersch</person>
@@ -4261,7 +4261,7 @@ There will be time left for questions and discussion. It is expected the audienc
     <room>H.2213</room>
     <tag>mono_develop</tag>
     <title>MonoDevelop</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4281,7 +4281,7 @@ In this talk, I'll show the features of the recently released MonoDevelop 2.2, a
     <room>H.2213</room>
     <tag>mono_ruby</tag>
     <title>The Ruby and .NET love child</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4299,12 +4299,12 @@ In this talk, I'll show the features of the recently released MonoDevelop 2.2, a
     <room>H.2213</room>
     <tag>mono_edge</tag>
     <title>Mono Edge</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This talk will focus on the ongoing development efforts in Mono, and explore what are the new challenges that we are tackling.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="30">Miguel de Icaza</person>
     </persons>
@@ -4317,7 +4317,7 @@ In this talk, I'll show the features of the recently released MonoDevelop 2.2, a
     <room>H.2213</room>
     <tag>mono_monotorrent</tag>
     <title>The evolution of MonoTorrent</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4337,12 +4337,12 @@ The second part will be about the different strategies used to manage the multi-
     <room>H.2213</room>
     <tag>mono_simd</tag>
     <title>Image processing with Mono.Simd</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This talk will focus on putting Mono.Simd -- the layer for enabling SIMD processing in mono -- to work in the field of image processing. All code, no slides.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="774">Stéphane Delcroix</person>
     </persons>
@@ -4355,7 +4355,7 @@ The second part will be about the different strategies used to manage the multi-
     <room>H.2213</room>
     <tag>mono_parallelfx</tag>
     <title>ParallelFx, bringing Mono applications in the multicore era</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4380,7 +4380,7 @@ This talk will cover several points :
     <room>H.2213</room>
     <tag>mono_second_life</tag>
     <title>Building The Virtual Babel: Mono In Second Life</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4398,7 +4398,7 @@ This talk will cover several points :
     <room>H.2213</room>
     <tag>mono_moonlight</tag>
     <title>Moonlight and you</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4416,12 +4416,12 @@ This talk will cover several points :
     <room>H.2213</room>
     <tag>mono_osctool</tag>
     <title>OSCTool - learning C# and Mono by doing</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>In 2007, the Oxford Supercomputing Centre received enough funding to put some infrastructure in place behind their clusters - but found a lack of adequate tools to manage it. This talk covers the progression from Perl-based prototyping to 25kloc of C#, due for GPL release in Q1 2010.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="781">Jo Shields</person>
     </persons>
@@ -4434,7 +4434,7 @@ This talk will cover several points :
     <room>H.2213</room>
     <tag>mono_smuxi</tag>
     <title>Smuxi - IRC in a modern environment</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
@@ -4452,12 +4452,12 @@ This talk will cover several points :
     <room>H.2213</room>
     <tag>mono_closing</tag>
     <title>Closing</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Mono</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="774">Stéphane Delcroix</person>
      <person id="773">Ruben Vermeersch</person>
@@ -4473,12 +4473,12 @@ This talk will cover several points :
     <room>H.2214</room>
     <tag>drupal_welcome</tag>
     <title>Welcome to the Drupal devroom</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="806">Boris Doesborg</person>
     </persons>
@@ -4491,12 +4491,12 @@ This talk will cover several points :
     <room>H.2214</room>
     <tag>drupal_views3</tag>
     <title>Views 3</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>With Views 3 there was a chance to clean up the code a bit and implement cool new features. For example group-by support or OR.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="845">Daniel Wehner</person>
     </persons>
@@ -4510,7 +4510,7 @@ This talk will cover several points :
     <room>H.2214</room>
     <tag>drupal_ahah</tag>
     <title>AHAH crash course</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4528,7 +4528,7 @@ This talk will cover several points :
     <room>H.2214</room>
     <tag>drupal_mobile</tag>
     <title>Designing for mobile devices</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4546,7 +4546,7 @@ This talk will cover several points :
     <room>H.2214</room>
     <tag>drupal_eid</tag>
     <title>The eID module</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4568,7 +4568,7 @@ Dieter will give an overview of the module.</description>
     <room>H.2214</room>
     <tag>drupal_new7</tag>
     <title>What's new in Drupal 7</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4590,7 +4590,7 @@ and changes that will make Drupal 7 hot.</description>
     <room>H.2214</room>
     <tag>drupal_front</tag>
     <title>Front end perfomance</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4612,14 +4612,14 @@ performance.</description>
     <room>H.2214</room>
     <tag>drupal_development</tag>
     <title>How to setup the perfect development environment</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Presentation on how to setup the perfect development environment for
 Drupal on Ubuntu including svn, drush, eclipse, debugging and database
 sharing.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="802">Roel de Meester</person>
     </persons>
@@ -4632,7 +4632,7 @@ sharing.</abstract>
     <room>H.2214</room>
     <tag>drupal_solr</tag>
     <title>Apache Solr and state-of-the-art search techniques</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4654,7 +4654,7 @@ ranging from content author to taxonomy to arbitrary CCK fields.</description>
     <room>H.2214</room>
     <tag>drupal_upgrading</tag>
     <title>Upgrading</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4677,7 +4677,7 @@ functionality on top of it!</description>
     <room>H.2214</room>
     <tag>drupal_semantic</tag>
     <title>Drupal and the semantic web</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Drupal</track>
     <type>Podium</type>
     <language>English</language>
@@ -4686,7 +4686,7 @@ functionality on top of it!</description>
 * give a short introduction to the Semantic web, RDF, RDFa and SPARQL in human language
 * give a short overview of the RDF modules that are available in contrib
 * talk about some of the potential use cases of all these magical technologies</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="846">Kristof van Tomme</person>
     </persons>
@@ -4702,12 +4702,12 @@ functionality on top of it!</description>
     <room>AW1.105</room>
     <tag>altos_welcome</tag>
     <title>Welcome to the Alt-OS devroom</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Welcome to the Alt-OS developer room at FOSDEM 2010.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="736">François Revol</person>
     </persons>
@@ -4720,7 +4720,7 @@ functionality on top of it!</description>
     <room>AW1.105</room>
     <tag>altos_rosetta</tag>
     <title>Presentation of the Rosetta OS Project</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4739,7 +4739,7 @@ functionality on top of it!</description>
     <room>AW1.105</room>
     <tag>altos_rtems</tag>
     <title>Introduction to RTEMS</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4760,7 +4760,7 @@ The goal of this session is to emphasis the distinct requirements addressed in R
     <room>AW1.105</room>
     <tag>altos_haiku</tag>
     <title>Introduction to Haiku</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4779,7 +4779,7 @@ The goal of this session is to emphasis the distinct requirements addressed in R
     <room>AW1.105</room>
     <tag>altos_hurd</tag>
     <title>Why is Anyone Still Working on the GNU Hurd?</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4798,7 +4798,7 @@ The goal of this session is to emphasis the distinct requirements addressed in R
     <room>AW1.105</room>
     <tag>altos_crossbow</tag>
     <title>Network virtualisation using Crossbow technology</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4817,7 +4817,7 @@ The goal of this session is to emphasis the distinct requirements addressed in R
     <room>AW1.105</room>
     <tag>altos_gallium</tag>
     <title>Update on Gallium3D ports to AROS and Haiku</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4838,7 +4838,7 @@ The goal of this session is to emphasis the distinct requirements addressed in R
     <room>AW1.105</room>
     <tag>altos_flashrom</tag>
     <title>Porting challenge: Flashrom, the universal flash tool</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4859,7 +4859,7 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_kgi_hurd</tag>
     <title>Porting KGI graphics drivers from Linux to GNU Hurd</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4879,7 +4879,7 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_dde</tag>
     <title>DDE - Generic Porting of Device Drivers</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4901,7 +4901,7 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_oss4_haiku</tag>
     <title>OpenSound System v4 port to Haiku</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4921,12 +4921,12 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_rathaxes</tag>
     <title>Generating Driver Source Code with Rathaxes</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>tba</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="736">François Revol</person>
     </persons>
@@ -4939,12 +4939,12 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_haiku_handson</tag>
     <title>Hands-on development with Haiku</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="736">François Revol</person>
     </persons>
@@ -4957,7 +4957,7 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_haiku_no_future</tag>
     <title>Haiku has No Future</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
@@ -4976,12 +4976,12 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_xattr</tag>
     <title>Extended File Attributes, how can we keep them around?</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Many operating systems, wether OpenSource or not, make use, or at least support some form of file meta-data.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="736">François Revol</person>
     </persons>
@@ -4994,12 +4994,12 @@ This talk gives a short overview of flashrom and its architecture, and then goes
     <room>AW1.105</room>
     <tag>altos_wrapup</tag>
     <title>Alt-OS devroom Wrap up</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Alt-OS</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="736">François Revol</person>
     </persons>
@@ -5012,89 +5012,31 @@ This talk gives a short overview of flashrom and its architecture, and then goes
   <room name="AW1.117">
    <event id="1017">
     <start>09:00</start>
-    <duration>00:45</duration>
+    <duration>01:15</duration>
     <room>AW1.117</room>
     <tag>gnustep_meet</tag>
     <title>GNUstep Developer's Meeting</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Meet the GNUstep developers face to face, discuss current afairs of GNUstep, share news about the latest development and plans on GNUstep, improve collaboration between the several GNUstep related projects.</abstract>
-    <description/>
+    <description></description>
     <persons>
-     <person id="90">Nikolaus Schaller</person>
+     <person id="856">Lars Sonchocky-Helldorf</person>
     </persons>
     <links>
      <link href="http://www.gnustep.org/">http://www.gnustep.org/</link>
      <link href="http://wiki.gnustep.org/index.php/FOSDEM_2010">http://wiki.gnustep.org/index.php/FOSDEM_2010</link>
     </links>
    </event>
-   <event id="1018">
-    <start>09:45</start>
-    <duration>00:30</duration>
-    <room>AW1.117</room>
-    <tag>gnustep_simple_webkit</tag>
-    <title>Simple WebKit: a simplified WebKit compatible implementation in pure Objective-C 1.0</title>
-    <subtitle/>
-    <track>GNUstep</track>
-    <type>Podium</type>
-    <language>English</language>
-    <abstract>Simple Webkit is a reimplementation of major parts of the WebKit Obj-C API (WebView, WebFrame etc.).</abstract>
-    <description>Internally it uses pure Obj-C. This keeps requirements towards the compiler low (there isn't Obj-C++ support for all embedded architectures). Another simplification is that it is completely based on the rendering engine of NSAttributedString and NSTextView instead of having its own. This keeps the code and binaries small for a full (X)HTML 4 compatible WebView (approx. 1 MByte). The presentation describes the internal architecture and the status of CSS and JavaScript integration.</description>
-    <persons>
-     <person id="90">Nikolaus Schaller</person>
-    </persons>
-    <links>
-     <link href="http://wiki.gnustep.org/index.php/SimpleWebKit">http://wiki.gnustep.org/index.php/SimpleWebKit</link>
-    </links>
-   </event>
-   <event id="1019">
-    <start>10:15</start>
-    <duration>00:30</duration>
-    <room>AW1.117</room>
-    <tag>gnustep_porting_quantumstep</tag>
-    <title>Learnings from porting QuantumSTEP to different Linux Handhelds (e.g. Openmoko)</title>
-    <subtitle/>
-    <track>GNUstep</track>
-    <type>Podium</type>
-    <language>English</language>
-    <abstract>This talk will present recent experimental results from QuantumSTEP on several embedded devices.</abstract>
-    <description>QuantumSTEP is a full mobile application suite (e.g. PIM, dialer, browser etc.). It is based on an experimental variant of GNUstep called mySTEP. Many optimizations have been applied to learn what has to be considered for embedded devices with tight memory and processing power constraints.</description>
-    <persons>
-     <person id="90">Nikolaus Schaller</person>
-    </persons>
-    <links>
-     <link href="http://www.quantum-step.com/download/sources/mySTEP/">http://www.quantum-step.com/download/sources/mySTEP/</link>
-    </links>
-   </event>
-   <event id="1020">
-    <start>10:45</start>
-    <duration>00:15</duration>
-    <room>AW1.117</room>
-    <tag>gnustep_ocpp20</tag>
-    <title>ocpp-2.0: a preprocessor approach to translate Objective-C 2.0 extensions to Objective-C 1.0 for (older) platforms</title>
-    <subtitle/>
-    <track>GNUstep</track>
-    <type>Podium</type>
-    <language>English</language>
-    <abstract>With the introduction of OS X 10.5 Apple had defined an gcc-extension for Objective-C which brings many interesting features to the language: garbage collection, properties, synchronization, fast enumerations, dot-notation for getters and setters, code blocks, etc.</abstract>
-    <description>Although Apple provides their extensions back to gcc, integration is slow because it has to be tested against all other gcc features and also needs special considerations for different target architectures. So let's dicsuss another approach: write a preprocessor that maps the new Obj-C 2.0 features back to any existing Obj-C 1.0 compiler (plus some library calls if needed). This should allow to faster follow new developments of the language. The talk offers for discussion a flex/bison grammar for Obj-C 2.0 and some strategies for translating the new features.</description>
-    <persons>
-     <person id="90">Nikolaus Schaller</person>
-    </persons>
-    <links>
-     <link href="http://developer.apple.com/leopard/overview/objectivec2.html">http://developer.apple.com/leopard/overview/objectivec2.html</link>
-     <link href="http://www.quantum-step.com/download/sources/mySTEP/ocpp-2.0">http://www.quantum-step.com/download/sources/mySTEP/ocpp-2.0</link>
-    </links>
-   </event>
    <event id="1021">
-    <start>11:15</start>
+    <start>10:30</start>
     <duration>00:45</duration>
     <room>AW1.117</room>
     <tag>gnustep_towards_gui_10</tag>
     <title>Towards GNUstep GUI 1.0: what we need to get there and how to achieve this within the next year</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5109,13 +5051,32 @@ This talk gives a short overview of flashrom and its architecture, and then goes
      <link href="http://gnustep.org/resources/documentation/Developer/Gui/ReleaseNotes/ReleaseNotes.html">http://gnustep.org/resources/documentation/Developer/Gui/ReleaseNotes/ReleaseNotes.html</link>
     </links>
    </event>
+   <event id="1018">
+    <start>11:30</start>
+    <duration>00:30</duration>
+    <room>AW1.117</room>
+    <tag>gnustep_simple_webkit</tag>
+    <title>Simple WebKit: a simplified WebKit compatible implementation in pure Objective-C 1.0</title>
+    <subtitle></subtitle>
+    <track>GNUstep</track>
+    <type>Podium</type>
+    <language>English</language>
+    <abstract>Simple Webkit is a reimplementation of major parts of the WebKit Obj-C API (WebView, WebFrame etc.).</abstract>
+    <description>Internally it uses pure Obj-C. This keeps requirements towards the compiler low (there isn't Obj-C++ support for all embedded architectures). Another simplification is that it is completely based on the rendering engine of NSAttributedString and NSTextView instead of having its own. This keeps the code and binaries small for a full (X)HTML 4 compatible WebView (approx. 1 MByte). The presentation describes the internal architecture and the status of CSS and JavaScript integration.</description>
+    <persons>
+     <person id="90">Nikolaus Schaller</person>
+    </persons>
+    <links>
+     <link href="http://wiki.gnustep.org/index.php/SimpleWebKit">http://wiki.gnustep.org/index.php/SimpleWebKit</link>
+    </links>
+   </event>
    <event id="1022">
     <start>12:15</start>
     <duration>00:30</duration>
     <room>AW1.117</room>
     <tag>gnustep_etoile</tag>
     <title>Étoilé: Where it is, where it's going, why it isn't there yet</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5139,7 +5100,7 @@ We will also discuss the project status, our current work and what can be expect
     <room>AW1.117</room>
     <tag>gnustep_eoileui</tag>
     <title>Fast and Flexible UI Development with EtoileUI and Smalltalk</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5165,7 +5126,7 @@ We will discuss which problems EtoileUI tries to solve, how it integrates with t
     <room>AW1.117</room>
     <tag>gnustep_objc20</tag>
     <title>Objective-C 2.0: libobjc2 and Clang, current status, plans for the future</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5187,7 +5148,7 @@ Objective-C also requires a runtime library to implement the dynamic features.  
     <room>AW1.117</room>
     <tag>gnustep_languagekit</tag>
     <title>LanguageKit: Supporting other dynamic languages on the ObjC runtime</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5207,7 +5168,7 @@ Objective-C also requires a runtime library to implement the dynamic features.  
     <room>AW1.117</room>
     <tag>gnustep_codemonkey</tag>
     <title>CodeMonkey, an integrated development environment (IDE) for Étoilé</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5229,7 +5190,7 @@ That way, programmers can get the best of both world, mixing Smalltalk and Objec
     <room>AW1.117</room>
     <tag>gnustep_porting_cocoa</tag>
     <title>Porting Cocoa apps to other platforms: what works, what doesn't, what to do to make porting easier</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>GNUstep</track>
     <type>Podium</type>
     <language>English</language>
@@ -5241,6 +5202,26 @@ That way, programmers can get the best of both world, mixing Smalltalk and Objec
     <links>
     </links>
    </event>
+   <event id="1020">
+    <start>17:00</start>
+    <duration>00:15</duration>
+    <room>AW1.117</room>
+    <tag>gnustep_ocpp20</tag>
+    <title>ocpp-2.0: a preprocessor approach to translate Objective-C 2.0 extensions to Objective-C 1.0 for (older) platforms</title>
+    <subtitle></subtitle>
+    <track>GNUstep</track>
+    <type>Podium</type>
+    <language>English</language>
+    <abstract>With the introduction of OS X 10.5 Apple had defined an gcc-extension for Objective-C which brings many interesting features to the language: garbage collection, properties, synchronization, fast enumerations, dot-notation for getters and setters, code blocks, etc.</abstract>
+    <description>Although Apple provides their extensions back to gcc, integration is slow because it has to be tested against all other gcc features and also needs special considerations for different target architectures. So let's dicsuss another approach: write a preprocessor that maps the new Obj-C 2.0 features back to any existing Obj-C 1.0 compiler (plus some library calls if needed). This should allow to faster follow new developments of the language. The talk offers for discussion a flex/bison grammar for Obj-C 2.0 and some strategies for translating the new features.</description>
+    <persons>
+     <person id="90">Nikolaus Schaller</person>
+    </persons>
+    <links>
+     <link href="http://developer.apple.com/leopard/overview/objectivec2.html">http://developer.apple.com/leopard/overview/objectivec2.html</link>
+     <link href="http://www.quantum-step.com/download/sources/mySTEP/ocpp-2.0">http://www.quantum-step.com/download/sources/mySTEP/ocpp-2.0</link>
+    </links>
+   </event>
   </room>
   <room name="AW1.120">
    <event id="1006">
@@ -5249,12 +5230,12 @@ That way, programmers can get the best of both world, mixing Smalltalk and Objec
     <room>AW1.120</room>
     <tag>nosql_welcome</tag>
     <title>Welcome to the NoSQL developer room</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract/>
-    <description/>
+    <abstract></abstract>
+    <description></description>
     <persons>
      <person id="783">Steven Noels</person>
     </persons>
@@ -5267,7 +5248,7 @@ That way, programmers can get the best of both world, mixing Smalltalk and Objec
     <room>AW1.120</room>
     <tag>nosql_fun_profit</tag>
     <title>NoSQL for Fun &amp; Profit</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5297,7 +5278,7 @@ That way, programmers can get the best of both world, mixing Smalltalk and Objec
     <room>AW1.120</room>
     <tag>nosql_mongodb_intro</tag>
     <title>Introduction to MongoDB</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5330,7 +5311,7 @@ MongoDB is being used by SourceForge, EA Games, Github, the New York Times, and 
     <room>AW1.120</room>
     <tag>nosql_hbase</tag>
     <title>My life with HBase</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5356,7 +5337,7 @@ Lars George is the CTO of [http://www.worldlingo.com/ WorldLingo] and uses HBase
     <room>AW1.120</room>
     <tag>nosql_cassandra</tag>
     <title>The Cassandra distributed database</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5379,7 +5360,7 @@ This talk will cover
     <room>AW1.120</room>
     <tag>nosql_couchdb</tag>
     <title>CouchDB, a database designed for the web and more</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5397,7 +5378,7 @@ This talk will cover
     <room>AW1.120</room>
     <tag>nosql_mdb_mdbx</tag>
     <title>MDB and MDBX: Open Source SimpleDB Projects based on GTM</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5415,7 +5396,7 @@ This talk will cover
     <room>AW1.120</room>
     <tag>nosql_gtm</tag>
     <title>GT.M and OpenStreetMap</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5435,7 +5416,7 @@ The challenge was to mirror this database and provide an API that permitted quer
     <room>AW1.120</room>
     <tag>nosql_mapreduce_couchdb</tag>
     <title>Comparing the MapReduce way in CouchDB with the SQL way in a RDBMS</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5455,7 +5436,7 @@ The second challenge of our session will be to design a model both able to deal 
     <room>AW1.120</room>
     <tag>nosql_scalable_cms</tag>
     <title>Designing a scalable content management system on NoSQL technologies</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5476,12 +5457,12 @@ The second challenge of our session will be to design a model both able to deal 
     <room>AW1.120</room>
     <tag>nosql_closing</tag>
     <title>NoSQL closing</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>NoSQL</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Parting remarks, required reading list.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="783">Steven Noels</person>
     </persons>
@@ -5496,7 +5477,7 @@ The second challenge of our session will be to design a model both able to deal 
     <room>AW1.121</room>
     <tag>mysql_phpmyadmin</tag>
     <title>State of phpMyAdmin</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5515,7 +5496,7 @@ The second challenge of our session will be to design a model both able to deal 
     <room>AW1.121</room>
     <tag>mysql_mmm</tag>
     <title>Multi-Master Replication Manager for MySQL</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5523,7 +5504,7 @@ The second challenge of our session will be to design a model both able to deal 
 * MMM architecture overview
 * Pros and cons
 * Examples of usage</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="714">Piotr Biel</person>
     </persons>
@@ -5536,7 +5517,7 @@ The second challenge of our session will be to design a model both able to deal 
     <room>AW1.121</room>
     <tag>mysql_beyond_ga</tag>
     <title>Beyond MySQL GA: patches, storage engines, forks, and pre-releases</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5556,7 +5537,7 @@ In my talk, I will first give an overview of what community enhancements of vari
     <room>AW1.121</room>
     <tag>mysql_drizzle</tag>
     <title>Drizzle, A MySQL fork for the Web</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5575,7 +5556,7 @@ In my talk, I will first give an overview of what community enhancements of vari
     <room>AW1.121</room>
     <tag>mysql_galera</tag>
     <title>Galera Replication for MySQL</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5598,7 +5579,7 @@ In my talk, I will first give an overview of what community enhancements of vari
     <room>AW1.121</room>
     <tag>mysql_maintenance</tag>
     <title>Daily maintenance of big databases/tables</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5615,20 +5596,20 @@ A short overview of innotop, maatkit, ptxarchiver, ...</description>
     <links>
     </links>
    </event>
-   <event id="885">
+   <event id="889">
     <start>12:15</start>
     <duration>00:30</duration>
     <room>AW1.121</room>
-    <tag>mysql_python</tag>
-    <title>MySQL and Python: an overview</title>
-    <subtitle/>
+    <tag>mysql_sharding</tag>
+    <title>Sharding for the masses</title>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>There has been lots of chatter about other languages, but not much about Python. This talk will give an overview of what is available to connect to MySQL, and also introduce MySQL Connector/Python.</abstract>
-    <description/>
+    <abstract>The Spider storage engine, a plugin for MySQL 5.1 and later, is an extension of partitioning. Using this engine, the user can deal transparently with multiple backends in the server layer.</abstract>
+    <description>This means that the data is accessible from any application without code changes. This lecture will briefly introduce MySQL partitioning, and then shows how to create and use the Spider engine, with some practical examples. This talk covers the latest version of the Spider and the Vertical Partition engines, including the related technology of UDFs that come with the engines. Practical instructions of how to install and use these technologies will be provided during the session.</description>
     <persons>
-     <person id="719">Geert Vanderkelen</person>
+     <person id="694">Giuseppe Maxia</person>
     </persons>
     <links>
     </links>
@@ -5639,12 +5620,12 @@ A short overview of innotop, maatkit, ptxarchiver, ...</description>
     <room>AW1.121</room>
     <tag>mysql_pbxt</tag>
     <title>Effective SSD for your Database - a PBXT Primer</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>In this session it will shown how to efficiently combine SSD and HDD storage for the benefit of performance of a MySQL database. Examples involving the PBXT storage engine will be demonstrated.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="720">Vladimir Kolesnikov</person>
     </persons>
@@ -5657,7 +5638,7 @@ A short overview of innotop, maatkit, ptxarchiver, ...</description>
     <room>AW1.121</room>
     <tag>mysql_perf</tag>
     <title>10x performance improvements - A case study</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5695,7 +5676,7 @@ Bonus: Front end improvements</description>
     <room>AW1.121</room>
     <tag>mysql_maatkit</tag>
     <title>Correcting replication data drift with Maatkit</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5710,20 +5691,20 @@ This session will show you first how to use both tools depending on your replica
      <link href="http://www.maatkit.org/">http://www.maatkit.org/</link>
     </links>
    </event>
-   <event id="889">
+   <event id="885">
     <start>14:45</start>
     <duration>00:30</duration>
     <room>AW1.121</room>
-    <tag>mysql_sharding</tag>
-    <title>Sharding for the masses</title>
-    <subtitle/>
+    <tag>mysql_python</tag>
+    <title>MySQL and Python: an overview</title>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
-    <abstract>The Spider storage engine, a plugin for MySQL 5.1 and later, is an extension of partitioning. Using this engine, the user can deal transparently with multiple backends in the server layer.</abstract>
-    <description>This means that the data is accessible from any application without code changes. This lecture will briefly introduce MySQL partitioning, and then shows how to create and use the Spider engine, with some practical examples. This talk covers the latest version of the Spider and the Vertical Partition engines, including the related technology of UDFs that come with the engines. Practical instructions of how to install and use these technologies will be provided during the session.</description>
+    <abstract>There has been lots of chatter about other languages, but not much about Python. This talk will give an overview of what is available to connect to MySQL, and also introduce MySQL Connector/Python.</abstract>
+    <description></description>
     <persons>
-     <person id="694">Giuseppe Maxia</person>
+     <person id="719">Geert Vanderkelen</person>
     </persons>
     <links>
     </links>
@@ -5734,7 +5715,7 @@ This session will show you first how to use both tools depending on your replica
     <room>AW1.121</room>
     <tag>mysql_ha</tag>
     <title>MySQL HA overview</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5754,7 +5735,7 @@ We'll cover MySQL Cluster, MySQL DRBD, MultiMaster based HA setups and different
     <room>AW1.121</room>
     <tag>mysql_refactoring</tag>
     <title>Refactoring Stored Routines</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5772,7 +5753,7 @@ We'll cover MySQL Cluster, MySQL DRBD, MultiMaster based HA setups and different
     <room>AW1.121</room>
     <tag>mysql_gearman</tag>
     <title>Gearman for MySQL</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>MySQL</track>
     <type>Podium</type>
     <language>English</language>
@@ -5792,12 +5773,12 @@ We'll cover MySQL Cluster, MySQL DRBD, MultiMaster based HA setups and different
     <room>AW1.124</room>
     <tag>openmoko_history</tag>
     <title>Openmoko: 20 Minutes of history</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Openmoko</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This presentation gives a short overview about how it came to the Openmoko project its successes and its failures.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="171">Michael Lauer</person>
     </persons>
@@ -5810,7 +5791,7 @@ We'll cover MySQL Cluster, MySQL DRBD, MultiMaster based HA setups and different
     <room>AW1.124</room>
     <tag>openmoko_android</tag>
     <title>Android on Freerunner</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Openmoko</track>
     <type>Podium</type>
     <language>English</language>
@@ -5834,12 +5815,12 @@ This will a great opportunity to meet the people behind the project and see Andr
     <room>AW1.124</room>
     <tag>openmoko_freesmartphone</tag>
     <title>Freesmartphone.org: DBus-Middleware for mobile devices</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Openmoko</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>This presentation gives a look about the freesmartphone.org mobile device middleware, its services, its target platforms, and how it can be used easily on the command line.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="171">Michael Lauer</person>
     </persons>
@@ -5852,7 +5833,7 @@ This will a great opportunity to meet the people behind the project and see Andr
     <room>AW1.124</room>
     <tag>openmoko_shr</tag>
     <title>SHR: A FSO based Openembedded distribution</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Openmoko</track>
     <type>Podium</type>
     <language>English</language>
@@ -5870,7 +5851,7 @@ This will a great opportunity to meet the people behind the project and see Andr
     <room>AW1.124</room>
     <tag>openmoko_hackable_1</tag>
     <title>hackable:1, a Debian/Gnome distribution for hackable devices</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Openmoko</track>
     <type>Podium</type>
     <language>English</language>
@@ -5888,7 +5869,7 @@ This will a great opportunity to meet the people behind the project and see Andr
     <room>AW1.124</room>
     <tag>xorg_shiny</tag>
     <title>Polishing X11 and making it shiny</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>X.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -5906,7 +5887,7 @@ This will a great opportunity to meet the people behind the project and see Andr
     <room>AW1.124</room>
     <tag>xorg_stack</tag>
     <title>The free software desktop’s graphics driver stack</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>X.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -5924,7 +5905,7 @@ This will a great opportunity to meet the people behind the project and see Andr
     <room>AW1.124</room>
     <tag>xorg_gpu_userspace</tag>
     <title>GPU Userspace - kernel interface &amp; Radeon kernel modesetting status</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>X.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -5943,7 +5924,7 @@ there.</abstract>
     <room>AW1.124</room>
     <tag>xorg_epaper</tag>
     <title>X on e-Paper</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>X.org</track>
     <type>Podium</type>
     <language>English</language>
@@ -5963,12 +5944,12 @@ there.</abstract>
     <room>AW1.125</room>
     <tag>java_lightning</tag>
     <title>Last minute lightning</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Lightning-Talk</type>
     <language>English</language>
     <abstract>If you missed the dealine for talk proposal submissions for this devroom, please come to the devroom on Sunday morning and present your project in 5 minutes (or less) in this free and open source Java lightning talk session.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="193">Dalibor Topic</person>
     </persons>
@@ -5981,7 +5962,7 @@ there.</abstract>
     <room>AW1.125</room>
     <tag>java_gervill</tag>
     <title>Gervill Software Synthesizer: Effects processing</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -6002,7 +5983,7 @@ There will also be audio demonstration on these features.</description>
     <room>AW1.125</room>
     <tag>java_jwt</tag>
     <title>Simplify web application development with JWt</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -6025,7 +6006,7 @@ Come to this talk if you have an interest in doing web application development a
     <room>AW1.125</room>
     <tag>java_arm</tag>
     <title>The ARM Optimised Interpreter and Thumb2 JIT</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -6058,7 +6039,7 @@ Over the past year I have been working on a project to improve the Java performa
     <room>AW1.125</room>
     <tag>java_davinci_vm</tag>
     <title>DaVinci VM: Where we are ? where we go ?</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -6077,12 +6058,12 @@ Over the past year I have been working on a project to improve the Java performa
     <room>AW1.125</room>
     <tag>java_openjdk</tag>
     <title>OpenJDK Roundtable</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>Discuss with OpenJDK regulars what you're hacking on, what you'd like to do in the project, and how you'll go about it.</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="193">Dalibor Topic</person>
     </persons>
@@ -6095,7 +6076,7 @@ Over the past year I have been working on a project to improve the Java performa
     <room>AW1.125</room>
     <tag>java_icedtea_plugin</tag>
     <title>IcedTea NP Plugin: the next generation Open Source Java Plugin</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Free Java</track>
     <type>Podium</type>
     <language>English</language>
@@ -6115,7 +6096,7 @@ Over the past year I have been working on a project to improve the Java performa
     <room>AW1.126</room>
     <tag>bsd_freebsd</tag>
     <title>Introduction to FreeBSD</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6133,7 +6114,7 @@ Over the past year I have been working on a project to improve the Java performa
     <room>AW1.126</room>
     <tag>bsd_newcons</tag>
     <title>The Newcons Project</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6151,7 +6132,7 @@ Over the past year I have been working on a project to improve the Java performa
     <room>AW1.126</room>
     <tag>bsd_autotools</tag>
     <title>Building systems with autotools and libtool</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6171,7 +6152,7 @@ The second part is about why self-made makefiles often are worse than the auto g
     <room>AW1.126</room>
     <tag>bsd_debugging</tag>
     <title>Debugging the FreeBSD kernel for dummies</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6189,7 +6170,7 @@ The second part is about why self-made makefiles often are worse than the auto g
     <room>AW1.126</room>
     <tag>bsd_license</tag>
     <title>Because the License Matters:  BSD as the Foundation for Commercial Point of Sale Applications</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6207,7 +6188,7 @@ The second part is about why self-made makefiles often are worse than the auto g
     <room>AW1.126</room>
     <tag>bsd_debian</tag>
     <title>Debian GNU/kFreeBSD</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6217,6 +6198,7 @@ The second part is about why self-made makefiles often are worse than the auto g
      <person id="847">Axel Beckert</person>
     </persons>
     <links>
+     <link href="http://noone.org/talks/kfreebsd/">http://noone.org/talks/kfreebsd/</link>
     </links>
    </event>
    <event id="1106">
@@ -6225,7 +6207,7 @@ The second part is about why self-made makefiles often are worse than the auto g
     <room>AW1.126</room>
     <tag>bsd_mercurial</tag>
     <title>Tracking FreeBSD customizations with a local Mercurial branch</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>BSD</track>
     <type>Podium</type>
     <language>English</language>
@@ -6235,6 +6217,25 @@ The second part is about why self-made makefiles often are worse than the auto g
 Then we will describe two different ways to use the local branch as a basis for FreeBSD customizations: how to keep a stack of patches as a linear 'customization layer' on top of FreeBSD, and how to keep another local branch with its own merge history.</description>
     <persons>
      <person id="848">Giorgos Keramidas</person>
+    </persons>
+    <links>
+    </links>
+   </event>
+   <event id="1117">
+    <start>17:00</start>
+    <duration>00:30</duration>
+    <room>AW1.126</room>
+    <tag>bsd_group_limit</tag>
+    <title>Beyond the historical group limit in FreeBSD</title>
+    <subtitle></subtitle>
+    <track>BSD</track>
+    <type>Podium</type>
+    <language>English</language>
+    <abstract>Historically FreeBSD has limited the number of groups per process (and hence per-user) to somewhere between 14 and 16 depending how you count. This leads to problems in a number of environments including the use of FreeBSD as an SMB server.</abstract>
+    <description>I will talk about those issues, bugs in the existing implementation, how we raised the limit to 1023 in 8.0, and what
+our future plans are for group support.</description>
+    <persons>
+     <person id="665">Brooks Davis</person>
     </persons>
     <links>
     </links>
@@ -6249,12 +6250,12 @@ Then we will describe two different ways to use the local branch as a basis for 
     <room>Guillissen</room>
     <tag>lpi_3</tag>
     <title>LPI exam session 3</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Certification</track>
     <type>Other</type>
     <language>English</language>
     <abstract>LPI exam session #3</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="42">Klaus Behrla</person>
     </persons>
@@ -6267,12 +6268,12 @@ Then we will describe two different ways to use the local branch as a basis for 
     <room>Guillissen</room>
     <tag>lpi_4</tag>
     <title>LPI exam session 4</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Certification</track>
     <type>Other</type>
     <language>English</language>
     <abstract>LPI exam session #4</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="42">Klaus Behrla</person>
     </persons>
@@ -6285,12 +6286,12 @@ Then we will describe two different ways to use the local branch as a basis for 
     <room>Guillissen</room>
     <tag>lpi_5</tag>
     <title>LPI exam session 5</title>
-    <subtitle/>
+    <subtitle></subtitle>
     <track>Certification</track>
     <type>Podium</type>
     <language>English</language>
     <abstract>LPI exam session #5</abstract>
-    <description/>
+    <description></description>
     <persons>
      <person id="42">Klaus Behrla</person>
     </persons>
