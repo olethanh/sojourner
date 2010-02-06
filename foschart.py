@@ -119,7 +119,7 @@ class Thing:
         toggle = mk_toggle("Favourite")
         toggle.set_active(event in self.favourites)
         toggle.connect('toggled', self.toggle_toggled, event)
-        vbox.pack_start(toggle)
+        vbox.pack_start(toggle, False)
 
         sw = mk_sw(vbox, True)
         window.add(sw)
