@@ -79,13 +79,29 @@ class Event:
             % (self.summary(), esc(self.description))
 
 class Thing:
+    def favourites_file(self):
+        try:
+            os.mkdir(os.environ['HOME'] + '/.config')
+        except OSError:
+            pass
+
+        try:
+            os.mkdir(os.environ['HOME'] + '/.config/foschart')
+        except OSError:
+            pass
+
+        return os.environ['HOME'] + "/.config/foschart/favourites"
+
     def toggle_toggled(self, toggle, event):
         if toggle.get_active():
             self.favourites.append(event)
         else:
             self.favourites.remove(event)
 
-        print self.favourites
+        f = file(self.favourites_file(), 'w')
+        for fav in self.favourites:
+            f.write("%s\n" % fav.id)
+        f.close()
 
     def event_activated(self, treeview, row, column):
         store = treeview.get_property('model')
@@ -181,13 +197,16 @@ class Thing:
     def __init__(self):
         doc = minidom.parse("schedule.en.xml")
         self.events = []
+        self.events_by_id = {}
         zomg = {'2010-02-06': 'Saturday',
                 '2010-02-07': 'Sunday',
                }
         for day in doc.getElementsByTagName("day"):
             date = zomg[day.getAttribute('date')]
             for node in day.getElementsByTagName("event"):
-                self.events.append(Event(node, date))
+                e = Event(node, date)
+                self.events.append(e)
+                self.events_by_id[e.id] = e
 
         self.events_by_room = {}
         for e in self.events:
@@ -196,6 +215,14 @@ class Thing:
             self.events_by_room[e.room] = blah
 
         self.favourites = []
+
+        try:
+            f = file(self.favourites_file(), 'r')
+            for id in f.readlines():
+                self.favourites.append(self.events_by_id[id.strip()])
+            f.close()
+        except IOError:
+            pass
 
         window = mk_window("FOSDEM 2010")
         window.connect("delete_event", gtk.main_quit, None)
