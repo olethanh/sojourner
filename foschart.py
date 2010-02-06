@@ -48,9 +48,19 @@ def mk_sw(child, viewport=False):
 
     return sw
 
+def mk_toggle(title):
+    if have_hildon:
+        toggle = hildon.CheckButton(gtk.HILDON_SIZE_AUTO)
+        toggle.set_label(title)
+    else:
+        toggle = gtk.ToggleButton(label=title)
+
+    return toggle
+
 class Event:
     def __init__(self, node, date):
         self.date = date
+        self.id = node.getAttribute('id')
         self.title = get_text(node, "title")
         self.person = get_text(node, "person", joiner=', ')
         self.start = get_text(node, "start")
@@ -60,25 +70,42 @@ class Event:
 
     def summary(self):
         return "<b>%s</b>\n%s <i>(%s, %s, %s, %s track)</i>" \
-            % (esc(self.title), esc(self.person), esc(self.date), esc(self.start), esc(self.room), esc(self.track))
-
+            % (esc(self.title),
+               esc(self.person), esc(self.date), esc(self.start),
+               esc(self.room), esc(self.track))
 
     def full(self):
         return "%s\n\n%s" \
             % (self.summary(), esc(self.description))
 
 class Thing:
+    def toggle_toggled(self, toggle, event):
+        if toggle.get_active():
+            self.favourites.append(event)
+        else:
+            self.favourites.remove(event)
+
+        print self.favourites
+
     def event_activated(self, treeview, row, column):
         store = treeview.get_property('model')
         event, = store.get(store.get_iter(row), 1)
 
         window = mk_window(event.title)
 
+        vbox = gtk.VBox()
+
         label = gtk.Label()
         label.set_markup(event.full())
         label.set_property("wrap", True)
+        vbox.pack_start(label)
 
-        sw = mk_sw(label, True)
+        toggle = mk_toggle("Favourite")
+        toggle.set_active(event in self.favourites)
+        toggle.connect('toggled', self.toggle_toggled, event)
+        vbox.pack_start(toggle)
+
+        sw = mk_sw(vbox, True)
         window.add(sw)
 
         window.show_all()
@@ -146,8 +173,10 @@ class Thing:
     def view_activated(self, treeview, row, column):
         if row[0] == 0:
             self.event_list("All events")
-        else:
+        elif row[0] == 1:
             self.by_room()
+        else:
+            self.event_list("Favourites", self.favourites)
 
     def __init__(self):
         doc = minidom.parse("schedule.en.xml")
@@ -166,12 +195,14 @@ class Thing:
             blah.append(e)
             self.events_by_room[e.room] = blah
 
+        self.favourites = []
+
         window = mk_window("FOSDEM 2010")
         window.connect("delete_event", gtk.main_quit, None)
 
         store = gtk.TreeStore(str)
 
-        for snake in ["All events", "By room"]:
+        for snake in ["All events", "By room", "Favourites"]:
             store.append(None, [snake])
 
         treeview = gtk.TreeView(store)
@@ -195,8 +226,6 @@ class Thing:
 
         window.show_all()
         gtk.main()
-
-
 
 if __name__ == "__main__":
     Thing()
