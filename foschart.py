@@ -105,6 +105,13 @@ class Event:
         return "%s\n\n%s" \
             % (self.summary(), esc(self.description))
 
+def by_date_time(x, y):
+    a = cmp(x.date, y.date)
+    if a != 0:
+        return a
+    else:
+        return cmp(x.start, y.start)
+
 class Thing:
     def favourites_file(self):
         try:
@@ -122,6 +129,7 @@ class Thing:
     def toggle_toggled(self, toggle, event):
         if toggle.get_active():
             self.favourites.append(event)
+            self.favourites.sort(cmp=by_date_time)
         else:
             self.favourites.remove(event)
 
@@ -251,6 +259,8 @@ class Thing:
                 blah = self.events_by_track.get(e.track, [])
                 blah.append(e)
                 self.events_by_track[e.track] = blah
+
+        self.events.sort(cmp=by_date_time)
 
         self.favourites = []
 
