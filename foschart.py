@@ -24,6 +24,7 @@ import gtk
 import gobject
 import pango
 
+import sys
 import os
 
 try:
@@ -234,7 +235,7 @@ class Thing:
             print row
 
     def __init__(self):
-        doc = minidom.parse("schedule.xml")
+        doc = minidom.parse(sys.path[0] + "/schedule.xml")
 
         self.events = []
         self.events_by_id = {}
