@@ -5,7 +5,14 @@ doc = minidom.parse("schedule.en.xml")
 import gtk
 import gobject
 import pango
-import hildon
+
+import os
+
+if os.environ.get('OSSO_PRODUCT_SHORT_NAME') is not None:
+    import hildon
+    have_hildon = True
+else:
+    have_hildon = False
 
 def get_text(parent, name, joiner=''):
     blah = parent.getElementsByTagName(name)
@@ -21,14 +28,20 @@ def esc(x):
     return gobject.markup_escape_text(x)
 
 def mk_window(title):
-    window = gtk.Window()
-    window = hildon.StackableWindow()
-    #window.set_title(title)
+    if have_hildon:
+        window = hildon.StackableWindow()
+    else:
+        window = gtk.Window()
+        window.set_size_request(400, 240)
+    window.set_title(title)
     return window
 
 def mk_sw(child, viewport=False):
-    #sw = gtk.ScrolledWindow()
-    sw = hildon.PannableArea()
+    if have_hildon:
+        sw = hildon.PannableArea()
+    else:
+        sw = gtk.ScrolledWindow()
+        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
     if viewport:
         sw.add_with_viewport(child)
@@ -52,7 +65,7 @@ class Event:
 
 
     def full(self):
-        return "<b>%s</b>\n%s <i>(%s, %s, %s track)</i>\n%s" \
+        return "<b>%s</b>\n%s <i>(%s, %s, %s track)</i>\n\n%s" \
             % (esc(self.title), esc(self.person), esc(self.start), esc(self.room), esc(self.track), esc(self.description))
 
 class Thing:
