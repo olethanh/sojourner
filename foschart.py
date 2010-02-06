@@ -155,22 +155,22 @@ class Thing:
 
         window.show_all()
 
-    def room_activated(self, treeview, row, column):
+    def blah_activated(self, treeview, row, column, title, d):
         store = treeview.get_property('model')
-        room, = store.get(store.get_iter(row), 0)
+        blah, = store.get(store.get_iter(row), 0)
 
-        self.event_list(room, self.events_by_room[room])
+        self.event_list(blah, d[blah])
 
-    def by_room(self):
-        window = mk_window("Rooms")
+    def by_blah(self, d, title):
+        window = mk_window(title)
         store = gtk.TreeStore(str)
 
-        for room in sorted(self.events_by_room.keys()):
+        for room in sorted(d.keys()):
             store.append(None, [room])
 
         treeview = gtk.TreeView(store)
         treeview.set_headers_visible(False)
-        treeview.connect("row-activated", self.room_activated)
+        treeview.connect("row-activated", self.blah_activated, title, d)
 
         tvcolumn = gtk.TreeViewColumn('Stuff')
         treeview.append_column(tvcolumn)
@@ -190,17 +190,26 @@ class Thing:
         if row[0] == 0:
             self.event_list("All events")
         elif row[0] == 1:
-            self.by_room()
-        else:
+            self.by_blah(self.events_by_room, "Rooms")
+        elif row[0] == 2:
+            self.by_blah(self.events_by_track, "Tracks")
+        elif row[0] == 3:
             self.event_list("Favourites", self.favourites)
+        else:
+            print row
 
     def __init__(self):
         doc = minidom.parse("schedule.en.xml")
+
         self.events = []
         self.events_by_id = {}
+        self.events_by_room = {}
+        self.events_by_track = {}
+
         zomg = {'2010-02-06': 'Saturday',
                 '2010-02-07': 'Sunday',
                }
+
         for day in doc.getElementsByTagName("day"):
             date = zomg[day.getAttribute('date')]
             for node in day.getElementsByTagName("event"):
@@ -208,11 +217,13 @@ class Thing:
                 self.events.append(e)
                 self.events_by_id[e.id] = e
 
-        self.events_by_room = {}
-        for e in self.events:
-            blah = self.events_by_room.get(e.room, [])
-            blah.append(e)
-            self.events_by_room[e.room] = blah
+                blah = self.events_by_room.get(e.room, [])
+                blah.append(e)
+                self.events_by_room[e.room] = blah
+
+                blah = self.events_by_track.get(e.track, [])
+                blah.append(e)
+                self.events_by_track[e.track] = blah
 
         self.favourites = []
 
@@ -229,7 +240,7 @@ class Thing:
 
         store = gtk.TreeStore(str)
 
-        for snake in ["All events", "By room", "Favourites"]:
+        for snake in ["All events", "By room", "By track", "Favourites"]:
             store.append(None, [snake])
 
         treeview = gtk.TreeView(store)
