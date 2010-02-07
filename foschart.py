@@ -97,7 +97,7 @@ class Event:
         self.description = get_text(node, "description")
 
     def summary(self):
-        return "<b>%s</b>\n%s <i>(%s, %s, %s, %s track)</i>" \
+        return "<b>%s</b>\n<small>%s <i>(%s, %s, %s, %s track)</i></small>" \
             % (esc(self.title),
                esc(self.person), esc(self.date), esc(self.start),
                esc(self.room), esc(self.track))
