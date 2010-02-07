@@ -160,7 +160,7 @@ class Thing:
 
         window = mk_window(event.title)
 
-        vbox = gtk.VBox()
+        vbox = gtk.VBox(spacing=12)
 
         label = gtk.Label()
         label.set_markup(event.full())
