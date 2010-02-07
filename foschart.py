@@ -85,6 +85,18 @@ def mk_toggle(title):
 
     return toggle
 
+def calculate_end(start, duration):
+    h1, m1 = start.split(':')
+    h2, m2 = duration.split(':')
+
+    h3 = int(h1) + int(h2)
+    m3 = int(m1) + int(m2)
+
+    h4 = h3 + (m3 / 60)
+    m4 = m3 % 60
+
+    return "%02d:%02d" % (h4, m4)
+
 class Event:
     def __init__(self, node, date):
         self.date = date
@@ -92,14 +104,17 @@ class Event:
         self.title = get_text(node, "title")
         self.person = get_text(node, "person", joiner=', ')
         self.start = get_text(node, "start")
+        self.duration = get_text(node, "duration")
+        self.end = calculate_end(self.start, self.duration)
         self.room = get_text(node, "room")
         self.track = get_text(node, "track")
         self.description = get_text(node, "description")
 
     def summary(self):
-        return "<b>%s</b>\n<small>%s <i>(%s, %s, %s, %s track)</i></small>" \
+        return "<b>%s</b>\n<small>%s <i>(%s, %s–%s, %s, %s track)</i></small>" \
             % (esc(self.title),
-               esc(self.person), esc(self.date), esc(self.start),
+               esc(self.person),
+               esc(self.date), esc(self.start), esc(self.end),
                esc(self.room), esc(self.track))
 
     def full(self):
