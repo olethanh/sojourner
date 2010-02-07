@@ -164,7 +164,7 @@ class Thing:
 
         label = gtk.Label()
         label.set_markup(event.full())
-        label.set_property("wrap", True)
+        label.set_properties(wrap=True, justify=gtk.JUSTIFY_FILL)
         vbox.pack_start(label)
 
         toggle = mk_toggle("Favourite")
