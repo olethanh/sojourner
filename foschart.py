@@ -142,12 +142,14 @@ class Thing:
 
         return os.environ['HOME'] + "/.config/foschart/favourites"
 
-    def toggle_toggled(self, toggle, event):
+    def toggle_toggled(self, toggle, event, update_star):
         if toggle.get_active():
             self.favourites.append(event)
             self.favourites.sort(cmp=by_date_time)
+            update_star(True)
         else:
             self.favourites.remove(event)
+            update_star(False)
 
         f = file(self.favourites_file(), 'w')
         for fav in self.favourites:
@@ -156,7 +158,8 @@ class Thing:
 
     def event_activated(self, treeview, row, column):
         store = treeview.get_property('model')
-        event, = store.get(store.get_iter(row), 1)
+        iter = store.get_iter(row)
+        event, = store.get(iter, 1)
 
         window = mk_window(event.title)
 
@@ -167,9 +170,12 @@ class Thing:
         label.set_properties(wrap=True, justify=gtk.JUSTIFY_FILL)
         vbox.pack_start(label)
 
+        def update_star(state):
+            store.set(iter, 2, state)
+
         toggle = mk_toggle("Favourite")
         toggle.set_active(event in self.favourites)
-        toggle.connect('toggled', self.toggle_toggled, event)
+        toggle.connect('toggled', self.toggle_toggled, event, update_star)
         vbox.pack_start(toggle, False)
 
         sw = mk_sw(vbox, True)
@@ -183,10 +189,11 @@ class Thing:
         if events is None:
             events = self.events
 
-        store = gtk.TreeStore(str, object)
+        store = gtk.TreeStore(str, object, bool)
 
         for event in events:
-            store.append(None, [event.summary(), event])
+            store.append(None, [event.summary(), event,
+                                event in self.favourites])
 
         treeview = gtk.TreeView(store)
         treeview.set_headers_visible(False)
@@ -198,8 +205,15 @@ class Thing:
         cell = gtk.CellRendererText()
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)
         tvcolumn.pack_start(cell, True)
-
         tvcolumn.add_attribute(cell, 'markup', 0)
+
+        cell = gtk.CellRendererPixbuf()
+        # ou! \o/
+        cell.set_property("icon-name",
+            "imageviewer_favourite" if have_hildon else "emblem-special")
+        tvcolumn.pack_start(cell, False)
+        tvcolumn.add_attribute(cell, 'visible', 2)
+
 
         sw = mk_sw(treeview)
         window.add(sw)
