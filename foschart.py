@@ -27,11 +27,7 @@ import pango
 import sys
 import os
 
-try:
-    import hildon
-    have_hildon = True
-except ImportError:
-    have_hildon = False
+from malvern import *
 
 def get_text(parent, name, joiner=''):
     blah = parent.getElementsByTagName(name)
@@ -42,48 +38,6 @@ def get_text(parent, name, joiner=''):
             if node.nodeType == node.TEXT_NODE:
                 things.append(node.data)
     return joiner.join(things)
-
-def esc(x):
-    return gobject.markup_escape_text(x)
-
-#  _______________________
-# ( it's just gtk, right? )
-#  -----------------------
-#        o   ,__,
-#         o  (oo)____
-#            (__)    )\
-#               ||--|| *
-def mk_window(title):
-    if have_hildon:
-        window = hildon.StackableWindow()
-    else:
-        window = gtk.Window()
-        window.set_size_request(400, 240)
-    window.set_title(title)
-    return window
-
-def mk_sw(child, viewport=False):
-    if have_hildon:
-        sw = hildon.PannableArea()
-    else:
-        sw = gtk.ScrolledWindow()
-        sw.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
-
-    if viewport:
-        sw.add_with_viewport(child)
-    else:
-        sw.add(child)
-
-    return sw
-
-def mk_toggle(title):
-    if have_hildon:
-        toggle = hildon.CheckButton(gtk.HILDON_SIZE_FINGER_HEIGHT)
-        toggle.set_label(title)
-    else:
-        toggle = gtk.ToggleButton(label=title)
-
-    return toggle
 
 def calculate_end(start, duration):
     h1, m1 = start.split(':')
@@ -161,7 +115,7 @@ class Thing:
         iter = store.get_iter(row)
         event, = store.get(iter, 1)
 
-        window = mk_window(event.title)
+        window = MaybeStackableWindow(event.title)
 
         vbox = gtk.VBox(spacing=12)
 
@@ -173,18 +127,19 @@ class Thing:
         def update_star(state):
             store.set(iter, 2, state)
 
-        toggle = mk_toggle("Favourite")
+        toggle = MagicCheckButton("Favourite")
         toggle.set_active(event in self.favourites)
         toggle.connect('toggled', self.toggle_toggled, event, update_star)
         vbox.pack_start(toggle, False)
 
-        sw = mk_sw(vbox, True)
-        window.add(sw)
+        pannable = MaybePannableArea()
+        pannable.add_with_viewport(vbox)
+        window.add(pannable)
 
         window.show_all()
 
     def event_list(self, title, events=None):
-        window = mk_window(title)
+        window = MaybeStackableWindow(title)
 
         if events is None:
             events = self.events
@@ -214,9 +169,9 @@ class Thing:
         tvcolumn.pack_start(cell, False)
         tvcolumn.add_attribute(cell, 'visible', 2)
 
-
-        sw = mk_sw(treeview)
-        window.add(sw)
+        pannable = MaybePannableArea()
+        pannable.add(treeview)
+        window.add(pannable)
 
         window.show_all()
 
@@ -227,7 +182,7 @@ class Thing:
         self.event_list(blah, d[blah])
 
     def by_blah(self, d, title):
-        window = mk_window(title)
+        window = MaybeStackableWindow(title)
         store = gtk.TreeStore(str)
 
         for room in sorted(d.keys()):
@@ -246,8 +201,9 @@ class Thing:
 
         tvcolumn.add_attribute(cell, 'markup', 0)
 
-        sw = mk_sw(treeview)
-        window.add(sw)
+        pannable = MaybePannableArea()
+        pannable.add(treeview)
+        window.add(pannable)
 
         window.show_all()
 
@@ -302,7 +258,7 @@ class Thing:
         except IOError:
             pass
 
-        window = mk_window("FOSDEM 2010")
+        window = MaybeStackableWindow("FOSDEM 2010")
         window.connect("delete_event", gtk.main_quit, None)
 
         store = gtk.TreeStore(str)
@@ -323,8 +279,9 @@ class Thing:
 
         tvcolumn.add_attribute(cell, 'markup', 0)
 
-        sw = mk_sw(treeview)
-        window.add(sw)
+        pannable = MaybePannableArea()
+        pannable.add(treeview)
+        window.add(pannable)
 
         #program = hildon.Program.get_instance()
         #program.add_window(window)
