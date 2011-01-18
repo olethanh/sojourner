@@ -22,12 +22,15 @@ import xml.dom.minidom as minidom
 
 import gtk
 import gobject
+import gio
 import pango
+from pynotify import Notification
 
 import sys
 import os
 
 from malvern import *
+from sojourner.updater import Updater
 
 def get_text(parent, name, joiner=''):
     blah = parent.getElementsByTagName(name)
@@ -267,9 +270,16 @@ class Thing:
             # I guess they don't have any favourites
             pass
 
-    def __init__(self):
-        self.parse(sys.path[0] + "/schedule.xml")
+    def fetched_schedule_cb(self, updater, error):
+        updater.destroy()
 
+        if error is None:
+            self.parse(self.schedule_file.get_path())
+        else:
+            print error
+            Notification("Couldn't fetch latest FOSDEM schedule").show()
+
+    def __init__(self):
         window = MaybeStackableWindow("FOSDEM 2010")
         window.connect("delete_event", gtk.main_quit, None)
 
@@ -299,6 +309,21 @@ class Thing:
         #program.add_window(window)
 
         window.show_all()
+
+        self.schedule_file = data_file('fosdem.xml')
+
+        try:
+            self.schedule_file.get_parent().make_directory_with_parents()
+        except gio.Error, e:
+            pass
+
+        if self.schedule_file.query_exists():
+            self.parse(self.schedule_file.get_path())
+        else:
+            updater = Updater(window, 'http://fosdem.org/2011/schedule/xml',
+                self.schedule_file, self.fetched_schedule_cb)
+            updater.show_all()
+
         gtk.main()
 
 if __name__ == "__main__":
