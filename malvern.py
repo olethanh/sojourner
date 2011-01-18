@@ -20,11 +20,34 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import os
 import gtk
 import gobject
+import gio
+
+# First up, some useful functions which are either not in the version of
+# pygobject in Maemo 5, or just really wordy.
 
 def esc(x):
     return gobject.markup_escape_text(x)
+
+def create_parent_directory(path):
+    f = gio.File(path)
+
+    try:
+        f.get_parent().make_directory_with_parents()
+    except gio.Error, e:
+        pass
+
+    return f
+
+def config_file(basename):
+    return create_parent_directory(
+        "%s/.config/sojourner/%s" % (os.environ['HOME'], basename))
+
+def data_file(basename):
+    return create_parent_directory(
+        "%s/.local/share/sojourner/%s" % (os.environ['HOME'], basename))
 
 #  _______________________
 # ( it's just gtk, right? )

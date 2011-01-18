@@ -26,9 +26,6 @@ import gio
 import pango
 from pynotify import Notification
 
-import sys
-import os
-
 from malvern import *
 from sojourner.updater import Updater
 
@@ -84,24 +81,6 @@ def by_date_time(x, y):
         return a
     else:
         return cmp(x.start, y.start)
-
-def create_parent_directory(path):
-    f = gio.File(path)
-
-    try:
-        f.get_parent().make_directory_with_parents()
-    except gio.Error, e:
-        pass
-
-    return f
-
-def config_file(basename):
-    return create_parent_directory(
-        "%s/.config/sojourner/%s" % (os.environ['HOME'], basename))
-
-def data_file(basename):
-    return create_parent_directory(
-        "%s/.local/share/sojourner/%s" % (os.environ['HOME'], basename))
 
 class Thing:
     def favourites_file(self):
