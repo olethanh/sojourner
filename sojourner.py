@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 #
-# FOSDEM 2010 schedule application for the Nokia N900.
-# Copyright © 2010, Will Thompson <will.thompson@collabora.co.uk>
+# Conference schedule application for the Nokia N900.
+# Copyright © 2010, Will Thompson <will@willthompson.co.uk>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -90,11 +90,11 @@ class Thing:
             pass
 
         try:
-            os.mkdir(os.environ['HOME'] + '/.config/foschart')
+            os.mkdir(os.environ['HOME'] + '/.config/sojourner')
         except OSError:
             pass
 
-        return os.environ['HOME'] + "/.config/foschart/favourites"
+        return os.environ['HOME'] + "/.config/sojourner/favourites"
 
     def toggle_toggled(self, toggle, event, update_star):
         if toggle.get_active():
