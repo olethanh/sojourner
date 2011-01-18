@@ -82,19 +82,27 @@ def by_date_time(x, y):
     else:
         return cmp(x.start, y.start)
 
+def create_parent_directory(path):
+    f = gio.File(path)
+
+    try:
+        f.get_parent().make_directory_with_parents()
+    except gio.Error, e:
+        pass
+
+    return f
+
+def config_file(basename):
+    return create_parent_directory(
+        "%s/.config/sojourner/%s" % (os.environ['HOME'], basename))
+
+def data_file(basename):
+    return create_parent_directory(
+        "%s/.local/share/sojourner/%s" % (os.environ['HOME'], basename))
+
 class Thing:
     def favourites_file(self):
-        try:
-            os.mkdir(os.environ['HOME'] + '/.config')
-        except OSError:
-            pass
-
-        try:
-            os.mkdir(os.environ['HOME'] + '/.config/sojourner')
-        except OSError:
-            pass
-
-        return os.environ['HOME'] + "/.config/sojourner/favourites"
+        return config_file('favourites').get_path()
 
     def toggle_toggled(self, toggle, event, update_star):
         if toggle.get_active():
