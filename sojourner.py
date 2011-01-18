@@ -219,14 +219,16 @@ class Thing:
         else:
             print row
 
-    def __init__(self):
-        doc = minidom.parse(sys.path[0] + "/schedule.xml")
+    def parse(self, schedule_path):
+        doc = minidom.parse(schedule_path)
 
         self.events = []
         self.events_by_id = {}
         self.events_by_room = {}
         self.events_by_track = {}
+        self.favourites = []
 
+        # XXX this isn't gonna fly
         zomg = {'2010-02-06': 'Saturday',
                 '2010-02-07': 'Sunday',
                }
@@ -248,15 +250,17 @@ class Thing:
 
         self.events.sort(cmp=by_date_time)
 
-        self.favourites = []
-
         try:
             f = file(self.favourites_file(), 'r')
             for id in f.readlines():
                 self.favourites.append(self.events_by_id[id.strip()])
             f.close()
         except IOError:
+            # I guess they don't have any favourites
             pass
+
+    def __init__(self):
+        self.parse(sys.path[0] + "/schedule.xml")
 
         window = MaybeStackableWindow("FOSDEM 2010")
         window.connect("delete_event", gtk.main_quit, None)
