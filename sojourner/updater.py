@@ -58,13 +58,13 @@ class Updater(gtk.Dialog):
         return True
 
     def _progress_cb(self, current_bytes, total_bytes):
-        fraction = float(current_bytes) / total_bytes
         self._stop_pulsing()
 
         if total_bytes == 0:
             # This is relatively hypothetical
             self._progress.pulse()
         else:
+            fraction = float(current_bytes) / total_bytes
             self._progress.set_fraction(fraction)
 
     def _finished_cb(self, source, result):
