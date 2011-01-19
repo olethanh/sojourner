@@ -3,6 +3,8 @@ import gio
 import glib
 import os.path as path
 
+import threading
+
 class Updater(gtk.Dialog):
     """
     Fetches a fresh copy of the schedule, and shows a progress dialog. We try
@@ -45,13 +47,27 @@ class Updater(gtk.Dialog):
             pass
 
         self._cancellable = gio.Cancellable()
-        self._source.copy_async(self._temp,
-            self._finished_cb, self._progress_cb,
-            cancellable=self._cancellable)
+        # Maemo 5's pygobject doesn't have copy_async. It seems to have copy,
+        # so we can use a thread to basically re-implement copy_async...
+        self._download_thread = threading.Thread(target=self.start_copying,
+            name='Downloader')
+        self._download_thread.daemon = True
+        self._download_thread.start()
+
         # Throb for a while until the file is actively being downloaded.
         self._pulse_timeout = glib.timeout_add(100, self._pulse_cb)
 
         self._finished_cb = finished_cb
+
+    def start_copying(self):
+        try:
+            self._source.copy(self._temp,
+                (lambda c, t: glib.idle_add(self._progress_cb, c, t)),
+                flags=gio.FILE_COPY_OVERWRITE,
+                cancellable=self._cancellable)
+            glib.idle_add(self._finished_copying, None)
+        except Exception, e:
+            glib.idle_add(self._finished_copying, e)
 
     def _pulse_cb(self):
         self._progress.pulse()
@@ -67,17 +83,19 @@ class Updater(gtk.Dialog):
             fraction = float(current_bytes) / total_bytes
             self._progress.set_fraction(fraction)
 
-    def _finished_cb(self, source, result):
+    def _finished_copying(self, e):
         self._stop_pulsing()
 
-        try:
-            source.copy_finish(result)
-            # flags= seems to work here...
-            self._temp.move(self._target, flags=gio.FILE_COPY_OVERWRITE)
-            self._progress.set_fraction(1.0)
-            self._finished_cb(self, None)
-        except gio.Error, e:
+        if e is not None:
             self._finished_cb(self, e)
+        else:
+            try:
+                # flags= seems to work here...
+                self._temp.move(self._target, flags=gio.FILE_COPY_OVERWRITE)
+                self._progress.set_fraction(1.0)
+                self._finished_cb(self, None)
+            except gio.Error, e:
+                self._finished_cb(self, e)
 
     def _stop_pulsing(self):
         if self._pulse_timeout != 0:

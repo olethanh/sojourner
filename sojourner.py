@@ -302,6 +302,7 @@ class Thing:
         gtk.main()
 
 if __name__ == "__main__":
+    gobject.threads_init()
     Thing()
 
 # vim: sts=4 sw=4
