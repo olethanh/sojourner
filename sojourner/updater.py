@@ -29,7 +29,7 @@ class Updater(gtk.Dialog):
         self._progress = gtk.ProgressBar()
         self._progress.set_fraction(0.0)
 
-        self.get_content_area().add(self._progress)
+        self.vbox.pack_start(self._progress)
 
         self.connect('response', Updater._response_cb)
 
