@@ -34,10 +34,29 @@ def esc(x):
 def create_parent_directory(path):
     f = gio.File(path)
 
+    # If the version of pygobject in Maemo weren't prehistoric, we could call:
+    #   f.get_parent().make_directory_with_parents()
+    # Oh well.
+
+    # I couldn't find a combinator for this in functools or itertools. Boo.
+    directories = []
+    g = f.get_parent()
+
+    while g is not None:
+        directories.append(g)
+        g = g.get_parent()
+
     try:
-        f.get_parent().make_directory_with_parents()
+        while directories:
+            try:
+                d = directories.pop()
+                d.make_directory()
+            except gio.Error, e:
+                if e.code != gio.ERROR_EXISTS:
+                    raise
     except gio.Error, e:
-        pass
+        # Oh well. :(
+        print e
 
     return f
 
