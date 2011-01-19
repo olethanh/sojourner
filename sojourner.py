@@ -19,6 +19,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import xml.dom.minidom as minidom
+from datetime import datetime
 
 import gtk
 import gobject
@@ -81,6 +82,9 @@ def by_date_time(x, y):
         return a
     else:
         return cmp(x.start, y.start)
+
+_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
+         'Saturday', 'Sunday']
 
 class Thing:
     def favourites_file(self):
@@ -218,15 +222,11 @@ class Thing:
         self.events_by_track = {}
         self.favourites = []
 
-        # XXX this isn't gonna fly
-        zomg = {'2010-02-06': 'Saturday',
-                '2010-02-07': 'Sunday',
-               }
-
         for day in doc.getElementsByTagName("day"):
-            date = zomg[day.getAttribute('date')]
+            date = datetime.strptime(day.getAttribute('date'), '%Y-%m-%d')
+            day_name = _DAYS[date.weekday()]
             for node in day.getElementsByTagName("event"):
-                e = Event(node, date)
+                e = Event(node, day_name)
                 self.events.append(e)
                 self.events_by_id[e.id] = e
 
