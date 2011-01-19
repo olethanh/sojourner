@@ -291,11 +291,6 @@ class Thing:
 
         self.schedule_file = data_file('fosdem.xml')
 
-        try:
-            self.schedule_file.get_parent().make_directory_with_parents()
-        except gio.Error, e:
-            pass
-
         if self.schedule_file.query_exists():
             self.parse(self.schedule_file.get_path())
         else:
