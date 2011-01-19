@@ -256,7 +256,8 @@ class Thing:
             self.parse(self.schedule_file.get_path())
         else:
             print error
-            Notification("Couldn't fetch latest FOSDEM schedule").show()
+            if error.domain != gio.ERROR or error.code != gio.ERROR_CANCELLED:
+                Notification("Couldn't fetch latest FOSDEM schedule").show()
 
     def __init__(self):
         window = MaybeStackableWindow("FOSDEM 2010")
