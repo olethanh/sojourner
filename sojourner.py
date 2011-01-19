@@ -299,6 +299,9 @@ class Thing:
                 self.schedule_file, self.fetched_schedule_cb)
             updater.show_all()
 
+        if have_hildon:
+            portrait.FremantleRotation("sojourner", window, version='0.1')
+
         gtk.main()
 
 if __name__ == "__main__":
