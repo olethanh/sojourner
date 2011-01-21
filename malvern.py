@@ -84,6 +84,9 @@ try:
 except ImportError:
     have_hildon = False
 
+# ou! \o/
+STAR_ICON = "imageviewer_favourite" if have_hildon else "emblem-special"
+
 class MaybeStackableWindow(hildon.StackableWindow if have_hildon
                            else gtk.Window):
     def __init__(self, title):

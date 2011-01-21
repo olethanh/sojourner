@@ -1,8 +1,7 @@
 import gtk
 import pango
 from malvern import (
-    MaybeStackableWindow, MaybePannableArea, MagicCheckButton,
-    have_hildon,
+    MaybeStackableWindow, MaybePannableArea, MagicCheckButton, STAR_ICON,
 )
 
 class EventList(MaybeStackableWindow):
@@ -30,9 +29,7 @@ class EventList(MaybeStackableWindow):
         tvcolumn.add_attribute(cell, 'markup', 0)
 
         cell = gtk.CellRendererPixbuf()
-        # ou! \o/
-        cell.set_property("icon-name",
-            "imageviewer_favourite" if have_hildon else "emblem-special")
+        cell.set_property("icon-name", STAR_ICON)
         tvcolumn.pack_start(cell, False)
         tvcolumn.add_attribute(cell, 'visible', 2)
 
