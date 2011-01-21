@@ -161,10 +161,16 @@ class MaybeTouchSelector(hildon.TouchSelector if have_hildon else gtk.TreeView):
 gobject.type_register(MaybeTouchSelector)
 
 class MagicButton(hildon.Button if have_hildon else gtk.Button):
-    def __init__(self, label, icon_name=None):
+    def __init__(self, label, icon_name=None, thumb_height=False):
         if have_hildon:
+            if portrait:
+                height_flag = gtk.HILDON_SIZE_THUMB_HEIGHT
+            else:
+                height_flag = gtk.HILDON_SIZE_FINGER_HEIGHT
+
             super(MagicButton, self).__init__(
-                gtk.HILDON_SIZE_AUTO_WIDTH | gtk.HILDON_SIZE_FINGER_HEIGHT,
+                gtk.HILDON_SIZE_AUTO_WIDTH | height_flag,
+                # XXX o rly
                 hildon.BUTTON_ARRANGEMENT_HORIZONTAL,
                 title=label,
                 value=None)
