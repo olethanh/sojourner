@@ -18,9 +18,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import xml.dom.minidom as minidom
-from datetime import datetime
-
 import gtk
 import gobject
 import gio
@@ -29,80 +26,16 @@ from pynotify import Notification
 
 from malvern import *
 from sojourner.updater import Updater
-
-def get_text(parent, name, joiner=''):
-    blah = parent.getElementsByTagName(name)
-
-    things = []
-    for n in blah:
-        for node in n.childNodes:
-            if node.nodeType == node.TEXT_NODE:
-                things.append(node.data)
-    return joiner.join(things)
-
-def calculate_end(start, duration):
-    h1, m1 = start.split(':')
-    h2, m2 = duration.split(':')
-
-    h3 = int(h1) + int(h2)
-    m3 = int(m1) + int(m2)
-
-    h4 = h3 + (m3 / 60)
-    m4 = m3 % 60
-
-    return "%02d:%02d" % (h4, m4)
-
-class Event:
-    def __init__(self, node, date):
-        self.date = date
-        self.id = node.getAttribute('id')
-        self.title = get_text(node, "title")
-        self.person = get_text(node, "person", joiner=', ')
-        self.start = get_text(node, "start")
-        self.duration = get_text(node, "duration")
-        self.end = calculate_end(self.start, self.duration)
-        self.room = get_text(node, "room")
-        self.track = get_text(node, "track")
-        self.description = get_text(node, "description")
-
-    def summary(self):
-        return "<b>%s</b>\n<small>%s <i>(%s, %s–%s, %s, %s track)</i></small>" \
-            % (esc(self.title),
-               esc(self.person),
-               esc(self.date), esc(self.start), esc(self.end),
-               esc(self.room), esc(self.track))
-
-    def full(self):
-        return "%s\n\n%s" \
-            % (self.summary(), esc(self.description))
-
-def by_date_time(x, y):
-    a = cmp(x.date, y.date)
-    if a != 0:
-        return a
-    else:
-        return cmp(x.start, y.start)
-
-_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-         'Saturday', 'Sunday']
+from sojourner.schedule import Schedule
 
 class Thing:
-    def favourites_file(self):
-        return config_file('favourites').get_path()
-
     def toggle_toggled(self, toggle, event, update_star):
         if toggle.get_active():
-            self.favourites.append(event)
-            self.favourites.sort(cmp=by_date_time)
+            self.schedule.add_favourite(event)
             update_star(True)
         else:
-            self.favourites.remove(event)
+            self.schedule.remove_favourite(event)
             update_star(False)
-
-        f = file(self.favourites_file(), 'w')
-        for fav in self.favourites:
-            f.write("%s\n" % fav.id)
-        f.close()
 
     def event_activated(self, treeview, row, column):
         store = treeview.get_property('model')
@@ -122,7 +55,7 @@ class Thing:
             store.set(iter, 2, state)
 
         toggle = MagicCheckButton("Favourite")
-        toggle.set_active(event in self.favourites)
+        toggle.set_active(event in self.schedule.favourites)
         toggle.connect('toggled', self.toggle_toggled, event, update_star)
         vbox.pack_start(toggle, False)
 
@@ -132,17 +65,13 @@ class Thing:
 
         window.show_all()
 
-    def event_list(self, title, events=None):
+    def event_list(self, title, events):
         window = MaybeStackableWindow(title)
-
-        if events is None:
-            events = self.events
-
         store = gtk.TreeStore(str, object, bool)
 
         for event in events:
             store.append(None, [event.summary(), event,
-                                event in self.favourites])
+                                event in self.schedule.favourites])
 
         treeview = gtk.TreeView(store)
         treeview.set_headers_visible(False)
@@ -203,57 +132,21 @@ class Thing:
 
     def view_activated(self, treeview, row, column):
         if row[0] == 0:
-            self.event_list("All events")
+            self.event_list("All events", self.schedule.events)
         elif row[0] == 1:
-            self.by_blah(self.events_by_room, "Rooms")
+            self.by_blah(self.schedule.events_by_room, "Rooms")
         elif row[0] == 2:
-            self.by_blah(self.events_by_track, "Tracks")
+            self.by_blah(self.schedule.events_by_track, "Tracks")
         elif row[0] == 3:
-            self.event_list("Favourites", self.favourites)
+            self.event_list("Favourites", self.schedule.favourites)
         else:
             print row
-
-    def parse(self, schedule_path):
-        doc = minidom.parse(schedule_path)
-
-        self.events = []
-        self.events_by_id = {}
-        self.events_by_room = {}
-        self.events_by_track = {}
-        self.favourites = []
-
-        for day in doc.getElementsByTagName("day"):
-            date = datetime.strptime(day.getAttribute('date'), '%Y-%m-%d')
-            day_name = _DAYS[date.weekday()]
-            for node in day.getElementsByTagName("event"):
-                e = Event(node, day_name)
-                self.events.append(e)
-                self.events_by_id[e.id] = e
-
-                blah = self.events_by_room.get(e.room, [])
-                blah.append(e)
-                self.events_by_room[e.room] = blah
-
-                blah = self.events_by_track.get(e.track, [])
-                blah.append(e)
-                self.events_by_track[e.track] = blah
-
-        self.events.sort(cmp=by_date_time)
-
-        try:
-            f = file(self.favourites_file(), 'r')
-            for id in f.readlines():
-                self.favourites.append(self.events_by_id[id.strip()])
-            f.close()
-        except IOError:
-            # I guess they don't have any favourites
-            pass
 
     def fetched_schedule_cb(self, updater, error):
         updater.destroy()
 
         if error is None:
-            self.parse(self.schedule_file.get_path())
+            self.schedule = Schedule(self.schedule_file.get_path())
         else:
             print error
             if error.domain != gio.ERROR or error.code != gio.ERROR_CANCELLED:
@@ -293,7 +186,7 @@ class Thing:
         self.schedule_file = data_file('fosdem.xml')
 
         if self.schedule_file.query_exists():
-            self.parse(self.schedule_file.get_path())
+            self.schedule = Schedule(self.schedule_file.get_path())
         else:
             updater = Updater(window, 'http://fosdem.org/2011/schedule/xml',
                 self.schedule_file, self.fetched_schedule_cb)
