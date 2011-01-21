@@ -75,7 +75,9 @@ class Schedule(object):
             pass
 
     def _favourites_file(self):
-        return config_file('favourites').get_path()
+        # FIXME: this would need to be based on the schedule_path if we wanted
+        # to support more than one conference.
+        return config_file('fosdem/favourites').get_path()
 
     def _write_favourites(self):
         f = file(self._favourites_file(), 'w')
