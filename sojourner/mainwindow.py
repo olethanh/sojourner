@@ -1,3 +1,4 @@
+import sys
 import gtk
 import gio
 import pango
@@ -68,14 +69,14 @@ class MainWindow(MaybeStackableWindow):
         for ((x, y), button) in zip(coordinates, buttons):
             table.attach(button, x, x + 1, y, y + 1)
 
-        vbox = gtk.VBox(spacing=12)
+        vbox = gtk.VBox(spacing=0)
 
-        # We should have something nicer here.
-        l = gtk.Label()
-        l.set_markup("<span size='larger' weight='bold'>FOSDEM 2011</span>")
-        vbox.pack_start(l, expand=False)
+        # FIXME: obviously this should be looking in prefix/share/sojourner or
+        # whatever.
+        banner = gtk.image_new_from_file(sys.path[0] + '/banner.png')
+        vbox.pack_start(banner, expand=True)
 
-        vbox.pack_start(table, expand=False)
+        vbox.pack_end(table, expand=False)
 
         return vbox
 
