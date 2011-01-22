@@ -87,6 +87,30 @@ except ImportError:
 # ou! \o/
 STAR_ICON = "imageviewer_favourite" if have_hildon else "emblem-special"
 
+# Mmm. It seems—I would love to be corrected on this—that if you want a
+# GtkLabel to fill the available width and also word-wrap, you have to forcibly
+# set its size request. I *believe* that the height-for-width and natural size
+# stuff in really modern Gtk+ fixes this, but that's not available in
+# Fremantle.
+SIDE_MARGIN = 12
+
+if have_hildon:
+    # I measured a screenshot.
+    scroll_bar_width = 8
+
+    LANDSCAPE_SCREEN_WIDTH = 800
+    PORTRAIT_SCREEN_WIDTH = 480
+else:
+    # Whatever
+    scroll_bar_width = 16
+
+    LANDSCAPE_SCREEN_WIDTH = 400
+    PORTRAIT_SCREEN_WIDTH = 240
+
+dead_space = 2 * SIDE_MARGIN + scroll_bar_width
+LANDSCAPE_LABEL_WIDTH = LANDSCAPE_SCREEN_WIDTH - dead_space
+PORTRAIT_LABEL_WIDTH = PORTRAIT_SCREEN_WIDTH - dead_space
+
 class MaybeStackableWindow(hildon.StackableWindow if have_hildon
                            else gtk.Window):
     def __init__(self, title, orientation_changed_cb=None):
@@ -134,7 +158,7 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
         This makes the app look atrocious on plain Gtk+ but that's okay. It
         means it's easy to see when you've forgotten to use this function!"""
         alignment = gtk.Alignment(0.5, 0.5, 1.0, 1.0)
-        alignment.set_padding(6, 0, 12, 12)
+        alignment.set_padding(6, 0, SIDE_MARGIN, SIDE_MARGIN)
         alignment.add(child)
         self.add(alignment)
 

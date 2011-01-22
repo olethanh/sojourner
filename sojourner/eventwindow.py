@@ -2,21 +2,23 @@ import gtk
 import pango
 from malvern import (
     MaybeStackableWindow, MaybePannableArea, MagicCheckButton,
+    LANDSCAPE_LABEL_WIDTH, PORTRAIT_LABEL_WIDTH,
 )
 
 class EventWindow(MaybeStackableWindow):
     def __init__(self, schedule, event, favourite_toggled_cb):
-        MaybeStackableWindow.__init__(self, event.title)
+        MaybeStackableWindow.__init__(self, event.title,
+            self._on_orientation_changed)
         self.schedule = schedule
         self.event = event
         self.favourite_toggled_cb = favourite_toggled_cb
 
         vbox = gtk.VBox(spacing=12)
 
-        label = gtk.Label()
-        label.set_markup(event.full())
-        label.set_properties(wrap=True)
-        vbox.pack_start(label)
+        self.label = gtk.Label()
+        self.label.set_markup(event.full())
+        self.label.set_properties(wrap=True)
+        vbox.pack_start(self.label)
 
         toggle = MagicCheckButton("Favourite")
         toggle.set_active(event in self.schedule.favourites)
@@ -35,3 +37,9 @@ class EventWindow(MaybeStackableWindow):
         else:
             self.schedule.remove_favourite(self.event)
             self.favourite_toggled_cb(False)
+
+    def _on_orientation_changed(self, is_portrait):
+        self.label.set_size_request(
+            width=(PORTRAIT_LABEL_WIDTH if is_portrait
+                                        else LANDSCAPE_LABEL_WIDTH),
+            height=-1)
