@@ -3,6 +3,7 @@ import pango
 from malvern import (
     MaybeStackableWindow, MaybePannableArea, MagicCheckButton, STAR_ICON,
 )
+from sojourner.eventwindow import EventWindow
 
 class EventList(MaybeStackableWindow):
     COL_EVENT_SUMMARY = 0
@@ -47,34 +48,7 @@ class EventList(MaybeStackableWindow):
         i = self.store.get_iter(row)
         event, = self.store.get(i, EventList.COL_EVENT)
 
-        window = MaybeStackableWindow(event.title)
-
-        vbox = gtk.VBox(spacing=12)
-
-        label = gtk.Label()
-        label.set_markup(event.full())
-        label.set_properties(wrap=True)
-        vbox.pack_start(label)
-
         def update_star(state):
             self.store.set(i, EventList.COL_FAVOURITED, state)
 
-        toggle = MagicCheckButton("Favourite")
-        toggle.set_active(event in self.schedule.favourites)
-        toggle.connect('toggled', self.toggle_toggled, event, update_star)
-        vbox.pack_start(toggle, False)
-
-        pannable = MaybePannableArea()
-        pannable.add_with_viewport(vbox)
-        window.add_with_margins(pannable)
-
-        window.show_all()
-
-    def toggle_toggled(self, toggle, event, update_star):
-        if toggle.get_active():
-            self.schedule.add_favourite(event)
-            update_star(True)
-        else:
-            self.schedule.remove_favourite(event)
-            update_star(False)
-
+        EventWindow(self.schedule, event, update_star)
