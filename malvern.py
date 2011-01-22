@@ -92,11 +92,33 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
     def __init__(self, title):
         super(MaybeStackableWindow, self).__init__()
 
-        # Fake a N900-esque size
-        if not have_hildon:
-            self.set_size_request(400, 240)
-
         self.set_title(title)
+
+        if not have_hildon:
+            # Fake a N900-esque size. Obviously this doesn't scale down images
+            # or whatever but it's a reasonable approximation of the kind of
+            # size you can expect.
+            self.set_size_request(400, 240)
+            self.resize(400, 240)
+            self.portrait = False
+
+            # Make mashing 'r' act like rotating the window.
+            def kpe(_window, event):
+                if event.string == 'r':
+                    self.portrait = not self.portrait
+                    if self.portrait:
+                        self.set_size_request(240, 400)
+                        self.resize(240, 400)
+                    else:
+                        self.set_size_request(400, 240)
+                        self.resize(400, 240)
+
+                    return True
+
+                return False
+
+
+            self.connect('key-press-event', kpe)
 
 class MaybePannableArea(hildon.PannableArea if have_hildon
                         else gtk.ScrolledWindow):
