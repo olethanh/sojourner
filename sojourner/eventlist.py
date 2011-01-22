@@ -35,7 +35,7 @@ class EventList(MaybeStackableWindow):
 
         pannable = MaybePannableArea()
         pannable.add(treeview)
-        self.add(pannable)
+        self.add_with_margins(pannable)
 
         self.show_all()
 
@@ -50,7 +50,7 @@ class EventList(MaybeStackableWindow):
 
         label = gtk.Label()
         label.set_markup(event.full())
-        label.set_properties(wrap=True, justify=gtk.JUSTIFY_FILL)
+        label.set_properties(wrap=True)
         vbox.pack_start(label)
 
         def update_star(state):
@@ -63,7 +63,7 @@ class EventList(MaybeStackableWindow):
 
         pannable = MaybePannableArea()
         pannable.add_with_viewport(vbox)
-        window.add(pannable)
+        window.add_with_margins(pannable)
 
         window.show_all()
 

@@ -120,6 +120,19 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
 
             self.connect('key-press-event', kpe)
 
+    def add_with_margins(self, child):
+        """Adds a single widget to the window, with margins that seem to match
+        those used in standard Fremantle applications. (There are supposedly
+        constants for the correct values, but I can't find them in the Python
+        bindings and I don't have the C headers handy. So these are eyeballed.)
+
+        This makes the app look atrocious on plain Gtk+ but that's okay. It
+        means it's easy to see when you've forgotten to use this function!"""
+        alignment = gtk.Alignment(0.5, 0.5, 1.0, 1.0)
+        alignment.set_padding(6, 0, 12, 12)
+        alignment.add(child)
+        self.add(alignment)
+
 class MaybePannableArea(hildon.PannableArea if have_hildon
                         else gtk.ScrolledWindow):
     def __init__(self):

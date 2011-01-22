@@ -28,7 +28,7 @@ class CategoryList(MaybeStackableWindow):
 
         pannable = MaybePannableArea()
         pannable.add(treeview)
-        self.add(pannable)
+        self.add_with_margins(pannable)
 
         self.show_all()
 

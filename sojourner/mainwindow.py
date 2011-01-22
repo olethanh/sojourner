@@ -90,7 +90,7 @@ class MainWindow(MaybeStackableWindow):
         self.views.set_show_tabs(False)
         self.views.append_page(self._make_button_grid(portrait=False))
         self.views.append_page(self._make_button_grid(portrait=True))
-        self.add(self.views)
+        self.add_with_margins(self.views)
         self.show_all()
 
         # We'll find out shortly which way up we actually are. Launching
