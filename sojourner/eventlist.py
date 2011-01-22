@@ -5,18 +5,22 @@ from malvern import (
 )
 
 class EventList(MaybeStackableWindow):
+    COL_EVENT_SUMMARY = 0
+    COL_EVENT = 1
+    COL_FAVOURITED = 2
+
     """Shows a list of events; clicking on an event shows details of that
     event."""
     def __init__(self, schedule, title, events):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
-        store = gtk.TreeStore(str, object, bool)
+        self.store = gtk.TreeStore(str, object, bool)
 
         for event in events:
-            store.append(None, [event.summary(), event,
-                                event in self.schedule.favourites])
+            self.store.append(None, [event.summary(), event,
+                                     event in self.schedule.favourites])
 
-        treeview = gtk.TreeView(store)
+        treeview = gtk.TreeView(self.store)
         treeview.set_headers_visible(False)
         treeview.connect("row-activated", self.event_activated)
 
@@ -26,12 +30,12 @@ class EventList(MaybeStackableWindow):
         cell = gtk.CellRendererText()
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)
         tvcolumn.pack_start(cell, True)
-        tvcolumn.add_attribute(cell, 'markup', 0)
+        tvcolumn.add_attribute(cell, 'markup', EventList.COL_EVENT_SUMMARY)
 
         cell = gtk.CellRendererPixbuf()
         cell.set_property("icon-name", STAR_ICON)
         tvcolumn.pack_start(cell, False)
-        tvcolumn.add_attribute(cell, 'visible', 2)
+        tvcolumn.add_attribute(cell, 'visible', EventList.COL_FAVOURITED)
 
         pannable = MaybePannableArea()
         pannable.add(treeview)
@@ -40,9 +44,8 @@ class EventList(MaybeStackableWindow):
         self.show_all()
 
     def event_activated(self, treeview, row, column):
-        store = treeview.get_property('model')
-        iter = store.get_iter(row)
-        event, = store.get(iter, 1)
+        i = self.store.get_iter(row)
+        event, = self.store.get(i, EventList.COL_EVENT)
 
         window = MaybeStackableWindow(event.title)
 
@@ -54,7 +57,7 @@ class EventList(MaybeStackableWindow):
         vbox.pack_start(label)
 
         def update_star(state):
-            store.set(iter, 2, state)
+            self.store.set(i, EventList.COL_FAVOURITED, state)
 
         toggle = MagicCheckButton("Favourite")
         toggle.set_active(event in self.schedule.favourites)

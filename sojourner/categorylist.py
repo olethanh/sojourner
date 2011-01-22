@@ -4,6 +4,8 @@ from malvern import MaybeStackableWindow, MaybePannableArea
 from sojourner.eventlist import EventList
 
 class CategoryList(MaybeStackableWindow):
+    COL_CATEGORY = 0
+
     def __init__(self, schedule, title, categories):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
@@ -24,7 +26,7 @@ class CategoryList(MaybeStackableWindow):
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)
         tvcolumn.pack_start(cell, True)
 
-        tvcolumn.add_attribute(cell, 'markup', 0)
+        tvcolumn.add_attribute(cell, 'markup', CategoryList.COL_CATEGORY)
 
         pannable = MaybePannableArea()
         pannable.add(treeview)
@@ -33,6 +35,7 @@ class CategoryList(MaybeStackableWindow):
         self.show_all()
 
     def category_activated(self, treeview, row, column):
-        category, = self.store.get(self.store.get_iter(row), 0)
+        i = self.store.get_iter(row)
+        category, = self.store.get(i, CategoryList.COL_CATEGORY)
 
         EventList(self.schedule, category, self.categories[category])
