@@ -132,18 +132,17 @@ class Event(object):
                    ]
         for child in children:
             n = child.nodeName
-            t = get_text(child)
 
             if n == 'title':
-                self.title = t
+                self.title = get_text(child)
             elif n == 'start':
-                self.start = t
+                self.start = get_text(child)
             elif n == 'duration':
-                self.duration = t
+                self.duration = get_text(child)
             elif n == 'track':
-                self.track = t
+                self.track = get_text(child)
             elif n == 'description':
-                self.description = t
+                self.description = get_text(child)
             elif n == 'persons':
                 # FIXME: maybe joining the people together should be up to the
                 # widgets?
