@@ -20,14 +20,7 @@ class MainWindow(MaybeStackableWindow):
             if error.domain != gio.ERROR or error.code != gio.ERROR_CANCELLED:
                 Notification("Couldn't fetch latest FOSDEM schedule").show()
 
-    def _on_configure_event(self, event):
-        is_portrait = event.width < event.height
-
-        if self.is_portrait == is_portrait:
-            return
-
-        self.is_portrait = is_portrait
-
+    def _on_orientation_changed(self, is_portrait):
         if is_portrait:
             self.views.set_current_page(1)
         else:
@@ -81,11 +74,14 @@ class MainWindow(MaybeStackableWindow):
         return vbox
 
     def __init__(self):
-        MaybeStackableWindow.__init__(self, "FOSDEM 2010")
+        MaybeStackableWindow.__init__(self, "FOSDEM 2010",
+            orientation_changed_cb=self._on_orientation_changed)
         self.connect("delete_event", gtk.main_quit, None)
 
         # We use a notebook with no tabs and two pages to flip between
-        # landscape and portrait layouts as necessary.
+        # landscape and portrait layouts as necessary. We'll find out shortly
+        # which way up we actually are, when self._on_orientation_changed is
+        # called for the initial configure event, and select the right tab.
         self.views = gtk.Notebook()
         self.views.set_show_tabs(False)
         self.views.set_show_border(False)
@@ -93,12 +89,6 @@ class MainWindow(MaybeStackableWindow):
         self.views.append_page(self._make_button_grid(portrait=True))
         self.add_with_margins(self.views)
         self.show_all()
-
-        # We'll find out shortly which way up we actually are. Launching
-        # straight into portrait mode doesn't seem to work anyway, so ... no
-        # harm done.
-        self.is_portrait = False
-        self.connect('configure-event', MainWindow._on_configure_event)
 
         if have_hildon:
             portrait.FremantleRotation("sojourner", self, version='0.1')

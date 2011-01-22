@@ -89,10 +89,16 @@ STAR_ICON = "imageviewer_favourite" if have_hildon else "emblem-special"
 
 class MaybeStackableWindow(hildon.StackableWindow if have_hildon
                            else gtk.Window):
-    def __init__(self, title):
+    def __init__(self, title, orientation_changed_cb=None):
         super(MaybeStackableWindow, self).__init__()
-
         self.set_title(title)
+        self.orientation_discovered = False
+        self.is_portrait = False
+        self.orientation_changed_cb = orientation_changed_cb
+
+        if orientation_changed_cb is not None or not have_hildon:
+            self.connect('configure-event',
+                MaybeStackableWindow._on_configure_event)
 
         if not have_hildon:
             # Fake a N900-esque size. Obviously this doesn't scale down images
@@ -100,23 +106,22 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
             # size you can expect.
             self.set_size_request(400, 240)
             self.resize(400, 240)
-            self.portrait = False
 
             # Make mashing 'r' act like rotating the window.
             def kpe(_window, event):
                 if event.string == 'r':
-                    self.portrait = not self.portrait
-                    if self.portrait:
-                        self.set_size_request(240, 400)
-                        self.resize(240, 400)
-                    else:
+                    if self.is_portrait:
                         self.set_size_request(400, 240)
                         self.resize(400, 240)
+                    else:
+                        self.set_size_request(240, 400)
+                        self.resize(240, 400)
 
+                    # We don't update is_portrait; the configure-event callback
+                    # will do that for us.
                     return True
 
                 return False
-
 
             self.connect('key-press-event', kpe)
 
@@ -132,6 +137,20 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
         alignment.set_padding(6, 0, 12, 12)
         alignment.add(child)
         self.add(alignment)
+
+    def _on_configure_event(self, event):
+        is_portrait = event.width < event.height
+
+        # Don't notify the application if we've told them once and there's been
+        # no change.
+        if self.orientation_discovered and self.is_portrait == is_portrait:
+            return
+
+        self.orientation_discovered = True
+        self.is_portrait = is_portrait
+
+        if self.orientation_changed_cb is not None:
+            self.orientation_changed_cb(self.is_portrait)
 
 class MaybePannableArea(hildon.PannableArea if have_hildon
                         else gtk.ScrolledWindow):
