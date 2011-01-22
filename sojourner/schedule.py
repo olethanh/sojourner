@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 import xml.dom.minidom as minidom
+from xml.dom.minidom import Node
 from datetime import datetime
 
 from malvern import config_file, esc
@@ -8,15 +9,36 @@ from malvern import config_file, esc
 _DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
          'Saturday', 'Sunday']
 
-def get_text(parent, name, joiner=''):
-    blah = parent.getElementsByTagName(name)
+def getChildrenByTagName(node, name):
+    """Similar to node.getElementsByTagName(name), but only fetches immediate
+    children."""
+    return [child for child in node.childNodes if child.nodeName == name]
 
-    things = []
-    for n in blah:
-        for node in n.childNodes:
-            if node.nodeType == node.TEXT_NODE:
-                things.append(node.data)
-    return joiner.join(things)
+def get_text(node):
+    """This is a belt-and-braces function for pulling all the text out of a
+    node."""
+    return ''.join([child.data for child in node.childNodes
+                               if child.nodeType == Node.TEXT_NODE])
+
+def get_text_from_children(parent, name, joiner=''):
+    """Given a node, returns the text contents of all its children named
+    'name', joined by 'joiner'. For example, given a node 'foo' representing
+    this stanza:
+
+        <foo>
+          <bar>hello</bar>
+          <baz>not this one</baz>
+          <bar>world</bar>
+        <foo>
+
+    then:
+
+        >>> get_text_from_children(foo, 'bar', joiner=' ')
+        u'hello world'.
+    """
+
+    texts = [get_text(c) for c in getChildrenByTagName(parent, name)]
+    return joiner.join(texts)
 
 def calculate_end(start, duration):
     h1, m1 = start.split(':')
@@ -47,21 +69,25 @@ class Schedule(object):
         self.events_by_track = {}
         self.favourites = []
 
-        for day in doc.getElementsByTagName("day"):
+        for day in getChildrenByTagName(doc.documentElement, 'day'):
             date = datetime.strptime(day.getAttribute('date'), '%Y-%m-%d')
             day_name = _DAYS[date.weekday()]
-            for node in day.getElementsByTagName("event"):
-                e = Event(node, day_name)
-                self.events.append(e)
-                self.events_by_id[e.id] = e
 
-                blah = self.events_by_room.get(e.room, [])
-                blah.append(e)
-                self.events_by_room[e.room] = blah
+            for room_node in getChildrenByTagName(day, 'room'):
+                room = room_node.getAttribute('name')
 
-                blah = self.events_by_track.get(e.track, [])
-                blah.append(e)
-                self.events_by_track[e.track] = blah
+                for node in getChildrenByTagName(room_node, 'event'):
+                    e = Event(node, day_name, room)
+                    self.events.append(e)
+                    self.events_by_id[e.id] = e
+
+                    blah = self.events_by_room.get(e.room, [])
+                    blah.append(e)
+                    self.events_by_room[e.room] = blah
+
+                    blah = self.events_by_track.get(e.track, [])
+                    blah.append(e)
+                    self.events_by_track[e.track] = blah
 
         self.events.sort(cmp=by_date_time)
 
@@ -95,17 +121,37 @@ class Schedule(object):
         self._write_favourites()
 
 class Event(object):
-    def __init__(self, node, date):
+    def __init__(self, node, date, room):
         self.date = date
         self.id = node.getAttribute('id')
-        self.title = get_text(node, "title")
-        self.person = get_text(node, "person", joiner=', ')
-        self.start = get_text(node, "start")
-        self.duration = get_text(node, "duration")
+        self.room = room
+
+        children = [ c for c in node.childNodes
+                       if c.nodeType == Node.ELEMENT_NODE
+                   ]
+        for child in children:
+            n = child.nodeName
+            t = get_text(child)
+
+            if n == 'title':
+                self.title = t
+            elif n == 'start':
+                self.start = t
+            elif n == 'duration':
+                self.duration = t
+            elif n == 'track':
+                self.track = t
+            elif n == 'description':
+                self.description = t
+            elif n == 'persons':
+                # FIXME: maybe joining the people together should be up to the
+                # widgets?
+                self.person = get_text_from_children(child, 'person',
+                    joiner=', ')
+            else:
+                pass
+
         self.end = calculate_end(self.start, self.duration)
-        self.room = get_text(node, "room")
-        self.track = get_text(node, "track")
-        self.description = get_text(node, "description")
 
     def summary(self):
         return "<b>%s</b>\n<small>%s <i>(%s, %s–%s, %s, %s track)</i></small>" \
