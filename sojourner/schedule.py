@@ -15,10 +15,11 @@ def getChildrenByTagName(node, name):
     return [child for child in node.childNodes if child.nodeName == name]
 
 def get_text(node):
-    """This is a belt-and-braces function for pulling all the text out of a
-    node."""
-    return ''.join([child.data for child in node.childNodes
+    """Concatenates all of node's text children, removing single newlines (but
+    preserving paragraphs."""
+    text = ''.join([child.data for child in node.childNodes
                                if child.nodeType == Node.TEXT_NODE])
+    return '\n\n'.join([p.replace('\n', ' ') for p in text.split('\n\n')])
 
 def get_text_from_children(parent, name, joiner=''):
     """Given a node, returns the text contents of all its children named
