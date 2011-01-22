@@ -88,6 +88,7 @@ class MainWindow(MaybeStackableWindow):
         # landscape and portrait layouts as necessary.
         self.views = gtk.Notebook()
         self.views.set_show_tabs(False)
+        self.views.set_show_border(False)
         self.views.append_page(self._make_button_grid(portrait=False))
         self.views.append_page(self._make_button_grid(portrait=True))
         self.add_with_margins(self.views)
