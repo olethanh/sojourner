@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# encoding: utf-8
+# vim: set fileencoding=utf-8 sts=4 sw=4 :
 #
 # Conference schedule application for the Nokia N900.
 # Copyright © 2010, Will Thompson <will@willthompson.co.uk>
@@ -26,5 +26,3 @@ if __name__ == "__main__":
     gobject.threads_init()
     MainWindow()
     gtk.main()
-
-# vim: sts=4 sw=4

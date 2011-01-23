@@ -1,4 +1,4 @@
-# encoding: utf-8
+# vim: set fileencoding=utf-8 sts=4 sw=4 :
 #
 # Malvern:
 #   A bunch of sketchily-defined classes to help write applications that can be

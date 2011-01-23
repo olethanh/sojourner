@@ -1,4 +1,4 @@
-# encoding: utf-8
+# vim: set fileencoding=utf-8 sts=4 sw=4 :
 
 import xml.dom.minidom as minidom
 from xml.dom.minidom import Node

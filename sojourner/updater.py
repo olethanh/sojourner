@@ -1,3 +1,4 @@
+# vim: set fileencoding=utf-8 sts=4 sw=4 :
 import gtk
 import gio
 import glib
