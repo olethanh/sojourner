@@ -185,59 +185,6 @@ class MaybePannableArea(hildon.PannableArea if have_hildon
         if not have_hildon:
             self.set_policy(gtk.POLICY_NEVER, gtk.POLICY_AUTOMATIC)
 
-class MaybeTouchSelector(hildon.TouchSelector if have_hildon else gtk.TreeView):
-    # This matches hildon.TouchSelector's changed signal.
-    if not have_hildon:
-        __gsignals__ = {
-            "changed":
-                (gobject.SIGNAL_RUN_FIRST, gobject.TYPE_NONE, (int,)),
-        }
-
-    def __init__(self, store, markup_column_id):
-        if have_hildon:
-            # If I say text=False, add a text column, multi-select doesn't work.
-            # Fucking Hildon. So I just tonk the first column's model and it
-            # seems to do the job...
-            super(MaybeTouchSelector, self).__init__(text=False)
-            cell = gtk.CellRendererText()
-            col = self.append_column(store, cell)
-            col.add_attribute(cell, 'markup', markup_column_id)
-            self.set_column_selection_mode(
-                hildon.TOUCH_SELECTOR_SELECTION_MODE_MULTIPLE)
-        else:
-            super(MaybeTouchSelector, self).__init__(store)
-            self.set_headers_visible(False)
-            self.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
-
-            name_col = gtk.TreeViewColumn('Name')
-            self.append_column(name_col)
-
-            cell = gtk.CellRendererText()
-            name_col.pack_start(cell, True)
-            name_col.add_attribute(cell, 'markup', markup_column_id)
-
-            self.get_selection().connect('changed', self.selection_changed)
-
-        self.store = store
-        self._select(store.get_current_attendees())
-
-    def selection_changed(self, _):
-        assert not have_hildon
-        self.emit("changed", 0)
-
-    def _select(self, indices):
-        if have_hildon:
-            self.unselect_all(0)
-            for index in indices:
-                self.select_iter(0, self.store.get_iter((index,)), False)
-        else:
-            s = self.get_selection()
-            for index in indices:
-                s.select_path((index,))
-
-
-gobject.type_register(MaybeTouchSelector)
-
 class MagicButton(hildon.Button if have_hildon else gtk.Button):
     def __init__(self, label, icon_name=None, thumb_height=False):
         if have_hildon:
