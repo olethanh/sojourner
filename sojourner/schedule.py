@@ -65,13 +65,18 @@ def by_date_time(x, y):
 
 class Schedule(object):
     def __init__(self, schedule_path):
+        (self.events, self.events_by_id, self.events_by_room,
+            self.events_by_track) = self.__parse_schedule(schedule_path)
+
+        self.favourites = self.__load_favourites()
+
+    def __parse_schedule(self, schedule_path):
         doc = minidom.parse(schedule_path)
 
-        self.events = []
-        self.events_by_id = {}
-        self.events_by_room = {}
-        self.events_by_track = {}
-        self.favourites = []
+        events = []
+        events_by_id = {}
+        events_by_room = {}
+        events_by_track = {}
 
         for day in getChildrenByTagName(doc.documentElement, 'day'):
             date = datetime.strptime(day.getAttribute('date'), '%Y-%m-%d')
@@ -82,27 +87,34 @@ class Schedule(object):
 
                 for node in getChildrenByTagName(room_node, 'event'):
                     e = Event(node, day_name, room)
-                    self.events.append(e)
-                    self.events_by_id[e.id] = e
+                    events.append(e)
+                    events_by_id[e.id] = e
 
-                    blah = self.events_by_room.get(e.room, [])
+                    blah = events_by_room.get(e.room, [])
                     blah.append(e)
-                    self.events_by_room[e.room] = blah
+                    events_by_room[e.room] = blah
 
-                    blah = self.events_by_track.get(e.track, [])
+                    blah = events_by_track.get(e.track, [])
                     blah.append(e)
-                    self.events_by_track[e.track] = blah
+                    events_by_track[e.track] = blah
 
-        self.events.sort(cmp=by_date_time)
+        events.sort(cmp=by_date_time)
+
+        return (events, events_by_id, events_by_room, events_by_track)
+
+    def __load_favourites(self):
+        favourites = []
 
         try:
             f = file(self._favourites_file(), 'r')
             for id in f.readlines():
-                self.favourites.append(self.events_by_id[id.strip()])
+                favourites.append(self.events_by_id[id.strip()])
             f.close()
         except IOError:
             # I guess they don't have any favourites
             pass
+
+        return favourites
 
     def _favourites_file(self):
         # FIXME: this would need to be based on the schedule_path if we wanted
