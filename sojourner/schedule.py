@@ -14,12 +14,15 @@ def getChildrenByTagName(node, name):
     children."""
     return [child for child in node.childNodes if child.nodeName == name]
 
-def get_text(node):
-    """Concatenates all of node's text children, removing single newlines (but
-    preserving paragraphs."""
+def get_text(node, strip_newlines=False):
+    """Concatenates all of node's text children, optionally removing single
+    newlines (but preserving paragraphs)."""
     text = ''.join([child.data for child in node.childNodes
                                if child.nodeType == Node.TEXT_NODE])
-    return '\n\n'.join([p.replace('\n', ' ') for p in text.split('\n\n')])
+    if strip_newlines:
+        return '\n\n'.join([p.replace('\n', ' ') for p in text.split('\n\n')])
+    else:
+        return text
 
 def get_text_from_children(parent, name, joiner=''):
     """Given a node, returns the text contents of all its children named
@@ -142,7 +145,8 @@ class Event(object):
             elif n == 'track':
                 self.track = get_text(child)
             elif n == 'description':
-                self.description = get_text(child)
+                # In practice this is the only place that stray newlines show up
+                self.description = get_text(child, strip_newlines=True)
             elif n == 'persons':
                 # FIXME: maybe joining the people together should be up to the
                 # widgets?
