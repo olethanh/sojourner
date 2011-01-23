@@ -3,6 +3,8 @@
 import xml.dom.minidom as minidom
 from xml.dom.minidom import Node
 from datetime import datetime
+import cPickle
+import os.path
 
 from malvern import config_file, esc
 
@@ -64,11 +66,43 @@ def by_date_time(x, y):
         return cmp(x.start, y.start)
 
 class Schedule(object):
+    """Version number for pickled event data. This must be incremented if this
+    class, or Event, is modified."""
+    __VERSION = 1
+
     def __init__(self, schedule_path):
         (self.events, self.events_by_id, self.events_by_room,
-            self.events_by_track) = self.__parse_schedule(schedule_path)
+            self.events_by_track) = self.__load_schedule(schedule_path)
 
         self.favourites = self.__load_favourites()
+
+    def __load_schedule(self, schedule_path):
+        """Tries to load the schedule from a pre-parsed pickle file; if that
+        doesn't fly, reads the actual XML and pickles the result for later."""
+        pickle_path = schedule_path + '.pickle'
+
+        try:
+            if os.path.getmtime(pickle_path) <= os.path.getmtime(schedule_path):
+                raise Exception('pickle is out of date')
+
+            version, stuff = cPickle.load(open(pickle_path, 'rb'))
+
+            if version != Schedule.__VERSION:
+                raise Exception('expected version %u, got version %u' %
+                    (Schedule.__VERSION, version))
+
+            return stuff
+        except Exception, e:
+            stuff = self.__parse_schedule(schedule_path)
+
+            try:
+                cPickle.dump((Schedule.__VERSION, stuff),
+                    open(pickle_path, 'wb'),
+                    protocol=2)
+            except Exception, e:
+                print "Couldn't pickle schedule: %s" % e
+
+            return stuff
 
     def __parse_schedule(self, schedule_path):
         doc = minidom.parse(schedule_path)
