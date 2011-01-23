@@ -6,19 +6,23 @@ import pango
 from pynotify import Notification
 from malvern import *
 from sojourner.updater import Updater
-from sojourner.schedule import Schedule
+from sojourner.schedule import Schedule, MalformedSchedule
 from sojourner.eventlist import EventList
 from sojourner.categorylist import CategoryList
 
 class MainWindow(MaybeStackableWindow):
-    def fetched_schedule_cb(self, updater, error):
+    def fetched_schedule_cb(self, updater, schedule, exc):
         updater.destroy()
 
-        if error is None:
-            self.schedule = Schedule(self.schedule_file.get_path())
+        if schedule is not None:
+            self.schedule = schedule
         else:
-            print error
-            if error.domain != gio.ERROR or error.code != gio.ERROR_CANCELLED:
+            print repr(exc)
+            # Should I use a fake try: raise; except: maybe?
+            if isinstance(exc, MalformedSchedule):
+                Notification("Schedule file was malformed").show()
+            elif not isinstance(exc, gio.Error) or \
+                    exc.code != gio.ERROR_CANCELLED:
                 Notification("Couldn't fetch latest FOSDEM schedule").show()
 
     def _on_orientation_changed(self, is_portrait):

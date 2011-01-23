@@ -6,6 +6,8 @@ import os.path as path
 
 import threading
 
+from sojourner.schedule import Schedule
+
 class Updater(gtk.Dialog):
     """
     Fetches a fresh copy of the schedule, and shows a progress dialog. We try
@@ -19,8 +21,12 @@ class Updater(gtk.Dialog):
         parent:       a gtk.Window
         url:          the URL to fetch
         target:       a gio.File object at which to save the URL's contents
-        finished_cb:  a function accepting this Updater object and a gio.Error
-                      (which is None if we finished successfully)
+        finished_cb:  a function taking three arguments:
+                          updater: this Updater object
+                          schedule: the parsed schedule, or None if
+                                    download/parsing failed
+                          exc: the exception which occurred, or None
+                               if schedule is not None
         """
 
         # Set up the widget
@@ -61,13 +67,25 @@ class Updater(gtk.Dialog):
                 flags=gio.FILE_COPY_OVERWRITE,
                 cancellable=self.__cancellable)
 
-            # FIXME: parse the new file to make sure it's actually valid before
-            # overwriting any existing file.
-            self.__temp.move(self.__target, flags=gio.FILE_COPY_OVERWRITE)
+            # FIXME: after this point we can't actually cancel …
 
-            glib.idle_add(self.__finished_copying, None)
+            # Start pulsing again while we actually parse the thing.
+            glib.idle_add(self.__start_pulsing)
+
+            schedule = Schedule(self.__temp.get_path())
+
+            # This is a bit of a kludge: ideally we wouldn't have to know about
+            # the pickle file that Schedule creates. Maybe we should move a
+            # directory instead?
+            temp_pickle = gio.File(self.__temp.get_path() + '.pickle')
+            target_pickle = gio.File(self.__target.get_path() + '.pickle')
+
+            self.__temp.move(self.__target, flags=gio.FILE_COPY_OVERWRITE)
+            temp_pickle.move(target_pickle, flags=gio.FILE_COPY_OVERWRITE)
+
+            glib.idle_add(self.__finished_copying, schedule, None)
         except Exception, e:
-            glib.idle_add(self.__finished_copying, e)
+            glib.idle_add(self.__finished_copying, None, e)
 
     def __progress_cb(self, current_bytes, total_bytes):
         """Called (in an idle, so in the glib mainloop thread) for each chunk
@@ -82,10 +100,12 @@ class Updater(gtk.Dialog):
             fraction = float(current_bytes) / total_bytes
             self.__progress.set_fraction(fraction)
 
-    def __finished_copying(self, e):
+    def __finished_copying(self, schedule, exc):
+        """Called in the mainloop thread when the download has succeeded or
+        failed."""
         self.__stop_pulsing()
         self.__progress.set_fraction(1.0)
-        self.__finished_cb(self, e)
+        self.__finished_cb(self, schedule, exc)
 
     def __start_pulsing(self):
         if self.__pulse_timeout == 0:
