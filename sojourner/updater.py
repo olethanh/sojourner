@@ -24,8 +24,8 @@ class Updater(gtk.Dialog):
         """
 
         # Set up the widget
-        gtk.Dialog.__init__(self, title='Updating schedule', parent=parent,
-            buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
+        gtk.Dialog.__init__(self, title='Downloading the latest schedule…',
+            parent=parent, buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL))
 
         self._progress = gtk.ProgressBar()
         self._progress.set_fraction(0.0)
