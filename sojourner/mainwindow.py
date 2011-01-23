@@ -16,6 +16,11 @@ class MainWindow(MaybeStackableWindow):
 
         if schedule is not None:
             self.schedule = schedule
+
+            # Hooray! We can now let the user interact with the application, if
+            # they weren't already.
+            for b in self.buttons:
+                b.set_sensitive(True)
         else:
             print repr(exc)
             # Should I use a fake try: raise; except: maybe?
@@ -36,6 +41,7 @@ class MainWindow(MaybeStackableWindow):
         def _make_button(label, on_activated, icon=None):
             b = MagicButton(label, icon, thumb_height=True)
             b.connect('clicked', on_activated)
+            self.buttons.add(b)
             return b
 
         buttons = [ _make_button(*x) for x in [
@@ -90,6 +96,7 @@ class MainWindow(MaybeStackableWindow):
         self.views = gtk.Notebook()
         self.views.set_show_tabs(False)
         self.views.set_show_border(False)
+        self.buttons = set()
         self.views.append_page(self._make_button_grid(portrait=False))
         self.views.append_page(self._make_button_grid(portrait=True))
         self.add_with_margins(self.views)
@@ -98,13 +105,22 @@ class MainWindow(MaybeStackableWindow):
         if have_hildon:
             portrait.FremantleRotation("sojourner", self, version='0.1')
 
-        # FIXME: We should parse in a thread. It takes ages, and makes the app
-        # appear to start more slowly...
-        self.schedule_file = data_file('fosdem.xml')
+        schedule_file = data_file('fosdem.xml')
 
-        if self.schedule_file.query_exists():
-            self.schedule = Schedule(self.schedule_file.get_path())
-        else:
+        try:
+            # FIXME: if we have a schedule but no pickle file, this takes ages
+            # and makes the app seem to take forever to start. We could run
+            # this in a thread. But the updater does do this in a thread; so at
+            # worst if the user somehow ends up with the schedule XML but no
+            # pickle file the UI will block once, the next time they start the
+            # app.
+            self.schedule = Schedule(schedule_file.get_path())
+        except Exception, e:
+            # Stop the user from interacting with the application until we have
+            # a schedule.
+            for b in self.buttons:
+                b.set_sensitive(False)
+
             updater = Updater(self, 'http://fosdem.org/2011/schedule/xml',
-                self.schedule_file, self.fetched_schedule_cb)
+                schedule_file, self.fetched_schedule_cb)
             updater.show_all()
