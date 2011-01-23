@@ -2,6 +2,7 @@
 
 import xml.dom.minidom as minidom
 from xml.dom.minidom import Node
+from xml.parsers.expat import ExpatError
 from datetime import datetime
 import cPickle
 import os.path
@@ -65,6 +66,9 @@ def by_date_time(x, y):
     else:
         return cmp(x.start, y.start)
 
+class MalformedSchedule(Exception):
+    pass
+
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
     class, or Event, is modified."""
@@ -105,7 +109,16 @@ class Schedule(object):
             return stuff
 
     def __parse_schedule(self, schedule_path):
-        doc = minidom.parse(schedule_path)
+        try:
+            doc = minidom.parse(schedule_path)
+        except ExpatError, e:
+            raise MalformedSchedule(e)
+
+        schedule_elt = doc.documentElement
+
+        if doc.documentElement.nodeName != 'schedule':
+            raise MalformedSchedule('Root element was <%s/>, not <schedule/>' %
+                doc.documentElement.nodeName)
 
         events = []
         events_by_id = {}
