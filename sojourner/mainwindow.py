@@ -105,7 +105,7 @@ class MainWindow(MaybeStackableWindow):
         if have_hildon:
             portrait.FremantleRotation("sojourner", self, version='0.1')
 
-        schedule_file = data_file('fosdem.xml')
+        schedule_file = config_file('fosdem/schedule.xml')
 
         try:
             # FIXME: if we have a schedule but no pickle file, this takes ages
