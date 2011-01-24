@@ -75,9 +75,8 @@ class MainWindow(MaybeStackableWindow):
 
         vbox = gtk.VBox(spacing=0)
 
-        # FIXME: obviously this should be looking in prefix/share/sojourner or
-        # whatever.
-        banner = gtk.image_new_from_file(sys.path[0] + '/banner.png')
+        # FIXME: this should not be hardcoded.
+        banner = gtk.image_new_from_file('/usr/share/sojourner/banner.png')
         vbox.pack_start(banner, expand=True)
 
         vbox.pack_end(table, expand=False)
