@@ -75,18 +75,21 @@ class Schedule(object):
     __VERSION = 1
 
     def __init__(self, schedule_path):
+        self.schedule_path = schedule_path
+
         (self.events, self.events_by_id, self.events_by_room,
-            self.events_by_track) = self.__load_schedule(schedule_path)
+            self.events_by_track) = self.__load_schedule()
 
         self.favourites = self.__load_favourites()
 
-    def __load_schedule(self, schedule_path):
+    def __load_schedule(self):
         """Tries to load the schedule from a pre-parsed pickle file; if that
         doesn't fly, reads the actual XML and pickles the result for later."""
-        pickle_path = schedule_path + '.pickle'
+        pickle_path = self.schedule_path + '.pickle'
 
         try:
-            if os.path.getmtime(pickle_path) <= os.path.getmtime(schedule_path):
+            if os.path.getmtime(pickle_path) <= \
+                    os.path.getmtime(self.schedule_path):
                 raise Exception('pickle is out of date')
 
             version, stuff = cPickle.load(open(pickle_path, 'rb'))
@@ -97,7 +100,7 @@ class Schedule(object):
 
             return stuff
         except Exception, e:
-            stuff = self.__parse_schedule(schedule_path)
+            stuff = self.__parse_schedule()
 
             try:
                 cPickle.dump((Schedule.__VERSION, stuff),
@@ -108,9 +111,9 @@ class Schedule(object):
 
             return stuff
 
-    def __parse_schedule(self, schedule_path):
+    def __parse_schedule(self):
         try:
-            doc = minidom.parse(schedule_path)
+            doc = minidom.parse(self.schedule_path)
         except ExpatError, e:
             raise MalformedSchedule(e)
 
