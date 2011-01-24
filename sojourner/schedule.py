@@ -72,7 +72,7 @@ class MalformedSchedule(Exception):
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
     class, or Event, is modified."""
-    __VERSION = 1
+    __VERSION = 2
 
     def __init__(self, schedule_path):
         self.schedule_path = schedule_path
@@ -204,8 +204,14 @@ class Event(object):
                 self.duration = get_text(child)
             elif n == 'track':
                 self.track = get_text(child)
+
+            # In practice, abstract and description are the only places that
+            # stray newlines show up. FIXME: I think they're actually in
+            # Markdown format, maybe we could use Python-Markdown to do better
+            # than this?
+            elif n == 'abstract':
+                self.abstract = get_text(child, strip_newlines=True)
             elif n == 'description':
-                # In practice this is the only place that stray newlines show up
                 self.description = get_text(child, strip_newlines=True)
             elif n == 'persons':
                 # FIXME: maybe joining the people together should be up to the
@@ -225,5 +231,6 @@ class Event(object):
                esc(self.room), esc(self.track))
 
     def full(self):
-        return "%s\n\n%s" \
-            % (self.summary(), esc(self.description))
+        # FIXME: be smarter if either abstract or description are missing.
+        return "%s\n\n%s\n%s" \
+            % (self.summary(), esc(self.abstract), esc(self.description))
