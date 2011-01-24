@@ -149,6 +149,10 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
 
             self.connect('key-press-event', kpe)
 
+            self.vbox = gtk.VBox()
+            self.add(self.vbox)
+            self.menu_buttons = None
+
     def add_with_margins(self, child):
         """Adds a single widget to the window, with margins that seem to match
         those used in standard Fremantle applications. (There are supposedly
@@ -160,7 +164,15 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
         alignment = gtk.Alignment(0.5, 0.5, 1.0, 1.0)
         alignment.set_padding(6, 0, SIDE_MARGIN, SIDE_MARGIN)
         alignment.add(child)
-        self.add(alignment)
+
+        if have_hildon:
+            self.add(alignment)
+        else:
+            self.vbox.pack_end(alignment)
+
+    if not have_hildon:
+        def set_app_menu(self, menu):
+            self.vbox.pack_start(menu, expand=False)
 
     def _on_configure_event(self, event):
         is_portrait = event.width < event.height
@@ -175,6 +187,15 @@ class MaybeStackableWindow(hildon.StackableWindow if have_hildon
 
         if self.orientation_changed_cb is not None:
             self.orientation_changed_cb(self.is_portrait)
+
+class AppMenu(hildon.AppMenu if have_hildon else gtk.HButtonBox):
+    def __init__(self):
+        super(AppMenu, self).__init__()
+
+    # Ick, python lets you do this.
+    if not have_hildon:
+        def append(self, button):
+            self.add(button)
 
 class MaybePannableArea(hildon.PannableArea if have_hildon
                         else gtk.ScrolledWindow):
