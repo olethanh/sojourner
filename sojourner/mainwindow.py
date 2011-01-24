@@ -85,7 +85,7 @@ class MainWindow(MaybeStackableWindow):
         return vbox
 
     def __init__(self):
-        MaybeStackableWindow.__init__(self, "FOSDEM 2010",
+        MaybeStackableWindow.__init__(self, "FOSDEM 2011",
             orientation_changed_cb=self._on_orientation_changed)
         self.connect("delete_event", gtk.main_quit, None)
 
@@ -121,6 +121,6 @@ class MainWindow(MaybeStackableWindow):
             for b in self.buttons:
                 b.set_sensitive(False)
 
-            updater = Updater(self, 'http://fosdem.org/2011/schedule/xml',
+            updater = Updater(self, 'http://fosdem.org/schedule/xml',
                 schedule_file, self.fetched_schedule_cb)
             updater.show_all()
