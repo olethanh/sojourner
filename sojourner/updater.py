@@ -41,7 +41,7 @@ class Updater(gtk.Dialog):
 
         # Stash urls and things
         self.__source = gio.File(url)
-        self.__temp = gio.File('/tmp/' + target.get_basename())
+        self.__temp = gio.File(target.get_path() + '.tmp')
         self.__target = target
         self.__finished_cb = finished_cb
 
