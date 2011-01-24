@@ -7,7 +7,6 @@ setup(
     author='Will Thompson',
     author_email='will@willthompson.co.uk',
     url='http://gitorious.org/sojourner',
-    py_modules=['malvern', 'portrait'],
     packages=['sojourner'],
     scripts=['sojourner.py'],
     data_files=[('share/sojourner', ['banner.png'])],

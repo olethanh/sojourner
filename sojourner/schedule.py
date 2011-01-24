@@ -7,7 +7,7 @@ from datetime import datetime
 import cPickle
 import os.path
 
-from malvern import config_file, esc
+from sojourner.malvern import config_file, esc
 
 _DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
          'Saturday', 'Sunday']

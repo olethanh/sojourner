@@ -3,7 +3,7 @@
 from itertools import groupby
 import gtk
 import pango
-from malvern import MaybeStackableWindow, MaybePannableArea, esc
+from sojourner.malvern import MaybeStackableWindow, MaybePannableArea, esc
 from sojourner.eventlist import EventList
 
 def summarize_events(events):

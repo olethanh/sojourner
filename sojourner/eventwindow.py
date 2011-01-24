@@ -1,7 +1,7 @@
 # vim: set fileencoding=utf-8 sts=4 sw=4 :
 import gtk
 import pango
-from malvern import (
+from sojourner.malvern import (
     MaybeStackableWindow, MaybePannableArea, MagicCheckButton,
     LANDSCAPE_LABEL_WIDTH, PORTRAIT_LABEL_WIDTH,
 )

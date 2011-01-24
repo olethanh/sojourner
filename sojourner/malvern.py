@@ -79,7 +79,7 @@ def data_file(basename):
 
 try:
     import hildon
-    import portrait
+    import sojourner.portrait
     have_hildon = True
 except ImportError:
     have_hildon = False
@@ -209,7 +209,7 @@ class MaybePannableArea(hildon.PannableArea if have_hildon
 class MagicButton(hildon.Button if have_hildon else gtk.Button):
     def __init__(self, label, icon_name=None, thumb_height=False):
         if have_hildon:
-            if portrait:
+            if thumb_height:
                 height_flag = gtk.HILDON_SIZE_THUMB_HEIGHT
             else:
                 height_flag = gtk.HILDON_SIZE_FINGER_HEIGHT
