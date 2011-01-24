@@ -85,7 +85,17 @@ class MainWindow(MaybeStackableWindow):
         return vbox
 
     def run_updater(self):
-        updater = Updater(self, 'http://fosdem.org/schedule/xml',
+        updater = Updater(self,
+            # FIXME: this ought to be 'http://fosdem.org/schedule/xml' but that
+            # redirects to an https: URI and GLib in Fremantle seems to be
+            # broken and just fails with 'HTTP Error: Connection terminated
+            # unexpectedly'. So I have a cronjob on my server that mirrors the
+            # schedule. I am so sorry.
+            #
+            # If someone were feeling keen they could reimplement Updater using
+            # urllib2. They could also make it support If-Modified-Since and
+            # gzip.
+            'http://willthompson.co.uk/misc/sojourner/xml',
             self.schedule_file, self.fetched_schedule_cb)
         updater.show_all()
 
