@@ -84,6 +84,21 @@ class MainWindow(MaybeStackableWindow):
 
         return vbox
 
+    def run_updater(self):
+        updater = Updater(self, 'http://fosdem.org/schedule/xml',
+            self.schedule_file, self.fetched_schedule_cb)
+        updater.show_all()
+
+    def make_menu(self):
+        menu = AppMenu()
+
+        button = gtk.Button("Refresh schedule")
+        button.connect('clicked', lambda button: self.run_updater())
+        menu.append(button)
+
+        menu.show_all()
+        self.set_app_menu(menu)
+
     def __init__(self):
         MaybeStackableWindow.__init__(self, "FOSDEM 2011",
             orientation_changed_cb=self._on_orientation_changed)
@@ -102,10 +117,12 @@ class MainWindow(MaybeStackableWindow):
         self.add_with_margins(self.views)
         self.show_all()
 
+        self.make_menu()
+
         if have_hildon:
             portrait.FremantleRotation("sojourner", self, version='0.1')
 
-        schedule_file = config_file('fosdem/schedule.xml')
+        self.schedule_file = config_file('fosdem/schedule.xml')
 
         try:
             # FIXME: if we have a schedule but no pickle file, this takes ages
@@ -114,13 +131,11 @@ class MainWindow(MaybeStackableWindow):
             # worst if the user somehow ends up with the schedule XML but no
             # pickle file the UI will block once, the next time they start the
             # app.
-            self.schedule = Schedule(schedule_file.get_path())
+            self.schedule = Schedule(self.schedule_file.get_path())
         except Exception, e:
             # Stop the user from interacting with the application until we have
             # a schedule.
             for b in self.buttons:
                 b.set_sensitive(False)
 
-            updater = Updater(self, 'http://fosdem.org/schedule/xml',
-                schedule_file, self.fetched_schedule_cb)
-            updater.show_all()
+            self.run_updater()
