@@ -23,7 +23,15 @@ def get_text(node, strip_newlines=False):
     text = ''.join([child.data for child in node.childNodes
                                if child.nodeType == Node.TEXT_NODE])
     if strip_newlines:
-        return '\n\n'.join([p.replace('\n', ' ') for p in text.split('\n\n')])
+        # The schedule has a bunch of places which do this:
+        #   "paragraph one\n\nparagraph two"
+        # and some that do this:
+        #   "paragraph one\n \nparagraph two"
+        # This is tediously ad-hoc, and a real Markdown parser would be better.
+        tidier_double_newlines = '\n'.join(text.split(' \n'))
+        return '\n\n'.join(
+            [p.replace('\n', ' ')
+                for p in tidier_double_newlines.split('\n\n')])
     else:
         return text
 
@@ -72,7 +80,7 @@ class MalformedSchedule(Exception):
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
     class, or Event, is modified."""
-    __VERSION = 2
+    __VERSION = 3
 
     def __init__(self, schedule_path):
         self.schedule_path = schedule_path
