@@ -109,7 +109,7 @@ class MainWindow(MaybeStackableWindow):
         self.set_app_menu(menu)
 
     def __init__(self):
-        MaybeStackableWindow.__init__(self, "FOSDEM 2011",
+        MaybeStackableWindow.__init__(self, "Sojourner",
             orientation_changed_cb=self._on_orientation_changed)
         self.connect("delete_event", gtk.main_quit, None)
 
