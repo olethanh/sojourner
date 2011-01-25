@@ -29,11 +29,11 @@ def get_text(node, strip_newlines=False):
         #   "paragraph one\n \nparagraph two"
         # This is tediously ad-hoc, and a real Markdown parser would be better.
         tidier_double_newlines = '\n'.join(text.split(' \n'))
-        return '\n\n'.join(
+        text = '\n\n'.join(
             [p.replace('\n', ' ')
                 for p in tidier_double_newlines.split('\n\n')])
-    else:
-        return text
+
+    return text.lstrip().rstrip()
 
 def get_text_from_children(parent, name, joiner=''):
     """Given a node, returns the text contents of all its children named
@@ -80,7 +80,7 @@ class MalformedSchedule(Exception):
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
     class, or Event, is modified."""
-    __VERSION = 3
+    __VERSION = 5
 
     def __init__(self, schedule_path):
         self.schedule_path = schedule_path
