@@ -1,9 +1,8 @@
 [Desktop Entry]
+Version=1.0
 Encoding=UTF-8
-Version=0.0.1
 Type=Application
 Name=Sojourner
-Exec=python /opt/sojourner/sojourner.py
-X-HildonDesk-ShowInToolbar=true
-X-Osso-Type=application/x-executable
+Icon=sojourner
+Exec=/usr/bin/sojourner
 

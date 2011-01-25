@@ -8,7 +8,8 @@ setup(
     author_email='will@willthompson.co.uk',
     url='http://gitorious.org/sojourner',
     packages=['sojourner'],
-    scripts=['sojourner.py'],
+    scripts=['bin/sojourner'],
+    py_modules=['sojourner'],
     data_files=[('share/sojourner', ['banner.png'])],
     license='GPL v3',
 )
