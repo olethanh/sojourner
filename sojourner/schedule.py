@@ -232,7 +232,7 @@ class Event(object):
         self.end = calculate_end(self.start, self.duration)
 
     def summary(self):
-        return "<b>%s</b>\n<small>%s <i>(%s, %s–%s, %s, %s track)</i></small>" \
+        return "<b>%s</b>\n<small>%s <i>(%s, %s–%s, %s, %s)</i></small>" \
             % (esc(self.title),
                esc(self.person),
                esc(self.date), esc(self.start), esc(self.end),
