@@ -240,5 +240,5 @@ class Event(object):
 
     def full(self):
         # FIXME: be smarter if either abstract or description are missing.
-        return "%s\n\n%s\n%s" \
+        return "%s\n\n%s\n\n%s" \
             % (self.summary(), esc(self.abstract), esc(self.description))
