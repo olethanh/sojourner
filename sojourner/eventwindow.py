@@ -19,12 +19,12 @@ class EventWindow(MaybeStackableWindow):
         self.label = gtk.Label()
         self.label.set_markup(event.full())
         self.label.set_properties(wrap=True)
-        vbox.pack_start(self.label)
+        vbox.pack_start(self.label, expand=False)
 
         toggle = MagicCheckButton("Favourite")
         toggle.set_active(event in self.schedule.favourites)
         toggle.connect('toggled', self.toggle_toggled)
-        vbox.pack_start(toggle, False)
+        vbox.pack_end(toggle, expand=False)
 
         pannable = MaybePannableArea()
         pannable.add_with_viewport(vbox)
