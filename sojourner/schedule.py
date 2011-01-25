@@ -239,6 +239,15 @@ class Event(object):
                esc(self.room), esc(self.track))
 
     def full(self):
-        # FIXME: be smarter if either abstract or description are missing.
-        return "%s\n\n%s\n\n%s" \
-            % (self.summary(), esc(self.abstract), esc(self.description))
+        if self.description.startswith(self.abstract):
+            desc = self.description[len(self.abstract):]
+        else:
+            desc = self.description
+
+        if desc == '':
+            return "%s\n\n%s" % (self.summary(), esc(self.abstract))
+        elif self.abstract == '':
+            return "%s\n\n%s" % (self.summary(), esc(desc))
+        else:
+            return "%s\n\n%s\n\n%s" \
+                % (self.summary(), esc(self.abstract), esc(desc))
