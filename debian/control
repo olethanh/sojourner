@@ -1,7 +1,7 @@
 Source: sojourner
 Priority: optional
 Maintainer: Will Thompson <will@willthompson.co.uk>
-Build-Depends: debhelper, cdbs, python2.5
+Build-Depends: debhelper, cdbs, python2.5, python-central
 XS-Python-Version: all
 
 Package: sojourner
