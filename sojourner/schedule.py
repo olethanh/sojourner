@@ -3,14 +3,11 @@
 import xml.dom.minidom as minidom
 from xml.dom.minidom import Node
 from xml.parsers.expat import ExpatError
-from datetime import datetime
+import datetime as dt
 import cPickle
 import os.path
 
 from sojourner.malvern import config_file, esc
-
-_DAYS = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday',
-         'Saturday', 'Sunday']
 
 def getChildrenByTagName(node, name):
     """Similar to node.getElementsByTagName(name), but only fetches immediate
@@ -35,6 +32,10 @@ def get_text(node, strip_newlines=False):
 
     return text.lstrip().rstrip()
 
+def get_time_delta(node):
+    (h, m) = get_text(node).split(':')
+    return dt.timedelta(hours=int(h), minutes=int(m))
+
 def get_text_from_children(parent, name, joiner=''):
     """Given a node, returns the text contents of all its children named
     'name', joined by 'joiner'. For example, given a node 'foo' representing
@@ -55,24 +56,9 @@ def get_text_from_children(parent, name, joiner=''):
     texts = [get_text(c) for c in getChildrenByTagName(parent, name)]
     return joiner.join(texts)
 
-def calculate_end(start, duration):
-    h1, m1 = start.split(':')
-    h2, m2 = duration.split(':')
-
-    h3 = int(h1) + int(h2)
-    m3 = int(m1) + int(m2)
-
-    h4 = h3 + (m3 / 60)
-    m4 = m3 % 60
-
-    return "%02d:%02d" % (h4, m4)
-
-def by_date_time(x, y):
-    a = cmp(x.date, y.date)
-    if a != 0:
-        return a
-    else:
-        return cmp(x.start, y.start)
+def by_start_time(x, y):
+    # FIXME: should this be Event.__cmp__?
+    return cmp(x.start, y.start)
 
 class MalformedSchedule(Exception):
     pass
@@ -80,7 +66,7 @@ class MalformedSchedule(Exception):
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
     class, or Event, is modified."""
-    __VERSION = 5
+    __VERSION = 6
 
     def __init__(self, schedule_path):
         self.schedule_path = schedule_path
@@ -137,14 +123,13 @@ class Schedule(object):
         events_by_track = {}
 
         for day in getChildrenByTagName(doc.documentElement, 'day'):
-            date = datetime.strptime(day.getAttribute('date'), '%Y-%m-%d')
-            day_name = _DAYS[date.weekday()]
+            date = dt.datetime.strptime(day.getAttribute('date'), '%Y-%m-%d')
 
             for room_node in getChildrenByTagName(day, 'room'):
                 room = room_node.getAttribute('name')
 
                 for node in getChildrenByTagName(room_node, 'event'):
-                    e = Event(node, day_name, room)
+                    e = Event(node, date, room)
                     events.append(e)
                     events_by_id[e.id] = e
 
@@ -156,7 +141,7 @@ class Schedule(object):
                     blah.append(e)
                     events_by_track[e.track] = blah
 
-        events.sort(cmp=by_date_time)
+        events.sort(cmp=by_start_time)
 
         return (events, events_by_id, events_by_room, events_by_track)
 
@@ -185,7 +170,7 @@ class Schedule(object):
 
     def add_favourite(self, event):
         self.favourites.append(event)
-        self.favourites.sort(cmp=by_date_time)
+        self.favourites.sort(cmp=by_start_time)
         self._write_favourites()
 
     def remove_favourite(self, event):
@@ -194,7 +179,6 @@ class Schedule(object):
 
 class Event(object):
     def __init__(self, node, date, room):
-        self.date = date
         self.id = node.getAttribute('id')
         self.room = room
 
@@ -207,9 +191,9 @@ class Event(object):
             if n == 'title':
                 self.title = get_text(child)
             elif n == 'start':
-                self.start = get_text(child)
+                self.start = date + get_time_delta(child)
             elif n == 'duration':
-                self.duration = get_text(child)
+                self.duration = get_time_delta(child)
             elif n == 'track':
                 self.track = get_text(child)
 
@@ -229,14 +213,28 @@ class Event(object):
             else:
                 pass
 
-        self.end = calculate_end(self.start, self.duration)
+        self.end = self.start + self.duration
+
+    def day_name(self):
+        # This is localized; I'm not sure if this is a good thing
+        return self.start.strftime("%A")
+
+    def start_str(self):
+        return self.start.strftime('%H:%M')
+
+    def end_str(self):
+        return self.end.strftime('%H:%M')
 
     def summary(self):
-        return "<b>%s</b>\n<small>%s <i>(%s, %s–%s, %s, %s)</i></small>" \
-            % (esc(self.title),
-               esc(self.person),
-               esc(self.date), esc(self.start), esc(self.end),
-               esc(self.room), esc(self.track))
+        return """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(day)s, %(start)s–%(end)s, %(room)s, %(track)s)</i></small>""" % { 'title': esc(self.title),
+              'speaker': esc(self.person),
+              'day': self.day_name(),
+              'start': self.start.strftime('%H:%M'),
+              'end': self.end.strftime('%H:%M'),
+              'room': esc(self.room),
+              'track': esc(self.track),
+            }
 
     def full(self):
         if self.description.startswith(self.abstract):
