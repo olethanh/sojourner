@@ -1,8 +1,9 @@
 from distutils.core import setup
+from sojourner import VERSION
 
 setup(
     name='Sojourner',
-    version='0.1',
+    version=VERSION,
     description='Conference schedule application for the Nokia N900',
     author='Will Thompson',
     author_email='will@willthompson.co.uk',

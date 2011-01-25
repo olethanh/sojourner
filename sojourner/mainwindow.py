@@ -4,6 +4,7 @@ import gtk
 import gio
 import pango
 from pynotify import Notification
+from sojourner import VERSION
 from sojourner.malvern import *
 from sojourner.updater import Updater
 from sojourner.schedule import Schedule, MalformedSchedule
@@ -130,7 +131,7 @@ class MainWindow(MaybeStackableWindow):
 
         if have_hildon:
             sojourner.portrait.FremantleRotation("sojourner", self,
-                version='0.1')
+                version=VERSION)
 
         self.schedule_file = config_file('fosdem/schedule.xml')
 
