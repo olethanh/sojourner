@@ -7,7 +7,7 @@ from pynotify import Notification
 from sojourner import VERSION
 from sojourner.malvern import *
 from sojourner.updater import Updater
-from sojourner.schedule import Schedule, MalformedSchedule
+from sojourner.schedule import Schedule, MalformedSchedule, Event
 from sojourner.eventlist import EventList
 from sojourner.categorylist import CategoryList
 
@@ -49,9 +49,9 @@ class MainWindow(MaybeStackableWindow):
             ("All events", lambda b: EventList(self.schedule, "All events",
                 self.schedule.events)),
             ("Events by room", lambda b: CategoryList(self.schedule, "Rooms",
-                self.schedule.events_by_room)),
+                self.schedule.events_by_room, Event.OMIT_ROOM)),
             ("Events by track", lambda b: CategoryList(self.schedule, "Tracks",
-                self.schedule.events_by_track)),
+                self.schedule.events_by_track, Event.OMIT_TRACK)),
             ("Favourites", lambda b: EventList(self.schedule, "Favourites",
                 self.schedule.favourites), STAR_ICON),
         ]]

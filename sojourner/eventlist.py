@@ -6,6 +6,7 @@ from sojourner.malvern import (
     MaybeStackableWindow, MaybePannableArea, MagicCheckButton, STAR_ICON, esc
 )
 from sojourner.eventwindow import EventWindow
+from sojourner.schedule import Event
 
 class EventList(MaybeStackableWindow):
     COL_MARKUP = 0
@@ -15,7 +16,7 @@ class EventList(MaybeStackableWindow):
 
     """Shows a list of events; clicking on an event shows details of that
     event."""
-    def __init__(self, schedule, title, events):
+    def __init__(self, schedule, title, events, event_fmt=Event.OMIT_DAY):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
         self.store = gtk.TreeStore(str, object, bool, bool)
@@ -27,8 +28,8 @@ class EventList(MaybeStackableWindow):
 
             for event in event_iter:
                 self.store.append(None,
-                    (event.summary(), event, event in self.schedule.favourites,
-                     False))
+                    (event.summary(fmt=event_fmt), event,
+                     event in self.schedule.favourites, False))
 
         treeview = gtk.TreeView(self.store)
         treeview.set_headers_visible(False)

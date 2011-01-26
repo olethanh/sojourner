@@ -225,16 +225,30 @@ class Event(object):
     def end_str(self):
         return self.end.strftime('%H:%M')
 
-    def summary(self):
-        return """<b>%(title)s</b>
-<small>%(speaker)s <i>(%(day)s, %(start)s–%(end)s, %(room)s, %(track)s)</i></small>""" % { 'title': esc(self.title),
-              'speaker': esc(self.person),
-              'day': self.day_name(),
-              'start': self.start.strftime('%H:%M'),
-              'end': self.end.strftime('%H:%M'),
-              'room': esc(self.room),
-              'track': esc(self.track),
-            }
+    FULL = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(day)s %(start)s–%(end)s, %(room)s, %(track)s)</i></small>"""
+
+    OMIT_DAY = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s, %(track)s)</i></small>"""
+
+    OMIT_ROOM = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(start)s–%(end)s, %(track)s)</i></small>"""
+
+    OMIT_TRACK = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s)</i></small>"""
+
+    def summary(self, fmt=FULL):
+        """Produces a summary of the event, using the given format."""
+
+        return fmt % {
+            'title': esc(self.title),
+            'speaker': esc(self.person),
+            'day': self.day_name(),
+            'start': self.start.strftime('%H:%M'),
+            'end': self.end.strftime('%H:%M'),
+            'room': esc(self.room),
+            'track': esc(self.track),
+        }
 
     def full(self):
         if self.description.startswith(self.abstract):

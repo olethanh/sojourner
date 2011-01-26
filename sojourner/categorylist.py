@@ -31,10 +31,11 @@ class CategoryList(MaybeStackableWindow):
     COL_EVENTS = 1
     COL_CATEGORY_SUMMARY = 2
 
-    def __init__(self, schedule, title, categories):
+    def __init__(self, schedule, title, categories, event_fmt):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
         self.categories = categories
+        self.event_fmt = event_fmt
         # This should really be   (str, list) but that doesn't seem to work:
         #   TypeError: could not get typecode from object
         # I guess list is not a subclass of object.
@@ -73,4 +74,4 @@ class CategoryList(MaybeStackableWindow):
         category, events = self.store.get(i,
             CategoryList.COL_CATEGORY, CategoryList.COL_EVENTS)
 
-        EventList(self.schedule, category, events)
+        EventList(self.schedule, category, events, self.event_fmt)
