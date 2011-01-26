@@ -1,26 +1,34 @@
 # vim: set fileencoding=utf-8 sts=4 sw=4 :
+from itertools import groupby
 import gtk
 import pango
 from sojourner.malvern import (
-    MaybeStackableWindow, MaybePannableArea, MagicCheckButton, STAR_ICON,
+    MaybeStackableWindow, MaybePannableArea, MagicCheckButton, STAR_ICON, esc
 )
 from sojourner.eventwindow import EventWindow
 
 class EventList(MaybeStackableWindow):
-    COL_EVENT_SUMMARY = 0
+    COL_MARKUP = 0
     COL_EVENT = 1
     COL_FAVOURITED = 2
+    COL_IS_HEADER = 3
 
     """Shows a list of events; clicking on an event shows details of that
     event."""
     def __init__(self, schedule, title, events):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
-        self.store = gtk.TreeStore(str, object, bool)
+        self.store = gtk.TreeStore(str, object, bool, bool)
 
-        for event in events:
-            self.store.append(None, [event.summary(), event,
-                                     event in self.schedule.favourites])
+        for day_name, event_iter in groupby(events, lambda e: e.day_name()):
+            header = '<span size="x-large" foreground="#aaa">%s</span>' % (
+                esc(day_name))
+            self.store.append(None, (header, None, False, True))
+
+            for event in event_iter:
+                self.store.append(None,
+                    (event.summary(), event, event in self.schedule.favourites,
+                     False))
 
         treeview = gtk.TreeView(self.store)
         treeview.set_headers_visible(False)
@@ -32,7 +40,14 @@ class EventList(MaybeStackableWindow):
         cell = gtk.CellRendererText()
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)
         tvcolumn.pack_start(cell, True)
-        tvcolumn.add_attribute(cell, 'markup', EventList.COL_EVENT_SUMMARY)
+
+        def text_data_func(column, cell, model, i):
+            is_header, markup = self.store.get(i,
+                EventList.COL_IS_HEADER, EventList.COL_MARKUP)
+            xalign = 0.5 if is_header else 0.0
+            cell.set_properties(markup=markup, xalign=xalign)
+
+        tvcolumn.set_cell_data_func(cell, text_data_func)
 
         cell = gtk.CellRendererPixbuf()
         cell.set_property("icon-name", STAR_ICON)
@@ -47,9 +62,10 @@ class EventList(MaybeStackableWindow):
 
     def event_activated(self, treeview, row, column):
         i = self.store.get_iter(row)
-        event, = self.store.get(i, EventList.COL_EVENT)
+        is_header, event = self.store.get(i,
+            EventList.COL_IS_HEADER, EventList.COL_EVENT)
 
-        def update_star(state):
-            self.store.set(i, EventList.COL_FAVOURITED, state)
+        if not is_header:
+            EventWindow(self.schedule, event, lambda state:
+                self.store.set(i, EventList.COL_FAVOURITED, state))
 
-        EventWindow(self.schedule, event, update_star)
