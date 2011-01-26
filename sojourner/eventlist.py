@@ -6,30 +6,32 @@ from sojourner.malvern import (
     MaybeStackableWindow, MaybePannableArea, MagicCheckButton, STAR_ICON, esc
 )
 from sojourner.eventwindow import EventWindow
-from sojourner.schedule import Event
+from sojourner.schedule import Event, get_color
 
 class EventList(MaybeStackableWindow):
     COL_MARKUP = 0
     COL_EVENT = 1
     COL_FAVOURITED = 2
-    COL_IS_HEADER = 3
+    COL_IS_EVENT = 3
+    COL_SWATCH_COLOUR = 4
 
     """Shows a list of events; clicking on an event shows details of that
     event."""
     def __init__(self, schedule, title, events, event_fmt=Event.OMIT_DAY):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
-        self.store = gtk.TreeStore(str, object, bool, bool)
+        self.store = gtk.TreeStore(str, object, bool, bool, gtk.gdk.Color)
 
         for day_name, event_iter in groupby(events, lambda e: e.day_name()):
             header = '<span size="x-large" foreground="#aaa">%s</span>' % (
                 esc(day_name))
-            self.store.append(None, (header, None, False, True))
+            self.store.append(None, (header, None, False, False, None))
 
             for event in event_iter:
                 self.store.append(None,
                     (event.summary(fmt=event_fmt), event,
-                     event in self.schedule.favourites, False))
+                     event in self.schedule.favourites, True,
+                     get_color(event.track)))
 
         treeview = gtk.TreeView(self.store)
         treeview.set_headers_visible(False)
@@ -38,14 +40,32 @@ class EventList(MaybeStackableWindow):
         tvcolumn = gtk.TreeViewColumn('Stuff')
         treeview.append_column(tvcolumn)
 
+        # Here's a hack to show a chunk of colour at the left-hand side of
+        # events to indicate their track. We have a text renderer containing,
+        # erm, nothing, whose background colour we set. Then we have another
+        # one with a single space to add a consistent gap between the blob of
+        # colour and the event summary. This is easier than writing a custom
+        # cell renderer, or using CellRendererPixbuf.
+        swatch_cell = gtk.CellRendererText()
+        swatch_cell.set_property('text', '   ')
+        tvcolumn.pack_start(swatch_cell, False)
+        tvcolumn.add_attribute(swatch_cell, 'visible', EventList.COL_IS_EVENT)
+        tvcolumn.add_attribute(swatch_cell, 'background-gdk',
+            EventList.COL_SWATCH_COLOUR)
+
+        blank_cell = gtk.CellRendererText()
+        blank_cell.set_property('text', ' ')
+        tvcolumn.pack_start(blank_cell, False)
+        tvcolumn.add_attribute(swatch_cell, 'visible', EventList.COL_IS_EVENT)
+
         cell = gtk.CellRendererText()
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)
         tvcolumn.pack_start(cell, True)
 
         def text_data_func(column, cell, model, i):
-            is_header, markup = self.store.get(i,
-                EventList.COL_IS_HEADER, EventList.COL_MARKUP)
-            xalign = 0.5 if is_header else 0.0
+            is_event, markup = self.store.get(i,
+                EventList.COL_IS_EVENT, EventList.COL_MARKUP)
+            xalign = 0.0 if is_event else 0.5
             cell.set_properties(markup=markup, xalign=xalign)
 
         tvcolumn.set_cell_data_func(cell, text_data_func)
@@ -63,10 +83,10 @@ class EventList(MaybeStackableWindow):
 
     def event_activated(self, treeview, row, column):
         i = self.store.get_iter(row)
-        is_header, event = self.store.get(i,
-            EventList.COL_IS_HEADER, EventList.COL_EVENT)
+        is_event, event = self.store.get(i,
+            EventList.COL_IS_EVENT, EventList.COL_EVENT)
 
-        if not is_header:
+        if is_event:
             EventWindow(self.schedule, event, lambda state:
                 self.store.set(i, EventList.COL_FAVOURITED, state))
 

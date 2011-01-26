@@ -7,6 +7,10 @@ import datetime as dt
 import cPickle
 import os.path
 
+import colorsys
+import hashlib
+import gtk
+
 from sojourner.malvern import config_file, esc
 
 def getChildrenByTagName(node, name):
@@ -62,6 +66,25 @@ def by_start_time(x, y):
 
 class MalformedSchedule(Exception):
     pass
+
+# We deliberately stash the track colours outside of any object.  There's no
+# need to pickle these: they're based on the track name, so are stable.
+swatches = {}
+
+def get_color(track):
+    if track in swatches:
+        # In Violet
+        return swatches[track]
+    else:
+        # We pick nicely matching colours by fixing S and V and varying H. The
+        # first byte of an md5sum will do nicely for picking H!
+        m = hashlib.md5()
+        m.update(track)
+        h = ord(m.digest()[0]) / 255.0
+        r, g, b = colorsys.hsv_to_rgb(h, 0.9, 0.9)
+        swatch = gtk.gdk.Color(int(r * 65535), int(g * 65535), int(b * 65535))
+        swatches[track] = swatch
+        return swatch
 
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
