@@ -51,7 +51,8 @@ class MainWindow(MaybeStackableWindow):
             ("Events by room", lambda b: CategoryList(self.schedule, "Rooms",
                 self.schedule.events_by_room, Event.OMIT_ROOM)),
             ("Events by track", lambda b: CategoryList(self.schedule, "Tracks",
-                self.schedule.events_by_track, Event.OMIT_TRACK)),
+                self.schedule.events_by_track, Event.OMIT_TRACK,
+                show_swatches=True)),
             ("Favourites", lambda b: EventList(self.schedule, "Favourites",
                 self.schedule.favourites), STAR_ICON),
         ]]

@@ -5,6 +5,8 @@ import gtk
 import pango
 from sojourner.malvern import MaybeStackableWindow, MaybePannableArea, esc
 from sojourner.eventlist import EventList
+from sojourner.schedule import get_color
+from sojourner.util import add_swatch_cells
 
 def summarize_events(events):
     """Given a list of events, returns a summary of how many there are, plus
@@ -30,8 +32,10 @@ class CategoryList(MaybeStackableWindow):
     COL_CATEGORY = 0
     COL_EVENTS = 1
     COL_CATEGORY_SUMMARY = 2
+    COL_CATEGORY_COLOUR = 3
 
-    def __init__(self, schedule, title, categories, event_fmt):
+    def __init__(self, schedule, title, categories, event_fmt,
+                 show_swatches=False):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
         self.categories = categories
@@ -39,7 +43,7 @@ class CategoryList(MaybeStackableWindow):
         # This should really be   (str, list) but that doesn't seem to work:
         #   TypeError: could not get typecode from object
         # I guess list is not a subclass of object.
-        self.store = gtk.TreeStore(str, object, str)
+        self.store = gtk.TreeStore(str, object, str, gtk.gdk.Color)
 
         for category, events in sorted(categories.items()):
             summary = """<b>%(category)s</b>
@@ -47,7 +51,8 @@ class CategoryList(MaybeStackableWindow):
                 'category': esc(category),
                 'event_summary': summarize_events(events),
             }
-            self.store.append(None, (category, events, summary))
+            colour = get_color(category) if show_swatches else None
+            self.store.append(None, (category, events, summary, colour))
 
         treeview = gtk.TreeView(self.store)
         treeview.set_headers_visible(False)
@@ -55,6 +60,10 @@ class CategoryList(MaybeStackableWindow):
 
         tvcolumn = gtk.TreeViewColumn('Stuff')
         treeview.append_column(tvcolumn)
+
+        if show_swatches:
+            add_swatch_cells(tvcolumn,
+                colour_col=CategoryList.COL_CATEGORY_COLOUR)
 
         cell = gtk.CellRendererText()
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)

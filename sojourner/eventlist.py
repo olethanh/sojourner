@@ -7,6 +7,7 @@ from sojourner.malvern import (
 )
 from sojourner.eventwindow import EventWindow
 from sojourner.schedule import Event, get_color
+from sojourner.util import add_swatch_cells
 
 class EventList(MaybeStackableWindow):
     COL_MARKUP = 0
@@ -40,23 +41,8 @@ class EventList(MaybeStackableWindow):
         tvcolumn = gtk.TreeViewColumn('Stuff')
         treeview.append_column(tvcolumn)
 
-        # Here's a hack to show a chunk of colour at the left-hand side of
-        # events to indicate their track. We have a text renderer containing,
-        # erm, nothing, whose background colour we set. Then we have another
-        # one with a single space to add a consistent gap between the blob of
-        # colour and the event summary. This is easier than writing a custom
-        # cell renderer, or using CellRendererPixbuf.
-        swatch_cell = gtk.CellRendererText()
-        swatch_cell.set_property('text', '   ')
-        tvcolumn.pack_start(swatch_cell, False)
-        tvcolumn.add_attribute(swatch_cell, 'visible', EventList.COL_IS_EVENT)
-        tvcolumn.add_attribute(swatch_cell, 'background-gdk',
-            EventList.COL_SWATCH_COLOUR)
-
-        blank_cell = gtk.CellRendererText()
-        blank_cell.set_property('text', ' ')
-        tvcolumn.pack_start(blank_cell, False)
-        tvcolumn.add_attribute(swatch_cell, 'visible', EventList.COL_IS_EVENT)
+        add_swatch_cells(tvcolumn, colour_col=EventList.COL_SWATCH_COLOUR,
+            visible_col=EventList.COL_IS_EVENT)
 
         cell = gtk.CellRendererText()
         cell.set_property("ellipsize", pango.ELLIPSIZE_END)
