@@ -249,7 +249,7 @@ class Event(object):
         return self.end.strftime('%H:%M')
 
     FULL = """<b>%(title)s</b>
-<small>%(speaker)s <i>(%(day)s %(start)s–%(end)s, %(room)s, %(track)s)</i></small>"""
+<small>%(speaker)s <i>(%(day)s %(start)s–%(end)s, %(room)s, <span background='%(track_background)s' foreground='%(track_foreground)s'>%(track)s</span>)</i></small>"""
 
     OMIT_DAY = """<b>%(title)s</b>
 <small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s, %(track)s)</i></small>"""
@@ -263,6 +263,12 @@ class Event(object):
     def summary(self, fmt=FULL):
         """Produces a summary of the event, using the given format."""
 
+        bg = get_color(self.track)
+        if bg.red + bg.green + bg.blue > (65535 * 3 / 2):
+            fg = '#000000'
+        else:
+            fg = '#ffffff'
+
         return fmt % {
             'title': esc(self.title),
             'speaker': esc(self.person),
@@ -271,6 +277,8 @@ class Event(object):
             'end': self.end.strftime('%H:%M'),
             'room': esc(self.room),
             'track': esc(self.track),
+            'track_background': bg.to_string(),
+            'track_foreground': fg
         }
 
     def full(self):
