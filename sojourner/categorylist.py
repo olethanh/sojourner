@@ -43,7 +43,7 @@ class CategoryList(MaybeStackableWindow):
         # This should really be   (str, list) but that doesn't seem to work:
         #   TypeError: could not get typecode from object
         # I guess list is not a subclass of object.
-        self.store = gtk.TreeStore(str, object, str, gtk.gdk.Color)
+        self.store = gtk.ListStore(str, object, str, gtk.gdk.Color)
 
         for category, events in sorted(categories.items()):
             summary = """<b>%(category)s</b>
@@ -52,7 +52,7 @@ class CategoryList(MaybeStackableWindow):
                 'event_summary': summarize_events(events),
             }
             colour = get_color(category) if show_swatches else None
-            self.store.append(None, (category, events, summary, colour))
+            self.store.append((category, events, summary, colour))
 
         treeview = gtk.TreeView(self.store)
         treeview.set_headers_visible(False)
@@ -61,6 +61,9 @@ class CategoryList(MaybeStackableWindow):
         tvcolumn = gtk.TreeViewColumn('Stuff')
         treeview.append_column(tvcolumn)
 
+        # FIXME: it'd be nice to show the colours on the room list, too, to
+        # show which track(s) are in that room. But then we'd need to support
+        # showing more than one.
         if show_swatches:
             add_swatch_cells(tvcolumn,
                 colour_col=CategoryList.COL_CATEGORY_COLOUR)

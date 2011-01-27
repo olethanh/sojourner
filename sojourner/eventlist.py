@@ -21,7 +21,7 @@ class EventList(MaybeStackableWindow):
     def __init__(self, schedule, title, events, event_omit=Event.OMIT_DAY):
         MaybeStackableWindow.__init__(self, title)
         self.schedule = schedule
-        self.store = gtk.TreeStore(str, object, bool, bool, gtk.gdk.Color)
+        self.store = gtk.ListStore(str, object, bool, bool, gtk.gdk.Color)
         self.events = events
 
         self.__populate_store(event_omit)
@@ -31,10 +31,10 @@ class EventList(MaybeStackableWindow):
         for day_name, event_iter in groupby(self.events, lambda e: e.day_name):
             header = '<span size="x-large" foreground="#aaa">%s</span>' % (
                 esc(day_name))
-            self.store.append(None, (header, None, False, False, None))
+            self.store.append((header, None, False, False, None))
 
             for event in event_iter:
-                self.store.append(None,
+                self.store.append(
                     (event.summary(omit=event_omit), event,
                      event in self.schedule.favourites, True,
                      get_color(event.track)))
