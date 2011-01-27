@@ -89,7 +89,7 @@ def get_color(track):
 class Schedule(object):
     """Version number for pickled event data. This must be incremented if this
     class, or Event, is modified."""
-    __VERSION = 6
+    __VERSION = 8
 
     def __init__(self, schedule_path):
         self.schedule_path = schedule_path
@@ -238,48 +238,65 @@ class Event(object):
 
         self.end = self.start + self.duration
 
-    def day_name(self):
-        # This is localized; I'm not sure if this is a good thing
-        return self.start.strftime("%A")
+        # These are not methods because strftime showed up surprisingly high on
+        # the profile. They're localized; I'm not sure if this is a good thing.
+        self.day_name = self.start.strftime("%A")
+        self.start_str = self.start.strftime('%H:%M')
+        self.end_str = self.end.strftime('%H:%M')
 
-    def start_str(self):
-        return self.start.strftime('%H:%M')
-
-    def end_str(self):
-        return self.end.strftime('%H:%M')
-
-    FULL = """<b>%(title)s</b>
-<small>%(speaker)s <i>(%(day)s %(start)s–%(end)s, %(room)s, <span background='%(track_background)s' foreground='%(track_foreground)s'>%(track)s</span>)</i></small>"""
-
-    OMIT_DAY = """<b>%(title)s</b>
-<small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s, %(track)s)</i></small>"""
-
-    OMIT_ROOM = """<b>%(title)s</b>
-<small>%(speaker)s <i>(%(start)s–%(end)s, %(track)s)</i></small>"""
-
-    OMIT_TRACK = """<b>%(title)s</b>
-<small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s)</i></small>"""
-
-    def summary(self, fmt=FULL):
-        """Produces a summary of the event, using the given format."""
-
+        # And these are pre-computed because they were about a quarter of
+        # showing the full list.
         bg = get_color(self.track)
         if bg.red + bg.green + bg.blue > (65535 * 3 / 2):
             fg = '#000000'
         else:
             fg = '#ffffff'
 
-        return fmt % {
+        self.bg = bg
+
+        summary_data = {
             'title': esc(self.title),
             'speaker': esc(self.person),
-            'day': self.day_name(),
-            'start': self.start.strftime('%H:%M'),
-            'end': self.end.strftime('%H:%M'),
+            'day': self.day_name,
+            'start': self.start_str,
+            'end': self.end_str,
             'room': esc(self.room),
             'track': esc(self.track),
             'track_background': bg.to_string(),
             'track_foreground': fg
         }
+
+        self.full_summary = Event.FULL_SUMMARY_FORMAT % summary_data
+        self.summary_sans_day = Event.OMIT_DAY_FORMAT % summary_data
+        self.summary_sans_room = Event.OMIT_ROOM_FORMAT % summary_data
+        self.summary_sans_track = Event.OMIT_TRACK_FORMAT % summary_data
+
+    FULL_SUMMARY_FORMAT = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(day)s %(start)s–%(end)s, %(room)s, <span background='%(track_background)s' foreground='%(track_foreground)s'>%(track)s</span>)</i></small>"""
+
+    OMIT_DAY_FORMAT = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s, %(track)s)</i></small>"""
+
+    OMIT_ROOM_FORMAT = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(start)s–%(end)s, %(track)s)</i></small>"""
+
+    OMIT_TRACK_FORMAT = """<b>%(title)s</b>
+<small>%(speaker)s <i>(%(start)s–%(end)s, %(room)s)</i></small>"""
+
+    OMIT_NOTHING = 0
+    OMIT_DAY = 1
+    OMIT_ROOM = 2
+    OMIT_TRACK = 3
+
+    def summary(self, omit=OMIT_NOTHING):
+        if omit == Event.OMIT_NOTHING:
+            return self.full_summary
+        elif omit == Event.OMIT_DAY:
+            return self.summary_sans_day
+        elif omit == Event.OMIT_ROOM:
+            return self.summary_sans_room
+        elif omit == Event.OMIT_TRACK:
+            return self.summary_sans_track
 
     def full(self):
         if self.description.startswith(self.abstract):
@@ -288,9 +305,9 @@ class Event(object):
             desc = self.description
 
         if desc == '':
-            return "%s\n\n%s" % (self.summary(), esc(self.abstract))
+            return "%s\n\n%s" % (self.full_summary, esc(self.abstract))
         elif self.abstract == '':
-            return "%s\n\n%s" % (self.summary(), esc(desc))
+            return "%s\n\n%s" % (self.full_summary, esc(desc))
         else:
             return "%s\n\n%s\n\n%s" \
-                % (self.summary(), esc(self.abstract), esc(desc))
+                % (self.full_summary, esc(self.abstract), esc(desc))

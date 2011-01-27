@@ -46,8 +46,8 @@ class MainWindow(MaybeStackableWindow):
             return b
 
         buttons = [ _make_button(*x) for x in [
-            ("All events", lambda b: EventList(self.schedule, "All events",
-                self.schedule.events)),
+            ("All events", lambda b:
+                EventList(self.schedule, "All events", self.schedule.events)),
             ("Events by room", lambda b: CategoryList(self.schedule, "Rooms",
                 self.schedule.events_by_room, Event.OMIT_ROOM)),
             ("Events by track", lambda b: CategoryList(self.schedule, "Tracks",

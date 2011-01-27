@@ -15,12 +15,12 @@ def summarize_events(events):
     def format_group(day_name, day_event_iter):
         day_events = list(day_event_iter)
         return "%s %s–%s" % (day_name,
-            day_events[0].start_str(),
-            day_events[-1].end_str())
+            day_events[0].start_str,
+            day_events[-1].end_str)
 
     time_summary = ', '.join(
         format_group(day_name, event_iter)
-        for day_name, event_iter in groupby(events, lambda e: e.day_name())
+        for day_name, event_iter in groupby(events, lambda e: e.day_name)
         )
 
     return "%(n)u events: %(time_summary)s" % {
