@@ -311,3 +311,10 @@ class Event(object):
         else:
             return "%s\n\n%s\n\n%s" \
                 % (self.full_summary, esc(self.abstract), esc(desc))
+
+    def conflicts(self, other_event):
+        if other_event == self:
+            return False
+        return not (self.start <= other_event.start and \
+                    self.end <= other_event.start or \
+                    self.start >= other_event.end)

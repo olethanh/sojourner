@@ -24,10 +24,10 @@ class EventList(MaybeStackableWindow):
         self.store = gtk.ListStore(str, object, bool, bool, gtk.gdk.Color)
         self.events = events
 
-        self.__populate_store(event_omit)
+        self.populate_store(event_omit)
         self.__create_treeview()
 
-    def __populate_store(self, event_omit):
+    def populate_store(self, event_omit):
         for day_name, event_iter in groupby(self.events, lambda e: e.day_name):
             header = '<span size="x-large" foreground="#aaa">%s</span>' % (
                 esc(day_name))
