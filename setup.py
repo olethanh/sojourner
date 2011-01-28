@@ -10,7 +10,6 @@ setup(
     url='http://gitorious.org/sojourner',
     packages=['sojourner'],
     scripts=['bin/sojourner'],
-    py_modules=['sojourner'],
     data_files=[
         ('share/sojourner', ['banner.png']),
         ('share/icons/hicolor/48x48/hildon', ['icons/48x48/sojourner.png']),
