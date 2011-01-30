@@ -174,7 +174,10 @@ class Schedule(object):
         try:
             f = file(self._favourites_file(), 'r')
             for id in f.readlines():
-                favourites.append(self.events_by_id[id.strip()])
+                event = self.events_by_id[id.strip()]
+
+                if event not in favourites:
+                    favourites.append(event)
             f.close()
         except IOError:
             # I guess they don't have any favourites
@@ -192,13 +195,18 @@ class Schedule(object):
         f.close()
 
     def add_favourite(self, event):
-        self.favourites.append(event)
-        self.favourites.sort(cmp=by_start_time)
-        self._write_favourites()
+        if not event in self.favourites:
+            self.favourites.append(event)
+            self.favourites.sort(cmp=by_start_time)
+            self._write_favourites()
 
     def remove_favourite(self, event):
-        self.favourites.remove(event)
-        self._write_favourites()
+        try:
+            self.favourites.remove(event)
+            self._write_favourites()
+        except ValueError, e:
+            # Oops! I guess 'event' wasn't in the favourites.
+            print e
 
 class Event(object):
     def __init__(self, node, date, room):
