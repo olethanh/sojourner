@@ -1,3 +1,14 @@
+sojourner (0.2) fremantle; urgency=low
+
+  * Add sub-headers to event lists with the day name.
+  * Add blobs of colour indicating which track an event is on.
+  * Add a button to show which of your favourites an event conflicts with
+    (Joaquim Rocha).
+  * Depend on python-dbus, fixing some people getting an ugly plain Gtk+
+    version of the application.
+
+ -- Will Thompson <will@willthompson.co.uk>  Mon, 31 Jan 2011 10:27:41 +0000
+
 sojourner (0.1.1) fremantle; urgency=low
 
   * Add a build-dependency on python-central
