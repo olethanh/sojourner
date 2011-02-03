@@ -8,7 +8,7 @@ Package: sojourner
 XB-Maemo-Display-Name: Sojourner
 Architecture: all
 Section: user/navigation
-Depends: python2.5, python-gobject, python-hildon, python-notify,
+Depends: python2.5, python-gobject (>= 2.16), python-hildon, python-notify,
          python-osso, python-dbus
 XS-Python-Version: all
 XSBC-Bugtracker: mailto:will@willthompson.co.uk
