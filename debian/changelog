@@ -1,3 +1,9 @@
+sojourner (0.2.1) fremantle; urgency=low
+
+  * Depend on python-gobject 2.16 to ensure 'gio' module exists.
+
+ -- Will Thompson <will@willthompson.co.uk>  Thu, 03 Feb 2011 11:01:47 +0000
+
 sojourner (0.2) fremantle; urgency=low
 
   * Add sub-headers to event lists with the day name.
