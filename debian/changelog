@@ -1,3 +1,10 @@
+sojourner (0.2.2) fremantle; urgency=low
+
+  * Added config file functionality for supporting multiple conferences
+  * Added conference data for MeeGo Summit Finland 2011
+
+ -- Topi Santakivi <topi.santakivi@gmail.com>  Wed, 23 Mar 2011 20:40:23 +0200
+
 sojourner (0.2.1) fremantle; urgency=low
 
   * Depend on python-gobject 2.16 to ensure 'gio' module exists.

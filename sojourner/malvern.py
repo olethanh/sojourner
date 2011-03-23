@@ -60,6 +60,9 @@ def create_parent_directory(path):
 
     return f
 
+def sojourner_data_path(basename):
+    return "/usr/share/sojourner/%s.cfg" % basename
+
 def config_file(basename):
     return create_parent_directory(
         "%s/.config/sojourner/%s" % (os.environ['HOME'], basename))

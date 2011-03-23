@@ -3,6 +3,7 @@ import sys
 import gtk
 import gio
 import pango
+import ConfigParser
 from pynotify import Notification
 from sojourner import VERSION
 from sojourner.malvern import *
@@ -10,6 +11,7 @@ from sojourner.updater import Updater
 from sojourner.schedule import Schedule, MalformedSchedule, Event
 from sojourner.eventlist import EventList
 from sojourner.categorylist import CategoryList
+from sojourner.conference import Conference
 
 class MainWindow(MaybeStackableWindow):
     def fetched_schedule_cb(self, updater, schedule, exc):
@@ -29,7 +31,7 @@ class MainWindow(MaybeStackableWindow):
                 Notification("Schedule file was malformed").show()
             elif not isinstance(exc, gio.Error) or \
                     exc.code != gio.ERROR_CANCELLED:
-                Notification("Couldn't fetch latest FOSDEM schedule").show()
+                Notification("Couldn't fetch latest schedule").show()
 
     def _on_orientation_changed(self, is_portrait):
         if is_portrait:
@@ -77,8 +79,7 @@ class MainWindow(MaybeStackableWindow):
 
         vbox = gtk.VBox(spacing=0)
 
-        # FIXME: this should not be hardcoded.
-        banner = gtk.image_new_from_file('/usr/share/sojourner/banner.png')
+        banner = gtk.image_new_from_file(self.__conference.get_banner())
         vbox.pack_start(banner, expand=True)
 
         vbox.pack_end(table, expand=False)
@@ -96,7 +97,8 @@ class MainWindow(MaybeStackableWindow):
             # If someone were feeling keen they could reimplement Updater using
             # urllib2. They could also make it support If-Modified-Since and
             # gzip.
-            'http://willthompson.co.uk/misc/sojourner/xml',
+            #'http://willthompson.co.uk/misc/sojourner/xml',
+            self.__conference.get_schedule_url(),
             self.schedule_file, self.fetched_schedule_cb)
         updater.show_all()
 
@@ -114,6 +116,17 @@ class MainWindow(MaybeStackableWindow):
         MaybeStackableWindow.__init__(self, "Sojourner",
             orientation_changed_cb=self._on_orientation_changed)
         self.connect("delete_event", gtk.main_quit, None)
+
+        # For Sojourner config file
+        self.__config = ConfigParser.RawConfigParser()
+
+        # Find out the currently active conference from the config file
+
+        self.__config.read(sojourner_data_path('sojourner'))
+        current_conference = self.__config.get('sojourner', 'current_conference')
+        print "mainwindow.py: Setting current conference to %s" % current_conference
+        # For the config file of the currently active conference
+        self.__conference = Conference(current_conference)
 
         # We use a notebook with no tabs and two pages to flip between
         # landscape and portrait layouts as necessary. We'll find out shortly
@@ -134,7 +147,7 @@ class MainWindow(MaybeStackableWindow):
             sojourner.portrait.FremantleRotation("sojourner", self,
                 version=VERSION)
 
-        self.schedule_file = config_file('fosdem/schedule.xml')
+        self.schedule_file = config_file(self.__conference.get_cached_xml())
 
         try:
             # FIXME: if we have a schedule but no pickle file, this takes ages
