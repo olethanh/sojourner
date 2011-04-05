@@ -21,6 +21,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import os
+import sys
 import gtk
 import gobject
 import gio
@@ -61,7 +62,15 @@ def create_parent_directory(path):
     return f
 
 def sojourner_data_path(basename):
-    return "/usr/share/sojourner/%s.cfg" % basename
+    file_name = basename + '.cfg'
+
+    local_path = os.path.join(sys.path[0], file_name)
+    if os.path.exists(local_path):
+        print "looks like we're running from the source tree"
+        print "using %s" % local_path
+        return local_path
+
+    return os.path.join("/usr/share/sojourner", file_name)
 
 def config_file(basename):
     return create_parent_directory(
