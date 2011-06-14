@@ -12,9 +12,10 @@ Depends: python2.5, python-gobject (>= 2.16), python-hildon, python-notify,
          python-osso, python-dbus
 XS-Python-Version: all
 XSBC-Bugtracker: mailto:will@willthompson.co.uk
-Description: MeeGo Summit FI schedule browser
- Sojourner allows you to browse the schedule for MeeGo Summit FI, the world's
- first national MeeGo summit, hosted in the beautiful city of Tampere, Finland.
+Description: Libre Software Meeting schedule browser
+ Sojourner allows you to browse the schedule for the 2011 Libre Software
+ Meeting, a free (as a beer and as a speech) and non commercial conference with
+ talks, workshops and round tables about Free Software and its uses.
  You can browse by time, by category or by room, and star interesting talks to
  help locate them later.
 XB-Maemo-Icon-26:

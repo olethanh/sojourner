@@ -1,3 +1,10 @@
+sojourner (0.2.3) fremantle; urgency=low
+
+  * Added conference data for Rencontres Mondiales du Logiciel Libre / Libre
+    Software Meeting 2011. (Thanks, Alexandre Franke!)
+
+ -- Will Thompson <will@willthompson.co.uk>  Tue, 14 Jun 2011 19:04:04 +0100
+
 sojourner (0.2.2) fremantle; urgency=low
 
   * Added config file functionality for supporting multiple conferences
