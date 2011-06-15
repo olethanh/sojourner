@@ -22,6 +22,8 @@ setup(
         ('share/sojourner/conferences/fosdem2011', ['conferences/fosdem2011/fosdem2011.cfg']),
         ('share/sojourner/conferences/meegofi2011', ['conferences/meegofi2011/banner.png']),
         ('share/sojourner/conferences/meegofi2011', ['conferences/meegofi2011/meegofi2011.cfg']),
+        ('share/sojourner/conferences/rmll2011', ['conferences/rmll2011/banner.png']),
+        ('share/sojourner/conferences/rmll2011', ['conferences/rmll2011/rmll2011.cfg']),
     ],
     license='GPL v3',
 )
