@@ -24,6 +24,8 @@ setup(
         ('share/sojourner/conferences/meegofi2011', ['conferences/meegofi2011/meegofi2011.cfg']),
         ('share/sojourner/conferences/rmll2011', ['conferences/rmll2011/banner.png']),
         ('share/sojourner/conferences/rmll2011', ['conferences/rmll2011/rmll2011.cfg']),
+        ('share/sojourner/conferences/desktopsummit2011', ['conferences/desktopsummit2011/banner.png']),
+        ('share/sojourner/conferences/desktopsummit2011', ['conferences/desktopsummit2011/desktopsummit2011.cfg']),
     ],
     license='GPL v3',
 )
